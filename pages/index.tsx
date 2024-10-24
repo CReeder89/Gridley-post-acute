@@ -190,9 +190,7 @@ const contactFacilitySectionStyle: React.CSSProperties = {
 };
 
 const contactColumnStyle: React.CSSProperties = {
-  flex: 1,
-  maxWidth: '30%',
-  margin: '0 20px',
+ 
   textAlign: 'center',
 };
 
