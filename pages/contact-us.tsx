@@ -11,15 +11,42 @@ const ContactUs: React.FC = () => {
     callbackTime: '',
   });
 
+  const [status, setStatus] = useState(''); // For showing success/error messages
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
+
+    try {
+      // Send the form data to the API route
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.status === 200) {
+        setStatus('Message sent successfully!'); // Show success message
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          subject: '',
+          message: '',
+          callbackTime: '',
+        });
+      } else {
+        setStatus('Failed to send message. Please try again later.');
+      }
+    } catch (error) {
+      setStatus('An error occurred. Please try again.');
+    }
   };
 
   return (
@@ -36,8 +63,8 @@ const ContactUs: React.FC = () => {
         <p className="contact-message">
           Welcome to Gridley Post Acute! We are here to assist you with any important matters, whether you have questions about our services, would like to schedule a tour, or simply need more information. Please feel free to reach out and our team will get back to you promptly. Your inquiries are important to us, and we look forward to assisting you.
         </p>
-          {/* Professional Contact Information */}
-          <div className="contact-details">
+        {/* Professional Contact Information */}
+        <div className="contact-details">
           <h3>Contact Information</h3>
           <p><strong>Phone:</strong> (530) 456-0400</p>
           <p><strong>Address:</strong> 246 Spruce Street, Gridley, CA 95948</p>
@@ -114,9 +141,10 @@ const ContactUs: React.FC = () => {
 
             <button type="submit">Submit</button>
           </form>
-        </div>
 
-      
+          {/* Status message */}
+          {status && <p>{status}</p>}
+        </div>
       </div>
     </div>
   );
