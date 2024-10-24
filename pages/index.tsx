@@ -33,7 +33,7 @@ const Home: React.FC = () => {
         </div>
 
           {/* <h1 style={heroTitleStyle}>Welcome to Gridley Post Acute</h1> */}
-          <p style={heroSubtitleStyle}>
+          <p >
             Providing 24-hour skilled nursing care with the highest standards of compassion and quality.
           </p>
           <Button text="Explore Our Services" href="/services" />
