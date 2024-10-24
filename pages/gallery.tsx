@@ -18,14 +18,14 @@ const Gallery: React.FC = () => {
       <div style={gridStyle}>
         <GalleryImage src="/images/photo1.jpg" alt="Photo 1" onClick={() => handleImageClick('/images/photo1.jpg')} />
         <GalleryImage src="/images/photo2.jpg" alt="Photo 2" onClick={() => handleImageClick('/images/photo2.jpg')} />
-        <GalleryImage src="/images/photo3.jpg" alt="Photo 3" onClick={() => handleImageClick('/images/photo3.jpg')} />
-        <GalleryImage src="/images/photo4.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/photo4.jpg')} />
-        <GalleryImage src="/images/photo4.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/photo4.jpg')} />
-        <GalleryImage src="/images/photo4.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/photo4.jpg')} />
-        <GalleryImage src="/images/photo4.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/photo4.jpg')} />
-        <GalleryImage src="/images/photo4.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/photo4.jpg')} />
-        <GalleryImage src="/images/photo4.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/photo4.jpg')} />
-        <GalleryImage src="/images/photo4.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/photo4.jpg')} />
+        <GalleryImage src="/images/buttes.jpg" alt="Photo 3" onClick={() => handleImageClick('/images/buttes.jpg')} />
+        <GalleryImage src="/images/buttes.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/buttes.jpg')} />
+        <GalleryImage src="/images/buttes.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/buttes.jpg')} />
+        <GalleryImage src="/images/buttes.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/buttes.jpg')} />
+        <GalleryImage src="/images/buttes.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/buttes.jpg')} />
+        <GalleryImage src="/images/buttes.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/buttes.jpg')} />
+        <GalleryImage src="/images/buttes.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/buttes.jpg')} />
+        <GalleryImage src="/images/buttes.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/buttes.jpg')} />
         {/* Add more images as needed */}
       </div>
 
