@@ -33,7 +33,7 @@ const Home: React.FC = () => {
         </div>
 
           {/* <h1 style={heroTitleStyle}>Welcome to Gridley Post Acute</h1> */}
-          <p >
+          <p style={heroSubtitleStyle}>
             Providing 24-hour skilled nursing care with the highest standards of compassion and quality.
           </p>
           <Button text="Explore Our Services" href="/services" />
@@ -190,7 +190,9 @@ const contactFacilitySectionStyle: React.CSSProperties = {
 };
 
 const contactColumnStyle: React.CSSProperties = {
- 
+  flex: 1,
+  maxWidth: '30%',
+  margin: '0 20px',
   textAlign: 'center',
 };
 
