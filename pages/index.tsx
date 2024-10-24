@@ -19,13 +19,7 @@ const Home: React.FC = () => {
             />
           </div>
 
-          <div style={contactColumnStyle}>
-          {/* <Image
-            src="/images/cms-logo.png" // Replace with your image path
-            alt="CMS Logo"
-            width={420}
-            height={242}
-          /> */}
+          <div>
           <p><strong>Butte County's only 5 of 5 Star Facility</strong></p>
           <div style={starsContainerStyle}>
             ⭐⭐⭐⭐⭐
