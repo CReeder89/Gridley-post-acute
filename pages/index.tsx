@@ -105,7 +105,12 @@ const Home: React.FC = () => {
             ⭐⭐⭐⭐⭐
           </div>
 
-          <p>CMS rates facilities from 1 to 5 stars, with <strong>5 being the highest score!</strong> Read more about CMS scores <Link href="/cms-score">HERE</Link></p>
+          <p>CMS rates facilities from 1 to 5 stars, with <strong>5 being the highest score!</strong> Read more about CMS scores <Link href="/cms-score">here</Link></p>
+
+          <p> Compare us to other facilities in the area <Link target='_blank' href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest">
+           here
+          </Link>
+        </p>
           
         </div>
       </div>

@@ -8,6 +8,17 @@ const nextConfig: NextConfig = {
 module.exports = {
   eslint: {
     ignoreDuringBuilds: true, // Ignore ESLint errors during build
+    
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 

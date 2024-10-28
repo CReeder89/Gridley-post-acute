@@ -27,6 +27,12 @@ const AboutUs: React.FC = () => {
         <p style={aboutTextStyle}>
           All family members and visitors are welcome.
         </p>
+
+<p style={cmsTextStyle}> Compare us to other facilities in the area <Link target='_blank' href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest" style={cmsLinkStyle}>
+           here
+          </Link>
+        </p>
+
       </div>
 
       {/* Quick Facts Section */}

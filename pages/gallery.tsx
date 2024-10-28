@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import GalleryImage from '../components/GalleryImage';
+import { Gallery } from "next-gallery"
 
-const Gallery: React.FC = () => {
+const Gallery1: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const handleImageClick = (src: string) => {
@@ -12,10 +13,39 @@ const Gallery: React.FC = () => {
     setSelectedImage(null); // Close the modal
   };
 
+  const images = [
+    { src: 'https://picsum.photos/id/1018/1920/1080/', aspect_ratio: 16 / 9 },
+    { src: 'https://picsum.photos/id/1015/1920/1080/', aspect_ratio: 16 / 9 },
+    { src: 'https://picsum.photos/id/1019/1440/1080/', aspect_ratio: 4 / 3 },
+    { src: 'https://picsum.photos/id/1011/1080/1920/', aspect_ratio: 9 / 16 },
+    { src: 'https://picsum.photos/id/1012/1920/1080/', aspect_ratio: 16 / 9 },
+    { src: 'https://picsum.photos/id/1013/1080/1920/', aspect_ratio: 9 / 16 },
+    { src: 'https://picsum.photos/id/1014/1080/1920/', aspect_ratio: 9 / 16 },
+    { src: 'https://picsum.photos/id/1016/1920/1080/', aspect_ratio: 16 / 9 },
+    { src: 'https://picsum.photos/id/1020/2560/1080/', aspect_ratio: 21 / 9 },
+    { src: 'https://picsum.photos/id/1021/1440/1080/', aspect_ratio: 4 / 3 },
+    { src: 'https://picsum.photos/id/1022/1920/1080/', aspect_ratio: 16 / 9 },
+    { src: 'https://picsum.photos/id/1023/1440/1080/', aspect_ratio: 4 / 3 },
+    { src: 'https://picsum.photos/id/1024/1920/1080/', aspect_ratio: 16 / 9 },
+    { src: 'https://picsum.photos/id/1025/1920/1080/', aspect_ratio: 16 / 9 },
+    { src: 'https://picsum.photos/id/1026/1920/1080/', aspect_ratio: 16 / 9 },
+    { src: 'https://picsum.photos/id/1027/1440/1080/', aspect_ratio: 4 / 3 },
+    { src: 'https://picsum.photos/id/1028/1440/1080/', aspect_ratio: 4 / 3 },
+    { src: 'https://picsum.photos/id/1029/1920/1080/', aspect_ratio: 9 / 16 },
+]
+
+const widths = [ 500, 1000, 1600 ]
+const ratios = [ 2.2, 4, 6, 8 ]
+
+
   return (
     <div style={galleryContainerStyle}>
       <h1>Gallery</h1>
-      <div style={gridStyle}>
+
+      <Gallery {...{images, widths, ratios}} />
+
+
+      {/* <div style={gridStyle}>
         <GalleryImage src="/images/photo1.jpg" alt="Photo 1" onClick={() => handleImageClick('/images/photo1.jpg')} />
         <GalleryImage src="/images/photo2.jpg" alt="Photo 2" onClick={() => handleImageClick('/images/photo2.jpg')} />
         <GalleryImage src="/images/buttes.jpg" alt="Photo 3" onClick={() => handleImageClick('/images/buttes.jpg')} />
@@ -27,16 +57,18 @@ const Gallery: React.FC = () => {
         <GalleryImage src="/images/buttes.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/buttes.jpg')} />
         <GalleryImage src="/images/buttes.jpg" alt="Photo 4" onClick={() => handleImageClick('/images/buttes.jpg')} />
         {/* Add more images as needed */}
-      </div>
+      {/* </div> */}
 
       {/* Modal to display enlarged image */}
-      {selectedImage && (
+      {/* {selectedImage && (
         <div style={modalOverlayStyle} onClick={handleCloseModal}>
           <div style={modalContentStyle}>
             <img src={selectedImage} alt="Enlarged" style={modalImageStyle} />
           </div>
-        </div>
-      )}
+        </div> */}
+      {/* )} */} 
+
+      
     </div>
   );
 };
@@ -85,4 +117,4 @@ const modalImageStyle: React.CSSProperties = {
   objectFit: 'contain',
 };
 
-export default Gallery;
+export default Gallery1;
