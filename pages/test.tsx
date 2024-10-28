@@ -1,64 +1,53 @@
-import React, { useState, useEffect } from 'react';
-import TestimonialCard from '../components/TestimonialCard';
+import Link from 'next/link';
+import Image from 'next/image';
 
-const testimonials = [
-  {
-    text: "The care I received at Gridley Post Acute was exceptional. The staff truly went above and beyond.",
-    author: "John Doe",
-  },
-  {
-    text: "I’m incredibly grateful for the rehabilitation program. The team helped me get back on my feet.",
-    author: "Jane Smith",
-  },
-  {
-    text: "Amazing facility with compassionate staff. They treated me like family during my stay.",
-    author: "Sarah Lee",
-  },
-  {
-    text: "The nursing staff made my recovery comfortable and stress-free. Highly recommend Gridley Post Acute.",
-    author: "Michael Brown",
-  },
-  {
-    text: "I felt supported every step of the way. I couldn’t have asked for better care.",
-    author: "Emily Davis",
-  },
-];
-
-const TestimonialsPage: React.FC = () => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  // Automatically cycle through testimonials
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 5000); // Change every 5 seconds
-    return () => clearInterval(interval);
-  }, []);
-
+const WhyChooseUs: React.FC = () => {
   return (
     <div style={containerStyle}>
-      {/* Left Content - Why Choose Us */}
-      <div style={contentSectionStyle}>
-        <h2 style={sectionTitleStyle}>Why Choose Gridley Post Acute?</h2>
-        <p style={sectionTextStyle}>
-          At Gridley Post Acute, we are committed to providing the highest quality of care. Our dedicated staff, state-of-the-art facilities, and personalized treatment plans make us the number one choice in our community.
-        </p>
-        <ul style={featureListStyle}>
-          <li>Compassionate 24/7 nursing care</li>
-          <li>Comprehensive rehabilitation programs</li>
-          <li>Individualized treatment plans</li>
-          <li>Friendly and highly trained staff</li>
-          <li>Modern and comfortable facilities</li>
-        </ul>
-      </div>
+      <h1 style={titleStyle}>Why Choose Gridley Post Acute?</h1>
+      <p style={introTextStyle}>
+        At Gridley Post Acute, we understand that choosing the right care facility for your loved one is an important decision. As the only <strong>5-star rated facility</strong> in the Butte County area, we strive to go above and beyond to provide exceptional care and support to our residents. We don’t just meet the standards—we set them.
+      </p>
 
-      {/* Right Content - Testimonials */}
-      <div style={testimonialSectionStyle}>
-        <h3 style={testimonialTitleStyle}>What Our Patients Say</h3>
-        <div style={testimonialCardContainerStyle}>
-          <TestimonialCard
-            text={testimonials[currentTestimonial].text}
-            author={testimonials[currentTestimonial].author}
+      <div style={contentSectionStyle}>
+        {/* Left Side - Main Content */}
+        <div style={leftContentStyle}>
+          <h2 style={subtitleStyle}>Exceptional Quality of Care</h2>
+          <p style={paragraphStyle}>
+            Our commitment to quality care is reflected in our CMS 5-star rating, which rates us as one of the top facilities in the region. This rating encompasses various aspects, including staffing levels, quality measures, and health inspections. We’ve earned this rating through a rigorous adherence to high standards, continual staff training, and a strong focus on individualized care.
+          </p>
+
+          <h2 style={subtitleStyle}>Dedicated and Highly-Trained Staff</h2>
+          <p style={paragraphStyle}>
+            Our staff is the heart of our facility. Each member of our team is highly trained and dedicated to providing compassionate, professional care. We believe in treating our residents like family, providing them with the respect and dignity they deserve in a supportive and nurturing environment.
+          </p>
+
+          <h2 style={subtitleStyle}>State-of-the-Art Facilities and Amenities</h2>
+          <p style={paragraphStyle}>
+            We believe that a comfortable environment plays a significant role in recovery and well-being. Our facility offers modern amenities, spacious rooms, and specialized equipment to cater to each resident’s needs. From rehabilitation rooms to social activity spaces, we’ve designed our facility to make residents feel at home.
+          </p>
+
+          <p style={paragraphStyle}>
+            Don't just take our word for it—compare us to other facilities in the area on the official <Link href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest" target="_blank" style={linkStyle}>Medicare.gov comparison page</Link>.
+          </p>
+        </div>
+
+        {/* Right Side - Key Differentiators or Statistics */}
+        <div style={rightContentStyle}>
+          <h2 style={sidebarTitleStyle}>What Sets Us Apart</h2>
+          <ul style={listStyle}>
+            <li>Compassionate 24/7 nursing care</li>
+            <li>Specialized rehabilitation programs</li>
+            <li>Highly personalized treatment plans</li>
+            <li>Friendly, experienced staff</li>
+            <li>Comfortable, state-of-the-art facilities</li>
+          </ul>
+          <Image
+            src="/images/gpa-front.jpg" // Replace with your actual image
+            alt="Gridley Post Acute Interior"
+            width={300}
+            height={200}
+            style={imageStyle}
           />
         </div>
       </div>
@@ -68,65 +57,85 @@ const TestimonialsPage: React.FC = () => {
 
 // Styles
 const containerStyle: React.CSSProperties = {
-  display: 'grid',
-  gridTemplateColumns: '3fr 1fr', // 3 parts for content, 1 part for testimonials
-  gap: '40px',
   maxWidth: '1200px',
   margin: '0 auto',
-  padding: '40px',
-};
-
-const contentSectionStyle: React.CSSProperties = {
   padding: '20px',
 };
 
-const sectionTitleStyle: React.CSSProperties = {
+const titleStyle: React.CSSProperties = {
   fontSize: '2.5rem',
   color: '#2c3e50',
   marginBottom: '20px',
-};
-
-const sectionTextStyle: React.CSSProperties = {
-  fontSize: '1.2rem',
-  lineHeight: '1.8',
-  marginBottom: '30px',
-  color: '#333',
-};
-
-const featureListStyle: React.CSSProperties = {
-  listStyleType: 'disc',
-  paddingLeft: '20px',
-  fontSize: '1.1rem',
-  color: '#2c3e50',
-  marginBottom: '20px',
-};
-
-const testimonialSectionStyle: React.CSSProperties = {
-  padding: '20px',
-  backgroundColor: '#f9f9f9',
-  borderRadius: '10px',
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   textAlign: 'center',
 };
 
-const testimonialTitleStyle: React.CSSProperties = {
+const introTextStyle: React.CSSProperties = {
+  fontSize: '1.2rem',
+  lineHeight: '1.6',
+  color: '#333',
+  marginBottom: '40px',
+  textAlign: 'center',
+};
+
+const contentSectionStyle: React.CSSProperties = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'flex-start',
+  gap: '20px',
+  flexWrap: 'wrap',
+};
+
+const leftContentStyle: React.CSSProperties = {
+  flex: 2,
+};
+
+const rightContentStyle: React.CSSProperties = {
+  flex: 1,
+  backgroundColor: '#f8f9fa',
+  padding: '20px',
+  borderRadius: '8px',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+};
+
+const subtitleStyle: React.CSSProperties = {
   fontSize: '1.8rem',
   color: '#2c3e50',
+  marginBottom: '10px',
+};
+
+const paragraphStyle: React.CSSProperties = {
+  fontSize: '1.1rem',
+  lineHeight: '1.6',
+  color: '#333',
   marginBottom: '20px',
 };
 
-const testimonialCardContainerStyle: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
+const sidebarTitleStyle: React.CSSProperties = {
+  fontSize: '1.5rem',
+  color: '#2c3e50',
+  marginBottom: '20px',
+  textAlign: 'center',
 };
 
-// Responsive Design
-const styles = `
-  @media (max-width: 768px) {
-    ${containerStyle.gridTemplateColumns = '1fr'};
-    ${testimonialSectionStyle.marginTop = '30px'};
-  }
-`;
+const listStyle: React.CSSProperties = {
+  fontSize: '1.1rem',
+  lineHeight: '1.6',
+  color: '#333',
+  paddingLeft: '20px',
+  listStyleType: 'disc',
+  marginBottom: '20px',
+};
 
-export default TestimonialsPage;
+const imageStyle: React.CSSProperties = {
+  borderRadius: '8px',
+  objectFit: 'cover',
+  display: 'block',
+  margin: '0 auto',
+};
+
+const linkStyle: React.CSSProperties = {
+  color: '#0066cc',
+  textDecoration: 'underline',
+};
+
+export default WhyChooseUs;

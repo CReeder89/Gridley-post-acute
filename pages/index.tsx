@@ -79,18 +79,19 @@ const Home: React.FC = () => {
             height={80}
           />
         </div>
+        
 
         <div style={contactColumnStyle}>
         <Image
-            src="/images/phone.png" // Replace with your image path
-            alt="Phone Logo"
-            width={200}
-            height={200}
+            src="/images/logo2.png" // Replace with your image path
+            alt="GPA Logo"
+            width={400}
+            height={137}
           />
-          <h3>Contact Us</h3>
-          <p><strong>Phone:</strong> (530) 456-0400</p>
-          <p><strong>Address:</strong> 246 Spruce Street, Gridley, CA 95948</p>
-          <p><strong>Email:</strong> gridleyinfo@westharborhc.com</p>
+          <br />
+          <Link href='/test'><h3>Why Choose Us?</h3></Link>
+          <br />
+          <p>At Gridley Post Acute, we understand that choosing the right care facility for your loved one is an important decision. As the only 5-star rated facility in the Butte County area, we strive to go above and beyond to provide exceptional care and support to our residents. We don’t just meet the standards—we set them.</p>
         </div>
 
         <div style={contactColumnStyle}>
@@ -101,10 +102,7 @@ const Home: React.FC = () => {
             height={242}
           />
           <p><strong>Butte County's only Five-Star Facility</strong></p>
-          <div style={starsContainerStyle}>
-            ⭐⭐⭐⭐⭐
-          </div>
-
+         
           <p>CMS rates facilities from 1 to 5 stars, with <strong>5 being the highest score!</strong> Read more about CMS scores <Link href="/cms-score">here</Link></p>
 
           <p> Compare us to other facilities in the area <Link target='_blank' href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest">
