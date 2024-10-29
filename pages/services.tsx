@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const Services: React.FC = () => {
-  // Service data to avoid repeating JSX
   const services = [
     {
       title: "Nursing Services",
@@ -43,12 +42,16 @@ const Services: React.FC = () => {
 
   return (
     <div style={servicesContainerStyle}>
+
+ {/* Page Title */}
+ <h1 style={pageTitleStyle}>Gridley Post Acute Services</h1>
+
       {services.map((service, index) => (
         <div
           key={index}
           style={{
             ...serviceSectionStyle,
-            flexDirection: index % 2 === 0 ? "row" : "row-reverse", // Alternate direction
+            flexDirection: index % 2 === 0 ? "row" : "row-reverse",
           }}
         >
           <div style={imageContainerStyle}>
@@ -76,30 +79,39 @@ const Services: React.FC = () => {
 const servicesContainerStyle: React.CSSProperties = {
   maxWidth: '1200px',
   margin: '0 auto',
-  padding: '40px 20px',  // Increased padding for more spacing
+  padding: '40px 20px',
   lineHeight: '1.6',
   fontFamily: 'Arial, sans-serif',
+};
+
+const pageTitleStyle: React.CSSProperties = {
+  textAlign: 'center',
+  fontSize: '2.5rem',
+  color: '#2c3e50',
+  marginBottom: '40px',
+  fontWeight: 'bold',
 };
 
 const serviceSectionStyle: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  marginBottom: '60px',  // Increased bottom margin for even spacing between sections
-  flexWrap: 'wrap',  // Ensure wrapping on smaller screens
+  marginBottom: '60px',
+  flexWrap: 'wrap',
 };
 
 const serviceContentStyle: React.CSSProperties = {
   flex: 1,
   marginLeft: '20px',
   textAlign: 'left',
+  minWidth: '300px',
 };
 
 const serviceTitleStyle: React.CSSProperties = {
   fontSize: '2rem',
   color: '#2c3e50',
   marginBottom: '15px',
-  textDecoration: 'none'
+  textDecoration: 'none',
 };
 
 const serviceDescriptionStyle: React.CSSProperties = {
@@ -110,12 +122,31 @@ const serviceDescriptionStyle: React.CSSProperties = {
 const imageContainerStyle: React.CSSProperties = {
   flex: 1,
   textAlign: 'center',
+  minWidth: '300px',
 };
 
 const imageStyle: React.CSSProperties = {
   borderRadius: '8px',
   objectFit: 'cover',
-  maxWidth: '100%',  // Ensure the image does not exceed the container width
+  width: '100%',
+  height: 'auto',
 };
+
+// Responsive styling with media queries
+const styles = `
+  @media (max-width: 768px) {
+    .service-section {
+      flex-direction: column !important; /* Stack images and text vertically */
+      align-items: center;
+    }
+    .service-content, .image-container {
+      width: 100%;
+      margin: 0; /* Reset margin for better spacing on mobile */
+    }
+    .service-title {
+      font-size: 1.5rem;
+    }
+  }
+`;
 
 export default Services;
