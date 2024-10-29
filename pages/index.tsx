@@ -64,7 +64,7 @@ const Home: React.FC = () => {
             alt="Gridley Post Acute"
             width={400}
             height={250}
-            style={{ ...facilityImageStyle, width: '100%', maxWidth: '400px' }}
+            
           />
           <h3>Gridley Post Acute</h3>
           <p>
@@ -78,7 +78,7 @@ const Home: React.FC = () => {
             alt="GPA Logo"
             width={400}
             height={137}
-            style={{ ...facilityImageStyle, width: '100%', maxWidth: '400px' }}
+           
           />
           <br />
           <Link href='/test'><h3>Why Choose Us?</h3></Link>
@@ -161,7 +161,7 @@ const serviceTitleStyle: React.CSSProperties = {
 
 const contactFacilitySectionStyle: React.CSSProperties = {
   display: 'flex',
-  flexDirection: 'row',
+
   justifyContent: 'space-around',
   padding: '50px 20px',
   backgroundColor: '#fff',
