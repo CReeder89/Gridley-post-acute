@@ -167,7 +167,7 @@ const serviceTitleStyle: React.CSSProperties = {
 
 const contactFacilitySectionStyle: React.CSSProperties = {
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
   justifyContent: 'space-around',
   padding: '50px 20px',
   backgroundColor: '#fff',
