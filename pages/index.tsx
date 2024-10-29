@@ -196,7 +196,7 @@ const styles = `
   @media (max-width: 1024px) {
     ${heroContainerStyle.height = '50vh'};
     ${serviceColumnStyle.maxWidth = '45%'};
-    ${contactColumnStyle.maxWidth = '45%'};
+
   }
 
   @media (max-width: 768px) {
