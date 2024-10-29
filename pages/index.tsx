@@ -153,7 +153,7 @@ const servicesSectionStyle: React.CSSProperties = {
 
 const serviceColumnStyle: React.CSSProperties = {
   flex: 1,
-  maxWidth: '300px',
+  maxWidth: 'auto',
   margin: '0 10px',
   textAlign: 'center',
   padding: '20px',
@@ -176,7 +176,7 @@ const contactFacilitySectionStyle: React.CSSProperties = {
 
 const contactColumnStyle: React.CSSProperties = {
   flex: 1,
-  maxWidth: 'auto',
+  maxWidth: '300px',
   margin: '10px',
   textAlign: 'center',
 };
@@ -196,7 +196,7 @@ const styles = `
   @media (max-width: 1024px) {
     ${heroContainerStyle.height = '50vh'};
     ${serviceColumnStyle.maxWidth = '45%'};
-
+    ${contactColumnStyle.maxWidth = '45%'};
   }
 
   @media (max-width: 768px) {
