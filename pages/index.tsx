@@ -176,7 +176,7 @@ const contactFacilitySectionStyle: React.CSSProperties = {
 
 const contactColumnStyle: React.CSSProperties = {
   flex: 1,
-  maxWidth: '300px',
+  maxWidth: 'auto',
   margin: '10px',
   textAlign: 'center',
 };
