@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const POPUP_VERSION = '1.2'; // Update this version each time you change the popup content
+const POPUP_VERSION = '1.3'; // Update this version each time you change the popup content
 
 const Popup: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
