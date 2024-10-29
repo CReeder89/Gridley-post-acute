@@ -19,7 +19,7 @@ const Home: React.FC = () => {
           </div>
 
           <div>
-            <p><strong>Butte County's only 5 of 5 Star Facility</strong></p>
+            <p><strong>Butte County's only 5 Star Facility</strong></p>
             <div style={starsContainerStyle}>
               ⭐⭐⭐⭐⭐
             </div>
