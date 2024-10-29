@@ -40,7 +40,7 @@ const AboutUs: React.FC = () => {
         <h2 style={quickFactsTitleStyle}>Quick Facts</h2>
         <ul style={quickFactsListStyle}>
           <li>All beds are Medicare and Medicaid certified.</li>
-          <li>All rooms are equipped with electric high/low beds and cable TV. Private phones can be provided for short-term residents.</li>
+          <li>All rooms are equipped with electric high/low beds and cable TV.</li>
           <li>Our full in-house rehab unit offers physical, occupational, and speech-language therapy.</li>
           <li>24/7 Admissions processing</li>
           <li>RNs are onsite 24 hours.</li>

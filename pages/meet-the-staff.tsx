@@ -4,34 +4,35 @@ const MeetTheStaff: React.FC = () => {
   // Individual staff members
   const staff = [
     {
-      name: "John Doe",
+      name: "Matt Maylin",
+      title: "Administrator",
+      description:
+        "With a commitment to excellence, Matt oversees the daily operations at Gridley Post Acute, fostering a supportive environment for both residents and staff. His leadership ensures that every resident receives compassionate, quality care.",
+      image: "/images/staff2.png",
+    },
+    {
+      name: "Monica Voris",
       title: "Director of Nursing",
       description:
-        "John has been leading the nursing team with over 15 years of experience, ensuring the highest standards of care for our residents.",
-      image: "/images/staff1.jpg",
+        "Monica is devoted to ensuring the highest level of care for each resident. She combines medical expertise with a compassionate approach, making certain that our residents feel safe, respected, and well-cared-for.",
+      image: "/images/staff2.png",
     },
     {
-      name: "Jane Smith",
+      name: "Robert Hinman",
       title: "Rehabilitation Specialist",
       description:
-        "Jane specializes in physical and occupational therapy, helping residents regain their strength and independence.",
-      image: "/images/staff2.jpg",
+        "Robert's expertise in rehabilitation empowers residents to regain strength and confidence. His personalized approach to therapy aids each individual’s journey toward improved mobility and independence.",
+      image: "/images/staff2.png",
     },
     {
-      name: "Mark Johnson",
-      title: "Respiratory Therapist",
+      name: "Nicole Sperber",
+      title: "Social Services",
       description:
-        "Mark has a passion for helping patients with respiratory conditions recover and improve their quality of life.",
-      image: "/images/staff3.jpg",
-    },
-    {
-      name: "Emily Davis",
-      title: "Activities Coordinator",
-      description:
-        "Emily brings creativity and compassion to organizing activities that promote mental and physical well-being for our residents.",
-      image: "/images/staff4.jpg",
+        "Nicole offers invaluable support to residents and their families, guiding them through the transition and offering resources that enhance emotional and social well-being. Her compassion and dedication make a difference every day.",
+      image: "/images/staff2.png",
     },
   ];
+
 
   // Single CNA group photo
   const cnaGroup = {

@@ -61,16 +61,6 @@ const NursingServices: React.FC = () => {
         </ul>
       </div>
 
-      {/* Health Care Training Section */}
-      <div style={sectionStyle}>
-        <h2 style={sectionTitleStyle}>Health Care Training</h2>
-        <ul style={listStyle}>
-          <li>All Nursing Staff are licensed</li>
-          <li>In-house CNA Training Programs</li>
-          <li>Model environment for nursing staff training</li>
-          <li>Continued learning programs and courses</li>
-        </ul>
-      </div>
 
       {/* Diabetes Management Section */}
       <div style={sectionStyle}>

@@ -14,13 +14,13 @@ const Gallery1: React.FC = () => {
   };
 
   const images = [
-    { src: 'https://picsum.photos/id/1018/1920/1080/', aspect_ratio: 16 / 9 },
-    { src: 'https://picsum.photos/id/1015/1920/1080/', aspect_ratio: 16 / 9 },
-    { src: 'https://picsum.photos/id/1019/1440/1080/', aspect_ratio: 4 / 3 },
-    { src: 'https://picsum.photos/id/1011/1080/1920/', aspect_ratio: 9 / 16 },
-    { src: 'https://picsum.photos/id/1012/1920/1080/', aspect_ratio: 16 / 9 },
-    { src: 'https://picsum.photos/id/1013/1080/1920/', aspect_ratio: 9 / 16 },
-    { src: 'https://picsum.photos/id/1014/1080/1920/', aspect_ratio: 9 / 16 },
+    { src: '/images/about-us.jpg', aspect_ratio: 16 / 9 },
+    { src: '/images/activities.jpg', aspect_ratio: 16 / 9 },
+    { src: '/images/gpa-room.jpg', aspect_ratio: 4 / 3 },
+    { src: '/images/gpa-front.jpg', aspect_ratio: 16 / 9 },
+    { src: '/images/buttes.jpg', aspect_ratio: 16 / 9 },
+    { src: '/images/post-acute.jpg', aspect_ratio: 16 / 9 },
+    { src: '/images/rehabilitation.jpg', aspect_ratio: 16 / 9 },
     { src: 'https://picsum.photos/id/1016/1920/1080/', aspect_ratio: 16 / 9 },
     { src: 'https://picsum.photos/id/1020/2560/1080/', aspect_ratio: 21 / 9 },
     { src: 'https://picsum.photos/id/1021/1440/1080/', aspect_ratio: 4 / 3 },
@@ -41,6 +41,7 @@ const ratios = [ 2.2, 4, 6, 8 ]
   return (
     <div style={galleryContainerStyle}>
       <h1>Gallery</h1>
+      <p>Page still under development.</p>
 
       <Gallery {...{images, widths, ratios}} />
 
