@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Button from '../components/ServiceButton';  // Assuming you already have this component
+import Button from '../components/ServiceButton';
 import Link from 'next/link';
 
 const Home: React.FC = () => {
@@ -8,26 +8,24 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <div style={heroContainerStyle}>
         <div style={heroContentStyle}>
-          {/* Logo in Hero Banner */}
           <div style={logoContainerStyle}>
             <Image
-              src="/images/logo.jpg"  // Replace with your logo image path
+              src="/images/logo.jpg"
               alt="Gridley Post Acute Logo"
-              width={220}  // Adjust the width of the logo
-              height={86}  // Adjust the height of the logo
-              style={logoStyle}
+              width={220}
+              height={86}
+              style={{ ...logoStyle, width: '100%', maxWidth: '220px' }}
             />
           </div>
 
           <div>
-          <p><strong>Butte County's only 5 of 5 Star Facility</strong></p>
-          <div style={starsContainerStyle}>
-            ⭐⭐⭐⭐⭐
+            <p><strong>Butte County's only 5 of 5 Star Facility</strong></p>
+            <div style={starsContainerStyle}>
+              ⭐⭐⭐⭐⭐
+            </div>
           </div>
-        </div>
 
-          {/* <h1 style={heroTitleStyle}>Welcome to Gridley Post Acute</h1> */}
-          <p >
+          <p>
             Providing 24-hour skilled nursing care with the highest standards of compassion and quality.
           </p>
           <Button text="Explore Our Services" href="/services" />
@@ -62,31 +60,32 @@ const Home: React.FC = () => {
       <div style={contactFacilitySectionStyle}>
         <div style={contactColumnStyle}>
           <Image
-            src="/images/gpa-front.jpg" // Replace with your image path
+            src="/images/gpa-front.jpg"
             alt="Gridley Post Acute"
             width={400}
             height={250}
-            style={facilityImageStyle}
+            style={{ ...facilityImageStyle, width: '100%', maxWidth: '400px' }}
           />
           <h3>Gridley Post Acute</h3>
           <p>
             Gridley Post Acute offers the specialized care you need after an illness or major medical event. Our focus is on helping you return home and get back to the activities you enjoy.
           </p>
           <Image
-            src="/images/logo.jpg" // Replace with your image path
+            src="/images/logo.jpg"
             alt="Gridley Logo"
             width={200}
             height={80}
+            style={{ width: '100%', maxWidth: '200px' }}
           />
         </div>
-        
 
         <div style={contactColumnStyle}>
-        <Image
-            src="/images/logo2.png" // Replace with your image path
+          <Image
+            src="/images/logo2.png"
             alt="GPA Logo"
             width={400}
             height={137}
+            style={{ width: '100%', maxWidth: '400px' }}
           />
           <br />
           <Link href='/test'><h3>Why Choose Us?</h3></Link>
@@ -96,20 +95,15 @@ const Home: React.FC = () => {
 
         <div style={contactColumnStyle}>
           <Image
-            src="/images/cms-logo.png" // Replace with your image path
+            src="/images/cms-logo.png"
             alt="CMS Logo"
             width={420}
             height={242}
+            style={{ width: '100%', maxWidth: '420px' }}
           />
           <p><strong>Butte County's only Five-Star Facility</strong></p>
-         
           <p>CMS rates facilities from 1 to 5 stars, with <strong>5 being the highest score!</strong> Read more about CMS scores <Link href="/cms-score">here</Link></p>
-
-          <p> Compare us to other facilities in the area <Link target='_blank' href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest">
-           here
-          </Link>
-        </p>
-          
+          <p> Compare us to other facilities in the area <Link target='_blank' href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest">here</Link></p>
         </div>
       </div>
     </div>
@@ -120,8 +114,8 @@ const Home: React.FC = () => {
 
 const heroContainerStyle: React.CSSProperties = {
   width: '100%',
-  height: '100vh',
-  backgroundImage: 'url("/images/hero-banner.jpg")', // Replace with your image
+  minHeight: '60vh',
+  backgroundImage: 'url("/images/hero-banner.jpg")',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   display: 'flex',
@@ -129,32 +123,24 @@ const heroContainerStyle: React.CSSProperties = {
   justifyContent: 'center',
   color: '#fff',
   textAlign: 'center',
+  padding: '20px'
 };
 
 const heroContentStyle: React.CSSProperties = {
   backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  padding: '40px',
+  padding: '20px',
   borderRadius: '10px',
+  width: '100%',
+  maxWidth: '600px',
 };
 
 const logoContainerStyle: React.CSSProperties = {
-  marginBottom: '20px',  // Add some space between the logo and the title
+  marginBottom: '20px',
 };
 
 const logoStyle: React.CSSProperties = {
   display: 'block',
   margin: '0 auto',
-};
-
-const heroTitleStyle: React.CSSProperties = {
-  fontSize: '4rem',
-  color: '#fff',
-  marginBottom: '30px',
-};
-
-const heroSubtitleStyle: React.CSSProperties = {
-  fontSize: '2rem',
-  marginBottom: '40px',
 };
 
 const servicesSectionStyle: React.CSSProperties = {
@@ -167,20 +153,22 @@ const servicesSectionStyle: React.CSSProperties = {
 
 const serviceColumnStyle: React.CSSProperties = {
   flex: 1,
-  maxWidth: '30%',
-  margin: '0 20px',
+  maxWidth: '300px',
+  margin: '0 10px',
   textAlign: 'center',
+  padding: '20px',
 };
 
 const serviceTitleStyle: React.CSSProperties = {
-  fontSize: '2rem',
-  marginBottom: '15px',
+  fontSize: '1.5rem',
+  marginBottom: '10px',
   color: '#2c3e50',
 };
 
 const contactFacilitySectionStyle: React.CSSProperties = {
   display: 'flex',
-  justifyContent: 'space-between',
+  flexDirection: 'row',
+  justifyContent: 'space-around',
   padding: '50px 20px',
   backgroundColor: '#fff',
   flexWrap: 'wrap',
@@ -188,8 +176,8 @@ const contactFacilitySectionStyle: React.CSSProperties = {
 
 const contactColumnStyle: React.CSSProperties = {
   flex: 1,
-  maxWidth: '30%',
-  margin: '0 20px',
+  maxWidth: '300px',
+  margin: '10px',
   textAlign: 'center',
 };
 
@@ -203,26 +191,19 @@ const starsContainerStyle: React.CSSProperties = {
   marginTop: '10px',
 };
 
-// Responsive Media Queries
+// Media queries for responsive adjustments
 const styles = `
   @media (max-width: 1024px) {
-    ${heroTitleStyle.fontSize = '3rem'}
-    ${heroSubtitleStyle.fontSize = '1.5rem'}
-    ${serviceColumnStyle.maxWidth = '45%'}
-    ${contactColumnStyle.maxWidth = '45%'}
+    ${heroContainerStyle.height = '50vh'};
+    ${serviceColumnStyle.maxWidth = '45%'};
+    ${contactColumnStyle.maxWidth = '45%'};
   }
 
   @media (max-width: 768px) {
-    ${heroTitleStyle.fontSize = '2.5rem'}
-    ${heroSubtitleStyle.fontSize = '1.2rem'}
-    ${serviceColumnStyle.maxWidth = '100%'}
-    ${contactColumnStyle.maxWidth = '100%'}
-  }
-
-  @media (max-width: 480px) {
-    ${heroTitleStyle.fontSize = '2rem'}
-    ${heroSubtitleStyle.fontSize = '1rem'}
-    ${heroContentStyle.padding = '20px'}
+    ${heroContainerStyle.height = 'auto'};
+    ${heroContentStyle.padding = '10px'};
+    ${serviceColumnStyle.maxWidth = '100%'};
+    ${contactColumnStyle.maxWidth = '100%'};
   }
 `;
 
