@@ -67,6 +67,7 @@ const Home: React.FC = () => {
             width={400}
             height={250}
             style={facilityImageStyle}
+            layout="intrinsic"
           />
           <h3>Gridley Post Acute</h3>
           <p>
@@ -77,6 +78,7 @@ const Home: React.FC = () => {
             alt="Gridley Logo"
             width={200}
             height={80}
+            layout="intrinsic"
           />
         </div>
         
@@ -87,6 +89,7 @@ const Home: React.FC = () => {
             alt="GPA Logo"
             width={400}
             height={137}
+            layout="intrinsic"
           />
           <br />
           <Link href='/test'><h3>Why Choose Us?</h3></Link>
@@ -100,6 +103,7 @@ const Home: React.FC = () => {
             alt="CMS Logo"
             width={420}
             height={242}
+            layout="intrinsic"
           />
           <p><strong>Butte County's only Five-Star Facility</strong></p>
          
