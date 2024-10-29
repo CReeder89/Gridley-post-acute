@@ -75,7 +75,7 @@ const Home: React.FC = () => {
             alt="Gridley Logo"
             width={200}
             height={80}
-            style={{ width: '100%', maxWidth: '200px' }}
+         
           />
         </div>
 
@@ -85,7 +85,7 @@ const Home: React.FC = () => {
             alt="GPA Logo"
             width={400}
             height={137}
-            style={{ width: '100%', maxWidth: '400px' }}
+          
           />
           <br />
           <Link href='/test'><h3>Why Choose Us?</h3></Link>
@@ -99,7 +99,7 @@ const Home: React.FC = () => {
             alt="CMS Logo"
             width={420}
             height={242}
-            style={{ width: '100%', maxWidth: '420px' }}
+         
           />
           <p><strong>Butte County's only Five-Star Facility</strong></p>
           <p>CMS rates facilities from 1 to 5 stars, with <strong>5 being the highest score!</strong> Read more about CMS scores <Link href="/cms-score">here</Link></p>
@@ -153,6 +153,7 @@ const servicesSectionStyle: React.CSSProperties = {
 
 const serviceColumnStyle: React.CSSProperties = {
   flex: 1,
+  minWidth: '300px',
   maxWidth: 'auto',
   margin: '0 10px',
   textAlign: 'center',
@@ -176,7 +177,7 @@ const contactFacilitySectionStyle: React.CSSProperties = {
 
 const contactColumnStyle: React.CSSProperties = {
   flex: 1,
-  maxWidth: '300px',
+  maxWidth: 'auto',
   margin: '10px',
   textAlign: 'center',
 };
