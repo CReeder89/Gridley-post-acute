@@ -70,13 +70,6 @@ const Home: React.FC = () => {
           <p>
             Gridley Post Acute offers the specialized care you need after an illness or major medical event. Our focus is on helping you return home and get back to the activities you enjoy.
           </p>
-          <Image
-            src="/images/logo.jpg"
-            alt="Gridley Logo"
-            width={200}
-            height={80}
-         
-          />
         </div>
 
         <div style={contactColumnStyle}>
@@ -85,7 +78,7 @@ const Home: React.FC = () => {
             alt="GPA Logo"
             width={400}
             height={137}
-          
+            style={{ ...facilityImageStyle, width: '100%', maxWidth: '400px' }}
           />
           <br />
           <Link href='/test'><h3>Why Choose Us?</h3></Link>
@@ -198,6 +191,7 @@ const styles = `
     ${heroContainerStyle.height = '50vh'};
     ${serviceColumnStyle.maxWidth = '45%'};
     ${contactColumnStyle.maxWidth = '45%'};
+   
   }
 
   @media (max-width: 768px) {
@@ -205,6 +199,7 @@ const styles = `
     ${heroContentStyle.padding = '10px'};
     ${serviceColumnStyle.maxWidth = '100%'};
     ${contactColumnStyle.maxWidth = '100%'};
+  
   }
 `;
 
