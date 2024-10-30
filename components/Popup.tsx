@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const POPUP_VERSION = '1.6'; // Update this version each time you change the popup content
+const POPUP_VERSION = '1.7'; // Update this version each time you change the popup content
 
 const Popup: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,14 +39,20 @@ const Popup: React.FC = () => {
         </p>
         <ul style={popupListStyle}>
           <li>Mobile screen responsiveness</li>
-          <li>ADA compliance</li>
           <li>Gallery page currently uses placeholder images</li>
           <li>Adding images to staff on "Meet the Staff" page</li>
           <li>Adding more facility images</li>
           <li>Contact form functionality is working but not yet targeting the final email</li>
           <li>Logo needs reworking; current version has a temporary background removal</li>
           <li>Adding testimonials and reviews</li>
+          <li>Menu does not close on mobile after selection</li>
         </ul>
+
+        <p><strong>Accessibility Assistance</strong></p>
+        <p style={popupTextStyle}>
+        
+        If you are experiencing difficulty using this website due to a disability or if you require assistance with any information, please call us directly at (530) 456-0400. Our team is ready to help ensure you have full access to all information and services.
+        </p>
         <div style={checkboxContainerStyle}>
           <input
             type="checkbox"
@@ -78,16 +84,19 @@ const overlayStyle: React.CSSProperties = {
   alignItems: 'center',
   justifyContent: 'center',
   zIndex: 1000,
+  
 };
 
 const popupStyle: React.CSSProperties = {
   width: '90%',
   maxWidth: '500px',
+  maxHeight: '75%',
   backgroundColor: '#fff',
   borderRadius: '8px',
   padding: '20px',
   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
   textAlign: 'center',
+  overflow: 'scroll'
 };
 
 const popupTitleStyle: React.CSSProperties = {
