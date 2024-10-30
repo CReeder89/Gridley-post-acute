@@ -68,9 +68,10 @@ const MeetTheStaff: React.FC = () => {
         <Image
           src={cnaGroup.image}
           alt={cnaGroup.alt}
-          width={800}
-          height={500}
-          style={groupImageStyle}
+          width={400}
+          height={250}
+          style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
+          
         />
       </div>
     </div>
@@ -142,6 +143,7 @@ const cnaGroupContainerStyle: React.CSSProperties = {
 const groupImageStyle: React.CSSProperties = {
   borderRadius: '10px',
   objectFit: 'cover',
+
 };
 
 export default MeetTheStaff;

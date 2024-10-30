@@ -17,7 +17,7 @@ const AboutUs: React.FC = () => {
               alt="About Gridley Post Acute"
               width={400}
               height={250}
-              style={imageStyle}
+              style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
             />
           </div>
         </div>
@@ -98,7 +98,7 @@ const aboutTextStyle: React.CSSProperties = {
 };
 
 const imageContainerStyle: React.CSSProperties = {
-  flex: 1,
+  
   textAlign: 'center',
 };
 

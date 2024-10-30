@@ -71,7 +71,7 @@ const CMSScore: React.FC = () => {
           alt="CMS 5-Star Rating"
           width={420}
           height={242}
-          style={imageStyle}
+          style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
         />
       </div>
     </div>

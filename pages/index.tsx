@@ -64,7 +64,8 @@ const Home: React.FC = () => {
             alt="Gridley Post Acute"
             width={400}
             height={250}
-            
+            style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
+
           />
           <h3>Gridley Post Acute</h3>
           <p>
@@ -78,7 +79,8 @@ const Home: React.FC = () => {
             alt="GPA Logo"
             width={400}
             height={137}
-           
+            style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
+      
           />
           <br />
           <Link href='/test'><h3>Why Choose Us?</h3></Link>
@@ -90,9 +92,10 @@ const Home: React.FC = () => {
           <Image
             src="/images/cms-logo.png"
             alt="CMS Logo"
-            width={420}
-            height={242}
-         
+            width={400}
+            height={222}
+            style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
+           
           />
           <p><strong>Butte County's only Five-Star Facility</strong></p>
           <p>CMS rates facilities from 1 to 5 stars, with <strong>5 being the highest score!</strong> Read more about CMS scores <Link href="/cms-score">here</Link></p>
@@ -161,7 +164,6 @@ const serviceTitleStyle: React.CSSProperties = {
 
 const contactFacilitySectionStyle: React.CSSProperties = {
   display: 'flex',
-
   justifyContent: 'space-around',
   padding: '50px 20px',
   backgroundColor: '#fff',
@@ -169,8 +171,8 @@ const contactFacilitySectionStyle: React.CSSProperties = {
 };
 
 const contactColumnStyle: React.CSSProperties = {
-  flex: 1,
-  maxWidth: 'auto',
+
+  maxWidth: '400px',
   margin: '10px',
   textAlign: 'center',
 };
@@ -190,7 +192,7 @@ const styles = `
   @media (max-width: 1024px) {
     ${heroContainerStyle.height = '50vh'};
     ${serviceColumnStyle.maxWidth = '45%'};
-    ${contactColumnStyle.maxWidth = '45%'};
+ 
    
   }
 
@@ -198,7 +200,7 @@ const styles = `
     ${heroContainerStyle.height = 'auto'};
     ${heroContentStyle.padding = '10px'};
     ${serviceColumnStyle.maxWidth = '100%'};
-    ${contactColumnStyle.maxWidth = '100%'};
+   
   
   }
 `;
