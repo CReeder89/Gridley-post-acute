@@ -1,41 +1,53 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import { useReCaptcha } from 'next-recaptcha-v3';
 
 const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
-    phone: '',
     email: '',
+    phone: '',
     subject: '',
     message: '',
     callbackTime: '',
   });
+  const [status, setStatus] = useState(''); // For showing success/error messages
+  const { executeRecaptcha } = useReCaptcha();
 
-  const [status, setStatus] = useState(''); 
-
+  // Handle form input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!executeRecaptcha) {
+      setStatus('reCAPTCHA is not available.');
+      return;
+    }
+
+    // Get reCAPTCHA token
+    const captchaToken = await executeRecaptcha('contactForm');
+
     try {
+      // Send form data and captchaToken to API
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, captchaToken }), // Include captchaToken in request body
       });
 
       if (res.status === 200) {
-        setStatus('Message sent successfully!'); 
+        setStatus('Message sent successfully!');
         setFormData({
           name: '',
-          phone: '',
           email: '',
+          phone: '',
           subject: '',
           message: '',
           callbackTime: '',
@@ -50,17 +62,19 @@ const ContactUs: React.FC = () => {
 
   return (
     <div style={contactContainerStyle}>
+      {/* Left Side - Picture and Message */}
       <div style={contactInfoStyle}>
         <Image
-          src="/images/contact.jpg"
+          src="/images/contact.jpg" // Replace with your actual image path
           alt="Contact Us"
           width={400}
           height={300}
           style={contactImageStyle}
         />
         <p style={contactMessageStyle}>
-          Welcome to Gridley Post Acute! We are here to assist you with any important matters, whether you have questions about our services, would like to schedule a tour, or simply need more information.
+          Welcome to Gridley Post Acute! We are here to assist you with any important matters, whether you have questions about our services, would like to schedule a tour, or need more information.
         </p>
+        {/* Professional Contact Information */}
         <div style={contactDetailsStyle}>
           <h3>Contact Information</h3>
           <p><strong>Phone:</strong> (530) 456-0400</p>
@@ -69,6 +83,7 @@ const ContactUs: React.FC = () => {
         </div>
       </div>
 
+      {/* Right Side - Contact Form */}
       <div style={contactFormInfoStyle}>
         <form onSubmit={handleSubmit} style={contactFormStyle}>
           <label htmlFor="name">Name</label>
@@ -125,7 +140,7 @@ const ContactUs: React.FC = () => {
             required
             value={formData.message}
             onChange={handleInputChange}
-            style={{ ...inputStyle, height: '100px' }}
+            style={contactMessageStyle}
           />
 
           <label htmlFor="callbackTime">Best Call Back Time</label>
