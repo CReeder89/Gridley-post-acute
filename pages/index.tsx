@@ -111,7 +111,7 @@ const Home: React.FC = () => {
 const heroContainerStyle: React.CSSProperties = {
   width: '100%',
   minHeight: '60vh',
-  backgroundImage: 'url("/images/hero-banner.jpg")',
+  backgroundImage: 'url("/images/hero-banner2.jpg")',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   display: 'flex',
@@ -119,11 +119,11 @@ const heroContainerStyle: React.CSSProperties = {
   justifyContent: 'center',
   color: '#fff',
   textAlign: 'center',
-  padding: '20px'
+  padding: '20px',
 };
 
 const heroContentStyle: React.CSSProperties = {
-  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  backgroundColor: 'rgba(0, 0, 0, 0.3)',
   padding: '20px',
   borderRadius: '10px',
   width: '100%',
