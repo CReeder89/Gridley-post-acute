@@ -70,7 +70,7 @@ const NursingServices: React.FC = () => {
           <li>Tracking Blood Glucose</li>
           <li>Insulin Administration and Tracking</li>
           <li>Exercise Planning & Program</li>
-          <li>Resident & Family Education</li>
+          <li>Resident & Family Education</li> 
         </ul>
       </div>
 
@@ -118,13 +118,13 @@ const descriptionStyle: React.CSSProperties = {
 };
 
 const imageContainerStyle: React.CSSProperties = {
-  flex: 1,
   textAlign: 'center',
 };
 
 const imageStyle: React.CSSProperties = {
   borderRadius: '8px',
   objectFit: 'cover',
+ width: '100%', maxWidth: 'full', height: 'auto'
 };
 
 const sectionStyle: React.CSSProperties = {

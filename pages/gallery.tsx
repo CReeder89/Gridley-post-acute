@@ -42,9 +42,10 @@ const ratios = [ 2.2, 4, 6, 8 ]
     <div style={galleryContainerStyle}>
       <h1>Gallery</h1>
       <p>Page still under development.</p>
-
+      
+     
       <Gallery {...{images, widths, ratios}} />
-
+      
 
       {/* <div style={gridStyle}>
         <GalleryImage src="/images/photo1.jpg" alt="Photo 1" onClick={() => handleImageClick('/images/photo1.jpg')} />

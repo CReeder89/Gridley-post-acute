@@ -81,13 +81,13 @@ const textSectionStyle: React.CSSProperties = {
 };
 
 const imageSectionStyle: React.CSSProperties = {
-  flex: 1,
   textAlign: 'center',
 };
 
 const imageStyle: React.CSSProperties = {
   borderRadius: '8px',
   objectFit: 'cover',
+  width: '100%', maxWidth: 'full', height: 'auto'
 };
 
 const activitiesListStyle: React.CSSProperties = {
