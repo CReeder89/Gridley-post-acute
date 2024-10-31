@@ -18,18 +18,27 @@ const Home: React.FC = () => {
             />
           </div>
 
-          <div>
+          {/* <div>
             <p><strong>Butte County's only 5 Star Facility</strong></p>
             <div style={starsContainerStyle}>
               ⭐⭐⭐⭐⭐
             </div>
-          </div>
+          </div> */}
+
+          <Image
+              src="/images/5star-banner3.png" 
+              alt="Gridley Post Acute Logo"
+              width={324}
+              height={111}
+              style={{ width: '60%', maxWidth: '400', height: 'auto' }}
+            />
 
           <p>
             Providing 24-hour skilled nursing care with the highest standards of compassion and quality.
           </p>
-          <Button text="Explore Our Services" href="/services" />
+         
         </div>
+        <Button text="Explore Our Services" href="/services" />
       </div>
 
       {/* Services Section */}
@@ -58,7 +67,9 @@ const Home: React.FC = () => {
 
       {/* Contact and Facility Information Section */}
       <div style={contactFacilitySectionStyle}>
+        
         <div style={contactColumnStyle}>
+        <h3>Gridley Post Acute</h3>
           <Image
             src="/images/gpa-front.jpg"
             alt="Gridley Post Acute"
@@ -67,13 +78,15 @@ const Home: React.FC = () => {
             style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
 
           />
-          <h3>Gridley Post Acute</h3>
+          
           <p>
             Gridley Post Acute offers the specialized care you need after an illness or major medical event. Our focus is on helping you return home and get back to the activities you enjoy.
           </p>
         </div>
 
         <div style={contactColumnStyle}>
+        <Link href='/test'><h3>Why Choose Us?</h3></Link>
+        <br />
           <Image
             src="/images/logo2.png"
             alt="GPA Logo"
@@ -83,12 +96,12 @@ const Home: React.FC = () => {
       
           />
           <br />
-          <Link href='/test'><h3>Why Choose Us?</h3></Link>
-          <br />
+         
           <p>At Gridley Post Acute, we understand that choosing the right care facility for your loved one is an important decision. As the only 5-star rated facility in the Butte County area, we strive to go above and beyond to provide exceptional care and support to our residents. We don’t just meet the standards—we set them.</p>
         </div>
 
         <div style={contactColumnStyle}>
+        <p><strong>Butte County's only Five-Star Facility</strong></p>
           <Image
             src="/images/cms-logo.png"
             alt="CMS Logo"
@@ -97,7 +110,7 @@ const Home: React.FC = () => {
             style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
            
           />
-          <p><strong>Butte County's only Five-Star Facility</strong></p>
+          
           <p>CMS rates facilities from 1 to 5 stars, with <strong>5 being the highest score!</strong> Read more about CMS scores <Link href="/cms-score">here</Link></p>
           <p> Compare us to other facilities in the area <Link target='_blank' href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest">here</Link></p>
         </div>
@@ -119,11 +132,15 @@ const heroContainerStyle: React.CSSProperties = {
   justifyContent: 'center',
   color: '#fff',
   textAlign: 'center',
+  alignContent: 'center',
   padding: '20px',
+  flexDirection: 'column'
 };
 
+
+
 const heroContentStyle: React.CSSProperties = {
-  backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  backgroundColor: 'rgba(0, 0, 0, 0.2)',
   padding: '20px',
   borderRadius: '10px',
   width: '100%',
@@ -143,17 +160,22 @@ const servicesSectionStyle: React.CSSProperties = {
   display: 'flex',
   justifyContent: 'space-around',
   padding: '50px 20px',
-  backgroundColor: '#f5f5f5',
+  backgroundColor: 'rgba(255, 240, 212, 0.3)',
   flexWrap: 'wrap',
+  borderTop: '10px solid #d1d1d1',
+  borderBottom: '10px solid #d1d1d1',
 };
 
 const serviceColumnStyle: React.CSSProperties = {
   flex: 1,
   minWidth: '300px',
   maxWidth: 'auto',
-  margin: '0 10px',
+  margin: '5px 10px',
   textAlign: 'center',
   padding: '20px',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  borderRadius: '10px',
+  backgroundColor: '#fff',
 };
 
 const serviceTitleStyle: React.CSSProperties = {
@@ -166,8 +188,9 @@ const contactFacilitySectionStyle: React.CSSProperties = {
   display: 'flex',
   justifyContent: 'space-around',
   padding: '50px 20px',
-  backgroundColor: '#fff',
+  background: 'linear-gradient(171deg, rgba(228,171,113,0.850577731092437) 0%, rgba(25,54,58,0) 100%)',
   flexWrap: 'wrap',
+  
 };
 
 const contactColumnStyle: React.CSSProperties = {
@@ -175,6 +198,10 @@ const contactColumnStyle: React.CSSProperties = {
   maxWidth: '400px',
   margin: '10px',
   textAlign: 'center',
+  padding: '20px',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  borderRadius: '10px',
+  backgroundColor: '#fff',
 };
 
 const facilityImageStyle: React.CSSProperties = {

@@ -1,9 +1,10 @@
 // components/Footer.tsx
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
 
 const Footer: React.FC = () => {
-  return (
+  return ( 
     <footer style={footerStyle}>
       <div style={footerLinks}>
         <Link href="/about-us" style={footerLinkStyle}>About Us</Link> 
@@ -25,6 +26,8 @@ const footerStyle: React.CSSProperties = {
   padding: '20px 0',
   textAlign: 'center',  // 'textAlign' is now properly typed
 };
+
+
 
 const footerLinks: React.CSSProperties = {
   display: 'inline-block',

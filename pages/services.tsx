@@ -85,7 +85,7 @@ const servicesContainerStyle: React.CSSProperties = {
 };
 
 const pageTitleStyle: React.CSSProperties = {
-  textAlign: 'center',
+  textAlign: 'center', 
   fontSize: '2.5rem',
   color: '#2c3e50',
   marginBottom: '40px',
@@ -98,6 +98,10 @@ const serviceSectionStyle: React.CSSProperties = {
   justifyContent: 'space-between',
   marginBottom: '60px',
   flexWrap: 'wrap',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  borderRadius: '10px',
+  backgroundColor: '#fff',
+  padding: '20px'
 };
 
 const serviceContentStyle: React.CSSProperties = {
@@ -144,7 +148,7 @@ const styles = `
       margin: 0; /* Reset margin for better spacing on mobile */
     }
     .service-title {
-      font-size: 1.5rem;
+      font-size: 1rem;
     }
   }
 `;

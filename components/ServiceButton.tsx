@@ -27,6 +27,7 @@ const buttonStyle: React.CSSProperties = {
   cursor: 'pointer',
   display: 'inline-block',
   transition: 'background-color 0.3s ease',
+  margin: '25px'
 };
 
 export default Button;

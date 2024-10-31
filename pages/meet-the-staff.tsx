@@ -70,7 +70,7 @@ const MeetTheStaff: React.FC = () => {
           alt={cnaGroup.alt}
           width={400}
           height={250}
-          style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
+          style={{ width: '100%', maxWidth: '500px', height: 'auto' }}
           
         />
       </div>
