@@ -9,15 +9,30 @@ import { ReCaptchaProvider } from "next-recaptcha-v3";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <>
+    
       <ReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
+        <div style={layoutStyle}>
         <Header />
-        <Component {...pageProps} />
+        <div style={mainStyle}>
+        <Component  {...pageProps} />
+        </div>
         <Popup />
         <Footer />
+        </div>
       </ReCaptchaProvider>
-    </>
+   
   );
 }
+
+const layoutStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '100vh', // Full height of the viewport
+
+};
+
+const mainStyle: React.CSSProperties = {
+  flex: 1, // Take up remaining space
+};
 
 export default MyApp;
