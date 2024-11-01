@@ -3,6 +3,8 @@ import Button from '../components/ServiceButton';
 import Link from 'next/link';
 import Head from 'next/head';
 import MetaHead from '../components/MetaHead';
+import TheSwiper from '../components/Swiper';
+
 
 const Home: React.FC = () => {
   return (
@@ -18,6 +20,7 @@ const Home: React.FC = () => {
 
       {/* Hero Section */}
       <div style={heroContainerStyle}>
+       
         <div style={heroContentStyle}>
           <div style={logoContainerStyle}>
             <Image
@@ -44,7 +47,10 @@ const Home: React.FC = () => {
 
         </div>
         <Button text="Explore Our Services" href="/services" />
+        
       </div>
+
+      <TheSwiper />
 
       {/* Services Section */}
       <div style={servicesSectionStyle}>
@@ -70,6 +76,8 @@ const Home: React.FC = () => {
         </div>
       </div>
 
+      
+
       {/* Contact and Facility Information Section */}
       <div style={contactFacilitySectionStyle}>
 
@@ -80,9 +88,7 @@ const Home: React.FC = () => {
             alt="Gridley Post Acute"
             width={400}
             height={250}
-            style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
-
-          />
+            style={{ width: '100%', maxWidth: 'full', height: 'auto' }}/>
 
           <p>
             Gridley Post Acute offers the specialized care you need after an illness or major medical event. Our focus is on helping you return home and get back to the activities you enjoy.
@@ -128,7 +134,7 @@ const Home: React.FC = () => {
 
 const heroContainerStyle: React.CSSProperties = {
   width: '100%',
-  minHeight: '60vh',
+  minHeight: '80vh',
   backgroundImage: 'url("/images/hero-banner2.jpg")',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
@@ -167,8 +173,8 @@ const servicesSectionStyle: React.CSSProperties = {
   padding: '50px 20px',
   backgroundColor: 'rgba(255, 240, 212, 0.3)',
   flexWrap: 'wrap',
-  borderTop: '10px solid #d1d1d1',
-  borderBottom: '10px solid #d1d1d1',
+  // borderTop: '10px solid #d1d1d1',
+  // borderBottom: '10px solid #d1d1d1',
 };
 
 const serviceColumnStyle: React.CSSProperties = {
