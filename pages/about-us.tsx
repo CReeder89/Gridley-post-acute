@@ -1,8 +1,21 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import MetaHead from '../components/MetaHead';
+
+
 
 const AboutUs: React.FC = () => {
   return (
+    <div>
+
+
+      <MetaHead 
+        title="About Us - Gridley Post Acute"
+        description="Learn more about Gridley Post Acute and our commitment to delivering compassionate, high-quality care. Meet our dedicated team and explore our mission to support your health and recovery journey."
+        image="/images/gpa-front.jpg" 
+        url= {`${process.env.WEBSITE}/about-us`} />
+
+
     <div style={aboutContainerStyle}>
       {/* About Us Section */}
       <div style={aboutSectionStyle}>
@@ -59,6 +72,7 @@ const AboutUs: React.FC = () => {
           </Link>
         </p>
       </div>
+    </div>
     </div>
   );
 };

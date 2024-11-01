@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import MetaHead from '../components/MetaHead';
 
 const MeetTheStaff: React.FC = () => {
   // Individual staff members
@@ -41,38 +42,47 @@ const MeetTheStaff: React.FC = () => {
   };
 
   return (
-    <div style={containerStyle}>
-      <h1 style={pageTitleStyle}>Meet the Staff</h1>
+    <div>
 
-      {/* Individual Staff Members */}
-      <div className= 'staffGridStyle'>
-        {staff.map((member, index) => (
-          <div key={index} style={staffCardStyle}>
-            <Image
-              src={member.image}
-              alt={member.name}
-              width={150}
-              height={150}
-              style={roundImageStyle}
-            />
-            <h3 style={staffNameStyle}>{member.name}</h3>
-            <p style={staffTitleStyle}>{member.title}</p>
-            <p style={staffDescriptionStyle}>{member.description}</p>
-          </div>
-        ))}
-      </div>
+      <MetaHead
+        title="Our Staff - Gridley Post Acute"
+        description="Meet the exceptional team at Gridley Post Acute. Our skilled professionals are dedicated to providing personalized and compassionate care for each resident."
+        image="/images/gpa-front.jpg"
+        url={`${process.env.WEBSITE}/meet-the-staff`} />
 
-      {/* Single Group CNA Photo */}
-      <h2 style={groupTitleStyle}>Our Dedicated CNAs and Nurses</h2>
-      <div style={cnaGroupContainerStyle}>
-        <Image
-          src={cnaGroup.image}
-          alt={cnaGroup.alt}
-          width={400}
-          height={250}
-          style={{ width: '100%', maxWidth: '500px', height: 'auto' }}
-          
-        />
+      <div style={containerStyle}>
+        <h1 style={pageTitleStyle}>Meet the Staff</h1>
+
+        {/* Individual Staff Members */}
+        <div className='staffGridStyle'>
+          {staff.map((member, index) => (
+            <div key={index} style={staffCardStyle}>
+              <Image
+                src={member.image}
+                alt={member.name}
+                width={150}
+                height={150}
+                style={roundImageStyle}
+              />
+              <h3 style={staffNameStyle}>{member.name}</h3>
+              <p style={staffTitleStyle}>{member.title}</p>
+              <p style={staffDescriptionStyle}>{member.description}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Single Group CNA Photo */}
+        <h2 style={groupTitleStyle}>Our Dedicated CNAs and Nurses</h2>
+        <div style={cnaGroupContainerStyle}>
+          <Image
+            src={cnaGroup.image}
+            alt={cnaGroup.alt}
+            width={400}
+            height={250}
+            style={{ width: '100%', maxWidth: '500px', height: 'auto' }}
+
+          />
+        </div>
       </div>
     </div>
   );

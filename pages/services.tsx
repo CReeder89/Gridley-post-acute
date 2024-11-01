@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import MetaHead from '../components/MetaHead';
 
 const Services: React.FC = () => {
   const services = [
@@ -41,36 +42,46 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <div style={servicesContainerStyle}>
 
- {/* Page Title */}
- <h1 style={pageTitleStyle}>Gridley Post Acute Services</h1>
+    <div>
 
-      {services.map((service, index) => (
-        <div
-          key={index}
-          style={{
-            ...serviceSectionStyle,
-            flexDirection: index % 2 === 0 ? "row" : "row-reverse",
-          }}
-        >
-          <div style={imageContainerStyle}>
-            <Image
-              src={service.image}
-              alt={service.title}
-              width={400}
-              height={250}
-              style={imageStyle}
-            />
+      <MetaHead
+        title="Services - Gridley Post Acute"
+        description="Discover the wide range of healthcare services offered at Gridley Post Acute, including 24/7 nursing care, rehabilitation, post-acute support, activities programs, and social services designed to support recovery and well-being."
+        image="/images/gpa-front.jpg"
+        url={`${process.env.WEBSITE}/services`}/>
+
+      <div style={servicesContainerStyle}>
+
+        {/* Page Title */}
+        <h1 style={pageTitleStyle}>Gridley Post Acute Services</h1>
+
+        {services.map((service, index) => (
+          <div
+            key={index}
+            style={{
+              ...serviceSectionStyle,
+              flexDirection: index % 2 === 0 ? "row" : "row-reverse",
+            }}
+          >
+            <div style={imageContainerStyle}>
+              <Image
+                src={service.image}
+                alt={service.title}
+                width={400}
+                height={250}
+                style={imageStyle}
+              />
+            </div>
+            <div style={serviceContentStyle}>
+              <h2 style={serviceTitleStyle}>
+                <Link href={service.link}>{service.title}</Link>
+              </h2>
+              <p style={serviceDescriptionStyle}>{service.description}</p>
+            </div>
           </div>
-          <div style={serviceContentStyle}>
-            <h2 style={serviceTitleStyle}>
-              <Link href={service.link}>{service.title}</Link>
-            </h2>
-            <p style={serviceDescriptionStyle}>{service.description}</p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
@@ -85,7 +96,7 @@ const servicesContainerStyle: React.CSSProperties = {
 };
 
 const pageTitleStyle: React.CSSProperties = {
-  textAlign: 'center', 
+  textAlign: 'center',
   fontSize: '2.5rem',
   color: '#2c3e50',
   marginBottom: '40px',

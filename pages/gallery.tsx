@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import GalleryImage from '../components/GalleryImage';
 import { Gallery } from "next-gallery"
+import MetaHead from '../components/MetaHead';
 
 const Gallery1: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -31,6 +32,13 @@ const ratios = [ 2.2, 4, 6, 8 ]
 
 
   return (
+    <div>
+      <MetaHead
+        title="Gallery - Gridley Post Acute"
+        description="View our photo gallery to get a glimpse of the welcoming environment at Gridley Post Acute. See our comfortable facilities, engaging activities, and state-of-the-art rehabilitation equipment."
+        image="/images/gpa-front.jpg"
+        url={`${process.env.WEBSITE}/gallery`} />
+
     <div style={galleryContainerStyle}>
       <h1>Gallery</h1>
       <p>Page still under development.</p>
@@ -63,6 +71,7 @@ const ratios = [ 2.2, 4, 6, 8 ]
       {/* )} */} 
 
       
+    </div>
     </div>
   );
 };

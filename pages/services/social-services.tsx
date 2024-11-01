@@ -1,45 +1,54 @@
 import Image from 'next/image';
 import Button from '../../components/ServiceButton';
+import MetaHead from '../../components/MetaHead';
 
 const SocialServices: React.FC = () => {
   return (
-    <div style={socialServicesContainerStyle}>
-      <h1 style={titleStyle}>Social Services</h1>
-      <div style={contentWrapperStyle}>
-        <div style={textSectionStyle}>
-          <p>
-            At Gridley Post Acute, our Social Services team is dedicated to supporting residents and their families throughout the care journey. Our compassionate staff helps facilitate smooth transitions into our facility and back home, providing guidance, resources, and emotional support every step of the way.
-          </p>
-          <p>
-            Our services are tailored to meet each resident’s unique needs, ensuring a seamless integration into our community and helping them maintain meaningful connections with family and friends. We work closely with residents to address concerns, coordinate care, and assist in achieving personal goals.
-          </p>
-          <p>
-            <strong>Family involvement and emotional well-being:</strong> We understand the importance of family in the recovery process and encourage active family participation. Our goal is to provide a nurturing environment where residents feel empowered and supported.
-          </p>
-          <ul style={socialServicesListStyle}>
-            <li>Family counseling and support</li>
-            <li>Assistance with community resources</li>
-            <li>Coordination of discharge planning</li>
-            <li>Advocacy and resident rights support</li>
-            <li>Emotional and spiritual support services</li>
-          </ul>
-        </div>
-        <div style={imageSectionStyle}>
-          <Image
-            src="/images/social-services.jpg" // Replace with your actual image path
-            alt="Social Services"
-            width={400}
-            height={250}
-            style={imageStyle}
-          />
-        </div>
-      </div>
+    <div>
+       <MetaHead
+        title="Social Services - Gridley Post Acute"
+        description="Discover our comprehensive social services aimed at supporting residents and their families, ensuring a smooth transition and emotional well-being."
+        image="/images/gpa-front.jpg"
+        url={`${process.env.WEBSITE}/services/social-services`} />
 
-         {/* Back to Services Button */}
-         <div style={buttonContainerStyle}>
-        <Button text="Back to All Services" href="/services" />
-      </div>
+      <div style={socialServicesContainerStyle}>
+        <h1 style={titleStyle}>Social Services</h1>
+        <div style={contentWrapperStyle}>
+          <div style={textSectionStyle}>
+            <p>
+              At Gridley Post Acute, our Social Services team is dedicated to supporting residents and their families throughout the care journey. Our compassionate staff helps facilitate smooth transitions into our facility and back home, providing guidance, resources, and emotional support every step of the way.
+            </p>
+            <p>
+              Our services are tailored to meet each resident’s unique needs, ensuring a seamless integration into our community and helping them maintain meaningful connections with family and friends. We work closely with residents to address concerns, coordinate care, and assist in achieving personal goals.
+            </p>
+            <p>
+              <strong>Family involvement and emotional well-being:</strong> We understand the importance of family in the recovery process and encourage active family participation. Our goal is to provide a nurturing environment where residents feel empowered and supported.
+            </p>
+            <ul style={socialServicesListStyle}>
+              <li>Family counseling and support</li>
+              <li>Assistance with community resources</li>
+              <li>Coordination of discharge planning</li>
+              <li>Advocacy and resident rights support</li>
+              <li>Emotional and spiritual support services</li>
+            </ul>
+          </div>
+          <div style={imageSectionStyle}>
+            <Image
+              src="/images/social-services.jpg" // Replace with your actual image path
+              alt="Social Services"
+              width={400}
+              height={250}
+              style={imageStyle}
+            />
+          </div>
+        </div>
 
+        {/* Back to Services Button */}
+        <div style={buttonContainerStyle}>
+          <Button text="Back to All Services" href="/services" />
+        </div>
+
+      </div>
     </div>
   );
 };

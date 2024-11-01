@@ -1,10 +1,21 @@
 import Image from 'next/image';
 import Button from '../components/ServiceButton';
 import Link from 'next/link';
+import Head from 'next/head';
+import MetaHead from '../components/MetaHead';
 
 const Home: React.FC = () => {
   return (
     <div>
+
+      <MetaHead 
+        title="Gridley Post Acute | Skilled Nursing & Rehabilitation"
+        description="Gridley Post Acute provides compassionate and comprehensive 24-hour skilled nursing care and rehabilitation services. Learn why we're the only 5-star rated facility in Butte County."
+        image="/images/gpa-front.jpg" 
+        url={`${process.env.WEBSITE}`} />
+
+      
+
       {/* Hero Section */}
       <div style={heroContainerStyle}>
         <div style={heroContentStyle}>
@@ -18,25 +29,19 @@ const Home: React.FC = () => {
             />
           </div>
 
-          {/* <div>
-            <p><strong>Butte County's only 5 Star Facility</strong></p>
-            <div style={starsContainerStyle}>
-              ⭐⭐⭐⭐⭐
-            </div>
-          </div> */}
 
           <Image
-              src="/images/5star-banner3.png" 
-              alt="Gridley Post Acute Logo"
-              width={324}
-              height={111}
-              style={{ width: '60%', maxWidth: '400', height: 'auto' }}
-            />
+            src="/images/5star-banner3.png"
+            alt="Gridley Post Acute Logo"
+            width={324}
+            height={111}
+            style={{ width: '60%', maxWidth: '400', height: 'auto' }}
+          />
 
           <p>
             Providing 24-hour skilled nursing care with the highest standards of compassion and quality.
           </p>
-         
+
         </div>
         <Button text="Explore Our Services" href="/services" />
       </div>
@@ -67,9 +72,9 @@ const Home: React.FC = () => {
 
       {/* Contact and Facility Information Section */}
       <div style={contactFacilitySectionStyle}>
-        
+
         <div style={contactColumnStyle}>
-        <h3>Gridley Post Acute</h3>
+          <h3>Gridley Post Acute</h3>
           <Image
             src="/images/gpa-front.jpg"
             alt="Gridley Post Acute"
@@ -78,39 +83,39 @@ const Home: React.FC = () => {
             style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
 
           />
-          
+
           <p>
             Gridley Post Acute offers the specialized care you need after an illness or major medical event. Our focus is on helping you return home and get back to the activities you enjoy.
           </p>
         </div>
 
         <div style={contactColumnStyle}>
-        <Link href='/test'><h3>Why Choose Us?</h3></Link>
-        <br />
+          <Link href='/test'><h3>Why Choose Us?</h3></Link>
+          <br />
           <Image
             src="/images/logo2.png"
             alt="GPA Logo"
             width={400}
             height={137}
             style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
-      
+
           />
           <br />
-         
+
           <p>At Gridley Post Acute, we understand that choosing the right care facility for your loved one is an important decision. As the only 5-star rated facility in the Butte County area, we strive to go above and beyond to provide exceptional care and support to our residents. We don’t just meet the standards—we set them.</p>
         </div>
 
         <div style={contactColumnStyle}>
-        <p><strong>Butte County's only Five-Star Facility</strong></p>
+          <p><strong>Butte County's only Five-Star Facility</strong></p>
           <Image
             src="/images/cms-logo.png"
             alt="CMS Logo"
             width={400}
             height={222}
             style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
-           
+
           />
-          
+
           <p>CMS rates facilities from 1 to 5 stars, with <strong>5 being the highest score!</strong> Read more about CMS scores <Link href="/cms-score">here</Link></p>
           <p> Compare us to other facilities in the area <Link target='_blank' href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest">here</Link></p>
         </div>
@@ -190,7 +195,7 @@ const contactFacilitySectionStyle: React.CSSProperties = {
   padding: '50px 20px',
   background: 'linear-gradient(171deg, rgba(228,171,113,0.850577731092437) 0%, rgba(25,54,58,0) 100%)',
   flexWrap: 'wrap',
-  
+
 };
 
 const contactColumnStyle: React.CSSProperties = {
