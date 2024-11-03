@@ -21,7 +21,7 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <div style={heroContainerStyle}>
        
-        <div style={heroContentStyle}>
+        <div style={heroContentStyle} className='glass'>
           <div style={logoContainerStyle}>
             <Image
               src="/images/logo.jpg"
@@ -151,11 +151,11 @@ const heroContainerStyle: React.CSSProperties = {
 
 
 const heroContentStyle: React.CSSProperties = {
-  backgroundColor: 'rgba(0, 0, 0, 0.2)',
-  padding: '20px',
-  borderRadius: '10px',
-  width: '100%',
-  maxWidth: '600px',
+  // backgroundColor: 'rgba(0, 0, 0, 0.2)',
+  // padding: '20px',
+  // borderRadius: '10px',
+  // width: '100%',
+  // maxWidth: '600px',
 };
 
 const logoContainerStyle: React.CSSProperties = {
