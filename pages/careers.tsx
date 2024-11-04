@@ -186,7 +186,6 @@ const careersContainerStyle: React.CSSProperties = {
   margin: '0 auto',
   padding: '40px 20px',
   gap: '20px',
-  fontFamily: 'Arial, sans-serif',
   flexWrap: 'wrap',
 };
 
@@ -204,13 +203,12 @@ const careersImageStyle: React.CSSProperties = {
 };
 
 const careersMessageStyle: React.CSSProperties = {
-  fontSize: '1.1rem',
   margin: '20px 0',
   lineHeight: '1.6',
 };
 
 const jobOpportunitiesStyle: React.CSSProperties = {
-  marginTop: '20px',
+  margin: '20px',
   fontSize: '1rem',
 };
 

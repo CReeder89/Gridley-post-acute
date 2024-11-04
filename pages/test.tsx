@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';
+import TheSwiper from '../components/Swiper';
 
 const WhyChooseUs: React.FC = () => {
   return (
@@ -42,13 +43,17 @@ const WhyChooseUs: React.FC = () => {
             <li>Friendly, experienced staff</li>
             <li>Comfortable, state-of-the-art facilities</li>
           </ul>
-          <Image
+
+          <div style={{width:'300px',  margin: '0 auto', borderRadius: '10px', overflow: 'hidden'}}>
+          <TheSwiper />
+          </div>
+          {/* <Image
             src="/images/gpa-front.jpg" // Replace with your actual image
             alt="Gridley Post Acute Interior"
             width={300}
             height={200}
             style={imageStyle}
-          />
+          /> */}
         </div>
       </div>
     </div>
@@ -62,10 +67,9 @@ const containerStyle: React.CSSProperties = {
   padding: '20px',
 };
 
+
 const titleStyle: React.CSSProperties = {
-  fontSize: '2.5rem',
-  color: '#2c3e50',
-  marginBottom: '20px',
+  marginBottom: '30px',
   textAlign: 'center',
 };
 
@@ -98,27 +102,22 @@ const rightContentStyle: React.CSSProperties = {
 };
 
 const subtitleStyle: React.CSSProperties = {
-  fontSize: '1.8rem',
-  color: '#2c3e50',
+
   marginBottom: '10px',
 };
 
 const paragraphStyle: React.CSSProperties = {
-  fontSize: '1.1rem',
   lineHeight: '1.6',
   color: '#333',
   marginBottom: '20px',
 };
 
 const sidebarTitleStyle: React.CSSProperties = {
-  fontSize: '1.5rem',
-  color: '#2c3e50',
   marginBottom: '20px',
   textAlign: 'center',
 };
 
 const listStyle: React.CSSProperties = {
-  fontSize: '1.1rem',
   lineHeight: '1.6',
   color: '#333',
   paddingLeft: '20px',
@@ -126,16 +125,19 @@ const listStyle: React.CSSProperties = {
   marginBottom: '20px',
 };
 
-const imageStyle: React.CSSProperties = {
-  borderRadius: '8px',
-  objectFit: 'cover',
-  display: 'block',
-  margin: '0 auto',
-};
+// const imageStyle: React.CSSProperties = {
+//   borderRadius: '8px',
+//   objectFit: 'cover',
+//   display: 'block',
+//   margin: '0 auto',
+// };
 
 const linkStyle: React.CSSProperties = {
   color: '#0066cc',
   textDecoration: 'underline',
 };
+
+
+
 
 export default WhyChooseUs;

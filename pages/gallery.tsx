@@ -40,7 +40,7 @@ const ratios = [ 2.2, 4, 6, 8 ]
         url={`${process.env.WEBSITE}/gallery`} />
 
     <div style={galleryContainerStyle}>
-      <h1>Gallery</h1>
+      <h1 style={titleStyle}>Gallery</h1>
       <p>Page still under development.</p>
       
      
@@ -78,11 +78,9 @@ const ratios = [ 2.2, 4, 6, 8 ]
 
 // Styles
 const galleryContainerStyle: React.CSSProperties = {
-  padding: '40px 20px',
-  backgroundColor: 'white',
-  borderRadius: '10px',
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-  margin: '20px 0',
+  maxWidth: '1200px',
+  margin: '0 auto',
+  padding: '20px',
 };
 
 const gridStyle: React.CSSProperties = {
@@ -91,6 +89,10 @@ const gridStyle: React.CSSProperties = {
   //gridTemplateColumns: 'repeat(4, 1fr)', // Set 4 columns for larger screens
   gap: '20px',
   alignItems: 'center',
+};
+const titleStyle: React.CSSProperties = {
+  textAlign: 'center',
+  marginBottom: '30px'
 };
 
 const modalOverlayStyle: React.CSSProperties = {

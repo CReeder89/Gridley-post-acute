@@ -92,15 +92,11 @@ const servicesContainerStyle: React.CSSProperties = {
   margin: '0 auto',
   padding: '40px 20px',
   lineHeight: '1.6',
-  fontFamily: 'Arial, sans-serif',
 };
 
 const pageTitleStyle: React.CSSProperties = {
   textAlign: 'center',
-  fontSize: '2.5rem',
-  color: '#2c3e50',
-  marginBottom: '40px',
-  fontWeight: 'bold',
+  marginBottom: '30px',
 };
 
 const serviceSectionStyle: React.CSSProperties = {
@@ -123,14 +119,11 @@ const serviceContentStyle: React.CSSProperties = {
 };
 
 const serviceTitleStyle: React.CSSProperties = {
-  fontSize: '2rem',
-  color: '#2c3e50',
   marginBottom: '15px',
   textDecoration: 'none',
 };
 
 const serviceDescriptionStyle: React.CSSProperties = {
-  fontSize: '1.1rem',
   color: '#333',
 };
 

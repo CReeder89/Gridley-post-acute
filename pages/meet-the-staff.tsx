@@ -94,13 +94,11 @@ const containerStyle: React.CSSProperties = {
   maxWidth: '1200px',
   margin: '0 auto',
   padding: '20px',
-  fontFamily: 'Arial, sans-serif',
 };
 
 const pageTitleStyle: React.CSSProperties = {
-  fontSize: '3rem',
   textAlign: 'center',
-  marginBottom: '40px',
+  marginBottom: '30px',
 };
 
 const staffGridStyle: React.CSSProperties = {
@@ -136,12 +134,10 @@ const staffTitleStyle: React.CSSProperties = {
 };
 
 const staffDescriptionStyle: React.CSSProperties = {
-  fontSize: '1rem',
   color: '#333',
 };
 
 const groupTitleStyle: React.CSSProperties = {
-  fontSize: '2rem',
   textAlign: 'center',
   marginBottom: '30px',
 };

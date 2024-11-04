@@ -181,7 +181,6 @@ const contactContainerStyle: React.CSSProperties = {
   margin: '0 auto',
   padding: '40px 20px',
   gap: '20px',
-  fontFamily: 'Arial, sans-serif',
   flexWrap: 'wrap',
 };
 
@@ -199,7 +198,6 @@ const contactImageStyle: React.CSSProperties = {
 };
 
 const contactMessageStyle: React.CSSProperties = {
-  fontSize: '1.1rem',
   margin: '20px 0',
   lineHeight: '1.6',
 };

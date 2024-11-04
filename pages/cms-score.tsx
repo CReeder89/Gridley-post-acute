@@ -84,14 +84,13 @@ const containerStyle: React.CSSProperties = {
   maxWidth: '1200px',
   margin: '0 auto',
   padding: '20px',
-  fontFamily: 'Arial, sans-serif',
 };
 
 const titleStyle: React.CSSProperties = {
-  fontSize: '3rem',
+ 
   textAlign: 'center',
-  marginBottom: '40px',
-  color: '#2c3e50',
+  marginBottom: '30px',
+
 };
 
 const sectionStyle: React.CSSProperties = {
@@ -99,9 +98,7 @@ const sectionStyle: React.CSSProperties = {
 };
 
 const sectionTitleStyle: React.CSSProperties = {
-  fontSize: '2rem',
   marginBottom: '20px',
-  color: '#2c3e50',
 };
 
 const subTitleStyle: React.CSSProperties = {
@@ -111,14 +108,12 @@ const subTitleStyle: React.CSSProperties = {
 };
 
 const textStyle: React.CSSProperties = {
-  fontSize: '1.1rem',
   color: '#333',
   lineHeight: '1.8',
 };
 
 const listStyle: React.CSSProperties = {
   paddingLeft: '20px',
-  fontSize: '1.1rem',
   lineHeight: '1.8',
   color: '#333',
 };

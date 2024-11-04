@@ -83,7 +83,7 @@ const aboutContainerStyle: React.CSSProperties = {
   maxWidth: '1200px',
   margin: '0 auto',
   padding: '20px',
-  fontFamily: 'Arial, sans-serif',
+
 };
 
 const aboutSectionStyle: React.CSSProperties = {
@@ -91,8 +91,7 @@ const aboutSectionStyle: React.CSSProperties = {
 };
 
 const aboutTitleStyle: React.CSSProperties = {
-  fontSize: '3rem',
-  color: '#2c3e50',
+  textAlign: 'center',
   marginBottom: '30px',
 };
 
@@ -106,7 +105,6 @@ const aboutContentStyle: React.CSSProperties = {
 const aboutTextStyle: React.CSSProperties = {
   flex: 1,
   marginRight: '20px',
-  fontSize: '1.1rem',
   lineHeight: '1.6',
   color: '#333',
 };
@@ -126,14 +124,12 @@ const quickFactsSectionStyle: React.CSSProperties = {
 };
 
 const quickFactsTitleStyle: React.CSSProperties = {
-  fontSize: '2rem',
-  color: '#2c3e50',
+  
   marginBottom: '20px',
 };
 
 const quickFactsListStyle: React.CSSProperties = {
   listStyleType: 'circle',
-  fontSize: '1.1rem',
   lineHeight: '1.6',
   color: '#333',
   paddingLeft: '20px',
@@ -146,19 +142,15 @@ const cmsSectionStyle: React.CSSProperties = {
 };
 
 const cmsTitleStyle: React.CSSProperties = {
-  fontSize: '2rem',
-  color: '#2c3e50',
   marginBottom: '10px',
 };
 
 const cmsTextStyle: React.CSSProperties = {
-  fontSize: '1.1rem',
   lineHeight: '1.6',
   color: '#333',
 };
 
 const cmsLinkStyle: React.CSSProperties = {
-  fontSize: '1.1rem',
   color: '#0066cc',
   textDecoration: 'underline',
 };

@@ -78,8 +78,9 @@ const TheSwiper: React.FC = () => {
       modules={[Autoplay, Navigation]}
       className="mySwiper"
     >
+       
       {testimonials.map((testimonial, index) => (
-        <SwiperSlide key={index}>
+        <SwiperSlide key={index} >
           <div style={{ textAlign: 'center', marginBottom: '10px' }}>
             <Image
               src={testimonial.avatar}
@@ -89,7 +90,7 @@ const TheSwiper: React.FC = () => {
               style={{ borderRadius: '50%' }} // Make the image round
             />
           </div>
-          <p style={{ fontStyle: 'italic', fontSize: '1.2rem', marginBottom: '5px', textAlign: 'center' }}>
+          <p style={{ fontStyle: 'italic', fontSize: '1.1rem', marginBottom: '5px', textAlign: 'center' }}>
             "{testimonial.quote}"
           </p>
           <span style={{ display: 'block', fontWeight: 'bold', fontSize: '1rem', color: '#fff', textAlign: 'center' }}>
@@ -104,7 +105,8 @@ const TheSwiper: React.FC = () => {
 const swiperStyles: React.CSSProperties & { [key: string]: string } = {
   '--swiper-navigation-color': '#fff',
   '--swiper-pagination-color': '#fff',
-  zIndex: '0'
+  zIndex: '0',
+  minHeight:'400px'
 };
 
 export default TheSwiper;

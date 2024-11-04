@@ -112,7 +112,7 @@ const Home: React.FC = () => {
         </div>
 
         <div style={contactColumnStyle}>
-          <p><strong>Butte County's only Five-Star Facility</strong></p>
+          <h3>Butte County's only Five-Star Facility</h3>
           <Image
             src="/images/cms-logo.png"
             alt="CMS Logo"
@@ -173,8 +173,6 @@ const servicesSectionStyle: React.CSSProperties = {
   padding: '50px 20px',
   backgroundColor: 'rgba(255, 240, 212, 0.3)',
   flexWrap: 'wrap',
-  // borderTop: '10px solid #d1d1d1',
-  // borderBottom: '10px solid #d1d1d1',
 };
 
 const serviceColumnStyle: React.CSSProperties = {
@@ -190,9 +188,7 @@ const serviceColumnStyle: React.CSSProperties = {
 };
 
 const serviceTitleStyle: React.CSSProperties = {
-  fontSize: '1.5rem',
   marginBottom: '10px',
-  color: '#2c3e50',
 };
 
 const contactFacilitySectionStyle: React.CSSProperties = {
@@ -213,16 +209,6 @@ const contactColumnStyle: React.CSSProperties = {
   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   borderRadius: '10px',
   backgroundColor: '#fff',
-};
-
-const facilityImageStyle: React.CSSProperties = {
-  borderRadius: '8px',
-};
-
-const starsContainerStyle: React.CSSProperties = {
-  fontSize: '3rem',
-  color: '#f39c12',
-  marginTop: '10px',
 };
 
 // Media queries for responsive adjustments

@@ -28,7 +28,6 @@ const cardStyle: React.CSSProperties = {
 };
 
 const testimonialTextStyle: React.CSSProperties = {
-  fontSize: '1.1rem',
   color: '#333',
   marginBottom: '10px',
 };

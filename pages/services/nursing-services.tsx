@@ -97,7 +97,6 @@ const containerStyle: React.CSSProperties = {
   maxWidth: '1200px',
   margin: '0 auto',
   padding: '20px',
-  fontFamily: 'Arial, sans-serif',
 };
 
 const titleSectionStyle: React.CSSProperties = {
@@ -105,8 +104,6 @@ const titleSectionStyle: React.CSSProperties = {
 };
 
 const titleStyle: React.CSSProperties = {
-  fontSize: '3rem',
-  color: '#2c3e50',
   marginBottom: '30px',
   textAlign: 'center'
 };
@@ -121,7 +118,6 @@ const contentStyle: React.CSSProperties = {
 const descriptionStyle: React.CSSProperties = {
   flex: 1,
   marginRight: '20px',
-  fontSize: '1.1rem',
   lineHeight: '1.6',
   color: '#333',
 };
@@ -141,13 +137,11 @@ const sectionStyle: React.CSSProperties = {
 };
 
 const sectionTitleStyle: React.CSSProperties = {
-  fontSize: '2rem',
-  color: '#2c3e50',
+
   marginBottom: '15px',
 };
 
 const sectionTextStyle: React.CSSProperties = {
-  fontSize: '1.1rem',
   lineHeight: '1.6',
   color: '#333',
 };
@@ -155,7 +149,6 @@ const sectionTextStyle: React.CSSProperties = {
 const listStyle: React.CSSProperties = {
   listStyleType: 'circle',
   paddingLeft: '20px',
-  fontSize: '1.1rem',
   lineHeight: '1.6',
   color: '#333',
 };
