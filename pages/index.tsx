@@ -4,23 +4,26 @@ import Link from 'next/link';
 import Head from 'next/head';
 import MetaHead from '../components/MetaHead';
 import TheSwiper from '../components/Swiper';
+import NordicWalkingIcon from '@mui/icons-material/NordicWalking';
+import ElderlyWomanIcon from '@mui/icons-material/ElderlyWoman';
+import ElderlyIcon from '@mui/icons-material/Elderly';
 
 
 const Home: React.FC = () => {
   return (
     <div>
 
-      <MetaHead 
+      <MetaHead
         title="Gridley Post Acute | Skilled Nursing & Rehabilitation"
         description="Gridley Post Acute provides compassionate and comprehensive 24-hour skilled nursing care and rehabilitation services. Learn why we're the only 5-star rated facility in Butte County."
-        image="/images/gpa-front.jpg" 
+        image="/images/gpa-front.jpg"
         url={`${process.env.WEBSITE}`} />
 
-      
+
 
       {/* Hero Section */}
       <div style={heroContainerStyle}>
-       
+
         <div style={heroContentStyle} className='glass'>
           <div style={logoContainerStyle}>
             <Image
@@ -47,36 +50,120 @@ const Home: React.FC = () => {
 
         </div>
         <Button text="Explore Our Services" href="/services" />
-        
+
       </div>
 
-      <TheSwiper />
+
+      {/* Rehab Section */}
+
+      <div style={heroContainerStyle2}>
+
+        <h1 style={{color:'#fff'}}>REHABILITATION THERAPY</h1>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'center' }} >
+          <div style={rehabColumnStyle}>
+            <NordicWalkingIcon style={{ width: '50%', maxWidth: 'full', height: 'auto' }} />
+            <h3 style={{ color: '#fff' }}>Physical Therapy</h3>
+          </div>
+
+          <div style={rehabColumnStyle}>
+            <ElderlyWomanIcon style={{ width: '50%', maxWidth: 'full', height: 'auto' }} />
+            <h3 style={{ color: '#fff' }}>Occupational Therapy</h3>
+          </div>
+
+          <div style={rehabColumnStyle}>
+            <ElderlyIcon style={{ width: '50%', maxWidth: 'full', height: 'auto' }} />
+            <h3 style={{ color: '#fff' }}>Speech Therapy</h3>
+          </div>
+        </div>
+
+        <div style={{ width: '80%' }}>
+          <p>The Gridley Post Acute strives to provide our residents with the best quality care; part of that is providing rehabilitation services. The goal is to decrease the length of stay where possible by tailoring rehab services to meet each of our residents' needs and maximizing each resident's independence and capabilities before being discharged.</p>
+        </div>
+
+        <Button text="THERAPY" href="/services/rehabilitation-services" />
+
+      </div>
+
+
 
       {/* Services Section */}
-      <div style={servicesSectionStyle}>
-        <div style={serviceColumnStyle}>
-          <h2 style={serviceTitleStyle}>Activities</h2>
-          <p>
-            Our activities program promotes patient well-being by providing engaging and therapeutic experiences, fostering social connections, and enhancing overall physical and mental health for a fulfilling and enriching stay.
-          </p>
+
+      <div style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', alignItems:'center', justifyContent: 'center', background: '#fff', textAlign: 'center',}}>
+
+        <h1 style={{marginTop: '30px'}}>Your Health, Our Mission</h1>
+
+        <div style={{width:'80%'}}>
+          <p>At Gridley Post Acute, our mission is to provide compassionate, high-quality care that enhances the well-being and independence of our residents. We are dedicated to creating a warm, supportive environment where healing and quality of life are our top priorities.</p>
+        </div>
+        <div style={servicesSectionStyle}>
+
+
+
+          <div style={serviceColumnStyle}>
+
+            <div style={{ display: 'flex', justifyContent:'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
+              <Image
+                src="/images/activities.jpg"
+                alt="Gridley Post Acute"
+                width={400}
+                height={250}
+                style={{ width: 'auto', maxWidth: 'full', height: 'full' }} />
+            </div>
+
+            <h3 style={serviceTitleStyle}>Activities</h3>
+            <p>
+              Our engaging activities program promotes physical and mental well-being, fostering social connections and creating a vibrant, fulfilling environment for our residents.          </p>
+          </div>
+
+          <div style={serviceColumnStyle}>
+            <div style={{display: 'flex', justifyContent:'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
+              <Image
+                src="/images/cna-group1.jpg"
+                alt="Gridley Post Acute"
+                width={400}
+                height={250}
+                style={{ width: 'auto', maxWidth: 'full', height: 'full', }} />
+            </div>
+            <h3 style={serviceTitleStyle}>Skilled Nursing</h3>
+            <p>
+              Our skilled nursing team delivers 24/7 comprehensive care, ensuring that each resident receives personalized treatment and support for optimal recovery and well-being.          </p>
+          </div>
+
+          <div style={serviceColumnStyle}>
+            <div style={{ display: 'flex', justifyContent:'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
+              <Image
+                src="/images/post-acute.jpg"
+                alt="Gridley Post Acute"
+                width={400}
+                height={250}
+                style={{ width: 'auto', maxWidth: 'full', height: 'full' }} />
+            </div>
+            <h3 style={serviceTitleStyle}>Post Acute Care</h3>
+            <p>
+              We offer specialized post-acute care designed to support a smooth transition from hospital to home, with tailored rehabilitation programs that enhance recovery and independence.          </p>
+          </div>
+
+
+          <div style={serviceColumnStyle}>
+            <div style={{ display: 'flex', justifyContent:'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
+              <Image
+                src="/images/social-services.jpg"
+                alt="Gridley Post Acute"
+                width={400}
+                height={250}
+                style={{ width: 'auto', maxWidth: 'full', height: 'full', }} />
+            </div>
+            <h3 style={serviceTitleStyle}>Social Services</h3>
+            <p>
+              Our dedicated social services team works closely with residents and families to provide personalized support, assisting with care planning, emotional well-being, and a seamless return to the community.          </p>
+          </div>
         </div>
 
-        <div style={serviceColumnStyle}>
-          <h2 style={serviceTitleStyle}>Rehabilitation</h2>
-          <p>
-            Our rehabilitation team offers Physical, Occupational, and Speech Therapy to support your recovery and help improve mobility, build strength, enhance coordination, and restore independence in daily activities.
-          </p>
-        </div>
-
-        <div style={serviceColumnStyle}>
-          <h2 style={serviceTitleStyle}>Respiratory Health</h2>
-          <p>
-            Our Respiratory Therapy services provide comprehensive support for patients recovering from respiratory conditions or surgeries, ensuring they regain optimal lung function and overall health.
-          </p>
-        </div>
       </div>
 
-      
+
+      <TheSwiper />
 
       {/* Contact and Facility Information Section */}
       <div style={contactFacilitySectionStyle}>
@@ -88,7 +175,7 @@ const Home: React.FC = () => {
             alt="Gridley Post Acute"
             width={400}
             height={250}
-            style={{ width: '100%', maxWidth: 'full', height: 'auto' }}/>
+            style={{ width: '100%', maxWidth: 'full', height: 'auto' }} />
 
           <p>
             Gridley Post Acute offers the specialized care you need after an illness or major medical event. Our focus is on helping you return home and get back to the activities you enjoy.
@@ -103,9 +190,7 @@ const Home: React.FC = () => {
             alt="GPA Logo"
             width={400}
             height={137}
-            style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
-
-          />
+            style={{ width: '100%', maxWidth: 'full', height: 'auto' }} />
           <br />
 
           <p>At Gridley Post Acute, we understand that choosing the right care facility for your loved one is an important decision. As the only 5-star rated facility in the Butte County area, we strive to go above and beyond to provide exceptional care and support to our residents. We don’t just meet the standards—we set them.</p>
@@ -147,6 +232,31 @@ const heroContainerStyle: React.CSSProperties = {
   padding: '20px',
   flexDirection: 'column'
 };
+const heroContainerStyle2: React.CSSProperties = {
+  width: '100%',
+  minHeight: '60vh',
+  backgroundImage: 'url("/images/buttes.jpg")',
+  backgroundSize: 'cover',
+  backgroundPosition: 'bottom',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: '#fff',
+  textAlign: 'center',
+  alignContent: 'center',
+  padding: '20px',
+  flexWrap: 'wrap',
+  flexDirection: 'column'
+};
+
+const rehabColumnStyle: React.CSSProperties = {
+
+  maxWidth: '400px',
+  margin: '10px',
+  textAlign: 'center',
+  padding: '20px',
+
+};
 
 
 
@@ -171,7 +281,7 @@ const servicesSectionStyle: React.CSSProperties = {
   display: 'flex',
   justifyContent: 'space-around',
   padding: '50px 20px',
-  backgroundColor: 'rgba(255, 240, 212, 0.3)',
+  backgroundColor: '#fff',
   flexWrap: 'wrap',
 };
 
@@ -180,15 +290,16 @@ const serviceColumnStyle: React.CSSProperties = {
   minWidth: '300px',
   maxWidth: 'auto',
   margin: '5px 10px',
-  textAlign: 'center',
+  textAlign: 'left',
   padding: '20px',
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-  borderRadius: '10px',
-  backgroundColor: '#fff',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
 };
 
 const serviceTitleStyle: React.CSSProperties = {
   marginBottom: '10px',
+  marginTop: '10px'
 };
 
 const contactFacilitySectionStyle: React.CSSProperties = {
