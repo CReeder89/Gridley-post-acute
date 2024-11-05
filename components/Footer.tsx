@@ -17,9 +17,9 @@ const Footer: React.FC = () => {
           <h3 style={footerSectionTitle}>Services</h3>
           <ul style={listStyle}>
             <li><Link href="/services/post-acute-care" style={linkStyle}>Post-Acute Care</Link></li>
-            <li><Link href="/services/skilled-nursing" style={linkStyle}>Skilled Nursing</Link></li>
-            <li><Link href="/services/rehabilitation" style={linkStyle}>Rehabilitation</Link></li>
-            <li><Link href="/services/activities" style={linkStyle}>Activities</Link></li>
+            <li><Link href="/services/nursing-services" style={linkStyle}>Skilled Nursing</Link></li>
+            <li><Link href="/services/rehabilitation-services" style={linkStyle}>Rehabilitation</Link></li>
+            <li><Link href="/services/activities-program" style={linkStyle}>Activities</Link></li>
             <li><Link href="/services/social-services" style={linkStyle}>Social Services</Link></li>
           </ul>
         </div>
