@@ -6,14 +6,9 @@ export default function Document() {
       <Head>
         {/* Google Fonts - Roboto */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        />
-
-
-
-        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet" />
-
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+          
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet" />
 
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
