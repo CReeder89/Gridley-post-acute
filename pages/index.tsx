@@ -53,12 +53,87 @@ const Home: React.FC = () => {
 
       </div>
 
+      {/* Services Section */}
+
+      <div style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', alignItems: 'center', justifyContent: 'center', background: '#fff', textAlign: 'center', }}>
+
+        <h1 style={{ marginTop: '30px' }}>Your Health, Our Mission</h1>
+
+        <div style={{ width: '80%' }}>
+          <p>At Gridley Post Acute, our mission is to provide compassionate, high-quality care that enhances the well-being and independence of our residents. We are dedicated to creating a warm, supportive environment where healing and quality of life are our top priorities.</p>
+        </div>
+        <div style={servicesSectionStyle}>
+
+
+
+          <div style={serviceColumnStyle}>
+
+            <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
+              <Image
+                src="/images/activities.jpg"
+                alt="Gridley Post Acute"
+                width={400}
+                height={250}
+                style={{ width: 'auto', maxWidth: 'full', height: 'full' }} />
+            </div>
+
+            <h3 style={serviceTitleStyle}>Activities</h3>
+            <p>
+              Our engaging activities program promotes physical and mental well-being, fostering social connections and creating a vibrant, fulfilling environment for our residents.          </p>
+          </div>
+
+          <div style={serviceColumnStyle}>
+            <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
+              <Image
+                src="/images/cna-group1.jpg"
+                alt="Gridley Post Acute"
+                width={400}
+                height={250}
+                style={{ width: 'auto', maxWidth: 'full', height: 'full', }} />
+            </div>
+            <h3 style={serviceTitleStyle}>Skilled Nursing</h3>
+            <p>
+              Our skilled nursing team delivers 24/7 comprehensive care, ensuring that each resident receives personalized treatment and support for optimal recovery and well-being.          </p>
+          </div>
+
+          <div style={serviceColumnStyle}>
+            <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
+              <Image
+                src="/images/post-acute.jpg"
+                alt="Gridley Post Acute"
+                width={400}
+                height={250}
+                style={{ width: 'auto', maxWidth: 'full', height: 'full' }} />
+            </div>
+            <h3 style={serviceTitleStyle}>Post Acute Care</h3>
+            <p>
+              We offer specialized post-acute care designed to support a smooth transition from hospital to home, with tailored rehabilitation programs that enhance recovery and independence.          </p>
+          </div>
+
+
+          <div style={serviceColumnStyle}>
+            <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
+              <Image
+                src="/images/social-services.jpg"
+                alt="Gridley Post Acute"
+                width={400}
+                height={250}
+                style={{ width: 'auto', maxWidth: 'full', height: 'full', }} />
+            </div>
+            <h3 style={serviceTitleStyle}>Social Services</h3>
+            <p>
+              Our dedicated social services team works closely with residents and families to provide personalized support, assisting with care planning, emotional well-being, and a seamless return to the community.          </p>
+          </div>
+        </div>
+
+      </div>
+
 
       {/* Rehab Section */}
 
       <div style={heroContainerStyle2}>
 
-        <h1 style={{color:'#fff'}}>REHABILITATION THERAPY</h1>
+        <h1 style={{ color: '#fff' }}>REHABILITATION THERAPY</h1>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'center' }} >
           <div style={rehabColumnStyle}>
@@ -86,81 +161,6 @@ const Home: React.FC = () => {
       </div>
 
 
-
-      {/* Services Section */}
-
-      <div style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', alignItems:'center', justifyContent: 'center', background: '#fff', textAlign: 'center',}}>
-
-        <h1 style={{marginTop: '30px'}}>Your Health, Our Mission</h1>
-
-        <div style={{width:'80%'}}>
-          <p>At Gridley Post Acute, our mission is to provide compassionate, high-quality care that enhances the well-being and independence of our residents. We are dedicated to creating a warm, supportive environment where healing and quality of life are our top priorities.</p>
-        </div>
-        <div style={servicesSectionStyle}>
-
-
-
-          <div style={serviceColumnStyle}>
-
-            <div style={{ display: 'flex', justifyContent:'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
-              <Image
-                src="/images/activities.jpg"
-                alt="Gridley Post Acute"
-                width={400}
-                height={250}
-                style={{ width: 'auto', maxWidth: 'full', height: 'full' }} />
-            </div>
-
-            <h3 style={serviceTitleStyle}>Activities</h3>
-            <p>
-              Our engaging activities program promotes physical and mental well-being, fostering social connections and creating a vibrant, fulfilling environment for our residents.          </p>
-          </div>
-
-          <div style={serviceColumnStyle}>
-            <div style={{display: 'flex', justifyContent:'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
-              <Image
-                src="/images/cna-group1.jpg"
-                alt="Gridley Post Acute"
-                width={400}
-                height={250}
-                style={{ width: 'auto', maxWidth: 'full', height: 'full', }} />
-            </div>
-            <h3 style={serviceTitleStyle}>Skilled Nursing</h3>
-            <p>
-              Our skilled nursing team delivers 24/7 comprehensive care, ensuring that each resident receives personalized treatment and support for optimal recovery and well-being.          </p>
-          </div>
-
-          <div style={serviceColumnStyle}>
-            <div style={{ display: 'flex', justifyContent:'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
-              <Image
-                src="/images/post-acute.jpg"
-                alt="Gridley Post Acute"
-                width={400}
-                height={250}
-                style={{ width: 'auto', maxWidth: 'full', height: 'full' }} />
-            </div>
-            <h3 style={serviceTitleStyle}>Post Acute Care</h3>
-            <p>
-              We offer specialized post-acute care designed to support a smooth transition from hospital to home, with tailored rehabilitation programs that enhance recovery and independence.          </p>
-          </div>
-
-
-          <div style={serviceColumnStyle}>
-            <div style={{ display: 'flex', justifyContent:'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
-              <Image
-                src="/images/social-services.jpg"
-                alt="Gridley Post Acute"
-                width={400}
-                height={250}
-                style={{ width: 'auto', maxWidth: 'full', height: 'full', }} />
-            </div>
-            <h3 style={serviceTitleStyle}>Social Services</h3>
-            <p>
-              Our dedicated social services team works closely with residents and families to provide personalized support, assisting with care planning, emotional well-being, and a seamless return to the community.          </p>
-          </div>
-        </div>
-
-      </div>
 
 
       <TheSwiper />

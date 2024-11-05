@@ -33,8 +33,6 @@ const Footer: React.FC = () => {
             <li><Link href="/meet-the-staff" style={linkStyle}>Our Staff</Link></li>
             <li><Link href="/gallery" style={linkStyle}>Gallery</Link></li>
             <li><Link href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest" target="_blank" style={linkStyle}>Medicare.gov comparison page</Link></li>
-            {/* <li><Link href="/financial-info" style={linkStyle}>Financial Information</Link></li> */}
-            {/* <li><Link href="/links" style={linkStyle}>Links</Link></li> */}
           </ul>
         </div>
 
@@ -42,8 +40,8 @@ const Footer: React.FC = () => {
         <div style={{...footerSection, background: '#4F4F50'}}>
           <h3 style={footerSectionTitle}>Contact Us</h3>
           <p><strong>Address:</strong> Gridley Post Acute, 246 Spruce Street, Gridley, CA 95948</p>
-          <p><strong>Phone:</strong> </p>
-          <p><strong>Email:</strong> <a href="mailto:gridleyinfo@westharborhc.com" style={linkStyle}>gridleyinfo@westharborhc.com</a></p>
+          <p>Phone: (530) 456-0400</p>
+          <p><strong>Email:</strong> <Link href="mailto:gridleyinfo@westharborhc.com" style={linkStyle}>gridleyinfo@westharborhc.com</Link></p>
         </div>
       </div>
 
@@ -97,7 +95,7 @@ const linkStyle: React.CSSProperties = {
   color: '#ecf0f1',
   textDecoration: 'none',
   fontSize: '0.9rem',
-  display: 'block',
+ 
   margin: '5px 0',
 };
 
