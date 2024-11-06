@@ -219,7 +219,7 @@ const Home: React.FC = () => {
 
 const heroContainerStyle: React.CSSProperties = {
   width: '100%',
-  minHeight: '100vh',
+  minHeight: '60vh',
   backgroundImage: 'url("/images/hero-banner2.jpg")',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
