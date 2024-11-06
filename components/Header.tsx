@@ -14,14 +14,14 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="header">
+    <header className="header" role="banner">
       <div className="header-content">
         {/* Logo */}
         <div className="logo-container">
           <Link href="/">
             <Image
               src="/images/logo.jpg"
-              alt="Gridley Post Acute"
+              alt="Gridley Post Acute Logo"
               width={200}
               height={66}
               className="logo"
@@ -30,35 +30,98 @@ const Header: React.FC = () => {
         </div>
 
         {/* Hamburger Icon */}
-        <div className="hamburger" onClick={toggleMobileMenu}>
+        <button
+          className="hamburger"
+          onClick={toggleMobileMenu}
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="primary-navigation"
+        >
           <div className="bar"></div>
           <div className="bar"></div>
           <div className="bar"></div>
-        </div>
+        </button>
 
-        {/* Navigation Links (desktop & mobile) */}
-        <nav className={`nav ${isMobileMenuOpen ? 'open' : ''}`}>
-          <Link href="/" onClick={closeMobileMenu}>Home</Link>
+        {/* Navigation Links */}
+        <nav
+          id="primary-navigation"
+          className={`nav ${isMobileMenuOpen ? 'open' : ''}`}
+          role="navigation"
+          aria-label="Main Navigation"
+        >
+          <Link  href="/" onClick={closeMobileMenu}>
+            Home
+          </Link>
           {/* Services Dropdown */}
-          <div className="dropdown-container">
-            <Link href="/services" onClick={closeMobileMenu}>Services</Link>
-            <div className="dropdown-menu">
-              <Link href="/services/nursing-services" onClick={closeMobileMenu}>Nursing Services</Link>
-              <Link href="/services/rehabilitation-services" onClick={closeMobileMenu}>Rehabilitation Services</Link>
-              <Link href="/services/post-acute-care" onClick={closeMobileMenu}>Post-Acute Care</Link>
-              <Link href="/services/activities-program" onClick={closeMobileMenu}>Activities Program</Link>
-              <Link href="/services/social-services" onClick={closeMobileMenu}>Social Services</Link>
+          <div  className="dropdown-container" role="menu">
+            <Link
+              href="/services"
+              onClick={closeMobileMenu}
+              aria-haspopup="true"
+              aria-expanded={isMobileMenuOpen}
+            >
+              Services
+            </Link>
+            <div className="dropdown-menu" role="menu">
+              <Link href="/services/nursing-services" onClick={closeMobileMenu}>
+                Nursing Services
+              </Link>
+              <Link href="/services/rehabilitation-services" onClick={closeMobileMenu}>
+                Rehabilitation Services
+              </Link>
+              <Link href="/services/post-acute-care" onClick={closeMobileMenu}>
+                Post-Acute Care
+              </Link>
+              <Link href="/services/activities-program" onClick={closeMobileMenu}>
+                Activities Program
+              </Link>
+              <Link href="/services/social-services" onClick={closeMobileMenu}>
+                Social Services
+              </Link>
             </div>
           </div>
-          <Link href="/about-us" onClick={closeMobileMenu}>About Us</Link>
-          <Link href="/meet-the-staff" onClick={closeMobileMenu}>Our Staff</Link>
-          <Link href="/gallery" onClick={closeMobileMenu}>Gallery</Link>
-          <Link href="/careers" onClick={closeMobileMenu}>Careers</Link>
-          <Link href="/contact-us" onClick={closeMobileMenu}>Contact Us</Link>
+
+          
+          <Link  href="/about-us" onClick={closeMobileMenu}>
+            About Us
+          </Link>
+        
+
+          <Link  href="/meet-the-staff" onClick={closeMobileMenu}>
+            Our Staff
+          </Link>
+
+          <Link  href="/gallery" onClick={closeMobileMenu}>
+            Gallery
+          </Link>
+
+          <Link  href="/careers" onClick={closeMobileMenu}>
+            Careers
+          </Link>
+
+          <Link  href="/contact-us" onClick={closeMobileMenu}>
+            Contact Us
+          </Link>
+
         </nav>
       </div>
     </header>
   );
 };
+
+const navButton: React.CSSProperties = {
+
+  padding: '10px 20px',
+  backgroundColor: '#2c3e50',
+  color: 'white',
+  border: '1px solid',
+  borderRadius: '5px',
+  cursor: 'pointer',
+  textDecoration: 'none', // For links styled as buttons
+  fontSize: '1rem',
+  fontWeight: 'bold',
+  textAlign: 'center',
+
+}
 
 export default Header;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const POPUP_VERSION = '1.9.2'; // Update this version each time you change the popup content
+const POPUP_VERSION = '1.9.3'; // Update this version each time you change the popup content
 
 const Popup: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,17 +38,17 @@ const Popup: React.FC = () => {
           We are actively working on enhancing our website. Below are some of the improvements in progress:
         </p>
         <ul style={popupListStyle}>
-          <li><strong>Site is now protected by reCaptcha</strong></li>
-          <p>reCAPTCHA uses an advanced risk analysis engine and adaptive challenges to keep malicious software from engaging in abusive activities on your website.</p>
-          <li>Need to add meta tags for better seo and shared links on social media</li>
           <li>Gallery page currently uses placeholder images</li>
           <li>Adding images to staff on "Meet the Staff" page</li>
           <li>Adding more facility images</li>
           <li>Contact form functionality is working but not yet targeting the final email</li>
           <li>Logo needs reworking; current version has a temporary background removal</li>
-          <li>Adding testimonials and reviews</li>
+          <li>Testimonials are currently filler, not actual quotes or people</li>
+          <li style={{textDecoration: "line-through"}}>Need to add meta tags for better seo and shared links on social media</li>
           <li style={{textDecoration: "line-through"}}>Mobile screen responsiveness</li>
           <li style={{textDecoration: "line-through"}}>Menu does not close on mobile after selection</li>
+          <li style={{textDecoration: "line-through"}}><strong>Site is now protected by reCaptcha</strong></li>
+          <p>reCAPTCHA uses an advanced risk analysis engine and adaptive challenges to keep malicious software from engaging in abusive activities on your website.</p>
         </ul>
 
         <p><strong>Accessibility Assistance</strong></p>
