@@ -83,8 +83,10 @@ const ContactUs: React.FC = () => {
             style={contactImageStyle}
           />
           <p style={contactMessageStyle}>
-            Welcome to Gridley Post Acute! We are here to assist you with any important matters, whether you have questions about our services, would like to schedule a tour, or need more information.
-          </p>
+            Welcome to Gridley Post Acute! We're here to help with any questions about our services, to assist with scheduling a tour, or to provide additional information.
+            <br/>
+            <br/>
+            Please call us or submit your information, and a member of our team will get back to you shortly          </p>
           {/* Professional Contact Information */}
           <div style={contactDetailsStyle}>
             <h3>Contact Information</h3>

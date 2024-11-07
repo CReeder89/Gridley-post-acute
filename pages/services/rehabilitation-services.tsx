@@ -1,84 +1,94 @@
+import Link from 'next/link';
+import React from 'react';
 import Image from 'next/image';
-import Button from '../../components/ServiceButton';  // Import the reusable Button component
 import MetaHead from '../../components/MetaHead';
+import Button from '../../components/ServiceButton';
 
 const RehabilitationServices: React.FC = () => {
   return (
-    <div>
+    <div style={containerStyle}>
       <MetaHead
         title="Rehabilitation Services - Gridley Post Acute"
-        description="Learn about our specialized rehabilitation services, including physical, occupational, and speech therapy, designed to help residents regain strength and independence."
-        image="/images/gpa-front.jpg"
+        description="Learn about our specialized rehabilitation services, including physical, respiratory, and speech therapy, designed to help residents regain strength and independence."
+        image="/images/rehabilitation.jpg"
         url={`${process.env.WEBSITE}/services/rehabilitation-services`}
       />
 
-      <div style={containerStyle}>
-        <h1 style={titleStyle}>Rehabilitation Services</h1>
+      <h1 style={titleStyle}>Rehabilitation Services</h1>
+      <p style={introTextStyle}>
+        At Gridley Post Acute, we provide rehabilitation services designed to support residents in recovering strength, mobility, and independence. Our therapies are tailored to meet the unique needs of each individual, ensuring effective and compassionate care.
+      </p>
 
-        {/* Introductory Section */}
-        <div style={sectionStyle}>
-          <div style={contentStyle}>
-            <p style={descriptionStyle}>
-              The Gridley Post Acute strives to provide our residents with the best quality care; part of that is providing rehabilitation services. The goal is to decrease the length of stay where possible by tailoring rehab services to meet each of our residents’ needs and maximizing each resident’s independence and capabilities before being discharged.
-            </p>
-          </div>
-        
+      <div style={contentSectionStyle}>
+        {/* Left Side - Main Content */}
+        <div style={leftContentStyle}>
+          <h2 style={subtitleStyle}>Physical Therapy</h2>
+          <p style={paragraphStyle}>
+            Our physical therapy programs focus on improving strength, mobility, and balance. These programs are especially beneficial for residents recovering from surgeries, strokes, or injuries, helping them regain independence and confidence.
+          </p>
+          <ul style={listStyle}>
+            <li>Pain Reduction and Management</li>
+            <li>Building Strength and Endurance</li>
+            <li>Improving Mobility and Balance</li>
+            <li>Post-Stroke Motor Control Restoration</li>
+            <li>Post-Amputation Rehabilitation</li>
+          </ul>
+
+          <h2 style={subtitleStyle}>Respiratory Therapy</h2>
+          <p style={paragraphStyle}>
+            Our respiratory therapy services help residents manage and improve breathing conditions. Whether recovering from respiratory illnesses or managing chronic conditions, our team provides expert care to enhance lung function and overall quality of life.
+          </p>
+          <ul style={listStyle}>
+            <li>Oxygen Therapy Management</li>
+            <li>Education on Breathing Techniques</li>
+            <li>Ventilator Care and Support</li>
+            <li>Assistance with Chronic Conditions like COPD</li>
+            <li>Monitoring and Adjusting Respiratory Equipment</li>
+          </ul>
+
+          <h2 style={subtitleStyle}>Speech Therapy</h2>
+          <p style={paragraphStyle}>
+            Our speech therapy programs address challenges with communication, swallowing, and cognitive skills. We also work closely with families to provide guidance and training to support residents in their recovery.
+          </p>
+          <ul style={listStyle}>
+            <li>Improving Speech Clarity and Expression</li>
+            <li>Treatment for Swallowing Issues (Dysphagia)</li>
+            <li>Enhancing Listening and Comprehension Skills</li>
+            <li>Family Education on Oral Motor Skills Management</li>
+          </ul>
+        </div>
+
+        {/* Right Side - Visuals and Key Points */}
+        <div style={rightContentStyle}>
+          <h2 style={sidebarTitleStyle}>What Makes Our Rehabilitation Services Unique?</h2>
+          <ul style={listStyle}>
+            <li>Individualized Therapy Plans for Every Resident</li>
+            <li>Skilled and Compassionate Therapists</li>
+            <li>Collaborative Approach with Residents and Families</li>
+            <li>Focus on Recovery and Long-Term Wellness</li>
+          </ul>
+
+          <div style={{ width: '300px', margin: '20px auto', borderRadius: '10px' }}>
             <Image
-              src="/images/rehabilitation.jpg"  // Replace with your actual image path
+              src="/images/rehabilitation.jpg"
               alt="Rehabilitation Services"
               width={400}
-              height={250}
-              style={imageStyle}
+              height={300}
+              style={{ width: '100%', height: 'auto', borderRadius: '10px' }}
             />
-      
-        </div>
-
-        {/* Physical Therapy Section */}
-        <h2 style={sectionTitleStyle}>Physical Therapy</h2>
-        <p style={sectionTextStyle}>
-          Our physical therapy programs focus on building muscle strength, stamina, and coordination.
-        </p>
-        <ul style={listStyle}>
-          <li>Pain Reduction/Pain Management</li>
-          <li>Correct Posture</li>
-          <li>Education on Safety and Physical Injury Prevention</li>
-          <li>Strength and Endurance</li>
-          <li>Improve Issues Surrounding Restricted Range of Motion</li>
-          <li>Increased Mobility</li>
-          <li>Post-Stroke Motor Controls</li>
-          <li>Care for Post-Amputation</li>
-        </ul>
-
-        {/* Occupational Therapy Section */}
-        <h2 style={sectionTitleStyle}>Occupational Therapy</h2>
-
-        <ul style={listStyle}>
-          <li>Housekeeping, cooking, eating, and using bathroom facilities to promote independence</li>
-          <li>Assessments of home living</li>
-          <li>Counseling on safety and injury prevention</li>
-          <li>The ability to dress themselves, restoring dignity</li>
-        </ul>
-
-        {/* Speech Therapy Section */}
-        <h2 style={sectionTitleStyle}>Speech Therapy</h2>
-        <ul style={listStyle}>
-          <li>Improvement of verbal expression, clarity of voice and speech</li>
-          <li>Treatment of issues with swallowing (dysphagia)</li>
-          <li>Increased listening skills and comprehension</li>
-          <li>Training and educating family members and caregivers to assist with managing issues with swallowing and oral motor skills</li>
-        </ul>
-
-        {/* Back to Services Button */}
-        <div style={buttonContainerStyle}>
-          <Button text="Back to All Services" href="/services" />
+          </div>
         </div>
       </div>
+
+       {/* Back to Services Button */}
+       <div style={buttonContainerStyle}>
+          <Button text="Back to All Services" href="/services" />
+        </div>
     </div>
   );
 };
 
 // Styles
-
 const containerStyle: React.CSSProperties = {
   maxWidth: '1200px',
   margin: '0 auto',
@@ -90,52 +100,59 @@ const titleStyle: React.CSSProperties = {
   textAlign: 'center',
 };
 
-const sectionStyle: React.CSSProperties = {
-  display: 'flex',
- gap: '20px',
-  alignContent: 'center',
-  justifyContent: 'flex-start',
+const introTextStyle: React.CSSProperties = {
+  lineHeight: '1.6',
+  color: '#333',
   marginBottom: '40px',
+  textAlign: 'center',
+};
+
+const contentSectionStyle: React.CSSProperties = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'flex-start',
+  gap: '20px',
   flexWrap: 'wrap',
+  marginBottom: '10px',
 };
 
-const contentStyle: React.CSSProperties = {
+const leftContentStyle: React.CSSProperties = {
+  flex: 2,
+};
+
+const rightContentStyle: React.CSSProperties = {
   flex: 1,
-  marginRight: '20px',
-  lineHeight: '1.6',
-  color: '#333',
-};
-
-const descriptionStyle: React.CSSProperties = {
-  lineHeight: '1.6',
-  color: '#333',
-};
-
-
-
-const imageStyle: React.CSSProperties = {
-  flex: 1,
+  backgroundColor: '#f8f9fa',
+  padding: '20px',
   borderRadius: '8px',
-  objectFit: 'cover',
-  width: '100%',
-  maxWidth: 'full',
-  height: 'auto',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
 };
 
-const sectionTitleStyle: React.CSSProperties = {
-  marginBottom: '15px',
+const subtitleStyle: React.CSSProperties = {
+  fontSize: '1.5rem',
+  fontWeight: 'bold',
+  marginBottom: '10px',
 };
 
-const sectionTextStyle: React.CSSProperties = {
+const paragraphStyle: React.CSSProperties = {
   lineHeight: '1.6',
   color: '#333',
+  marginBottom: '20px',
+};
+
+const sidebarTitleStyle: React.CSSProperties = {
+  marginBottom: '20px',
+  textAlign: 'center',
+  fontWeight: 'bold',
+  fontSize: '1.5rem',
 };
 
 const listStyle: React.CSSProperties = {
-  listStyleType: 'circle',
-  paddingLeft: '20px',
   lineHeight: '1.6',
   color: '#333',
+  paddingLeft: '20px',
+  listStyleType: 'disc',
+  marginBottom: '20px',
 };
 
 const buttonContainerStyle: React.CSSProperties = {

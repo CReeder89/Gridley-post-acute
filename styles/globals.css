@@ -21,6 +21,10 @@ body {
   width: 100%;
   margin: 0;
 }
+.grecaptcha-badge {
+  visibility: hidden; /* Hides the default badge */
+}
+
 
 /* Typography */
 h1,
@@ -300,7 +304,7 @@ nav a:hover {
   font-size: 20px;
   background: #ffffff;
   color: #000000;
-  padding: 0 30px;
+  padding: 10px 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;

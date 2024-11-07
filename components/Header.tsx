@@ -69,9 +69,6 @@ const Header: React.FC = () => {
               <Link href="/services/rehabilitation-services" onClick={closeMobileMenu}>
                 Rehabilitation Services
               </Link>
-              <Link href="/services/post-acute-care" onClick={closeMobileMenu}>
-                Post-Acute Care
-              </Link>
               <Link href="/services/activities-program" onClick={closeMobileMenu}>
                 Activities Program
               </Link>
@@ -93,10 +90,6 @@ const Header: React.FC = () => {
 
           <Link  href="/gallery" onClick={closeMobileMenu}>
             Gallery
-          </Link>
-
-          <Link  href="/careers" onClick={closeMobileMenu}>
-            Careers
           </Link>
 
           <Link  href="/contact-us" onClick={closeMobileMenu}>

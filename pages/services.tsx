@@ -7,7 +7,7 @@ const Services: React.FC = () => {
     {
       title: "Nursing Services",
       description:
-        "We provide compassionate, comprehensive therapies and personalized nursing care around the clock. Gridley Post Acute is committed to expert care and exceptional amenities, creating a warm, welcoming environment for our residents and their families.",
+        "At Gridley Post Acute, our nursing team delivers compassionate, personalized care 24/7 to support each resident's recovery and well-being. Our nurses work closely with residents to manage their medical needs, provide daily care, and assist with activities of daily living. With expert care and a welcoming environment, we are dedicated to creating a positive experience for residents and their families.",
       image: "/images/nursing.jpg",
       link: "/services/nursing-services",
     },
@@ -17,13 +17,6 @@ const Services: React.FC = () => {
         "Our rehabilitation services focus on functional problems that affect daily living such as pain, balance issues, poor endurance, trouble walking, and poor muscle strength. We provide therapeutic programs to retain strength in a peaceful and supportive environment for a speedy recovery.",
       image: "/images/rehabilitation.jpg",
       link: "/services/rehabilitation-services",
-    },
-    {
-      title: "Post-Acute Care",
-      description:
-        "Post-acute care includes rehabilitation or palliative services that people receive after, or in some cases instead of, a stay in a hospital. Our staff assists each person in making the adjustment from the hospital back to their home through our rehabilitation programs.",
-      image: "/images/gpa-room.jpg",
-      link: "/services/post-acute-care",
     },
     {
       title: "Activities Program",

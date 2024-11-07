@@ -11,55 +11,55 @@ const testimonials = [
   {
     quote:
       "The care I received at Gridley Post Acute was exceptional. The staff truly went above and beyond to ensure my comfort and well-being.",
-    name: 'John Smith',
+    name: 'John',
     avatar: '/images/staff2.png', // Replace with the path to the avatar image
   },
   {
     quote:
       "I was so impressed by the professionalism and compassion of the entire team. They made a difficult time so much easier for our family.",
-    name: 'Sarah Johnson',
+    name: 'Sarah',
     avatar: '/images/staff2.png',
   },
   {
     quote:
       "Gridley Post Acute has a wonderful atmosphere. The facility is clean, and the staff is always friendly and attentive.",
-    name: 'Michael Brown',
+    name: 'Michael',
     avatar: '/images/staff2.png',
   },
   {
     quote:
       "From the moment I arrived, I felt cared for and respected. I can't thank the staff enough for their kindness and dedication.",
-    name: 'Emily Davis',
+    name: 'Emily',
     avatar: '/images/staff2.png',
   },
   {
     quote:
       "My rehabilitation at Gridley Post Acute was life-changing. The therapists are highly skilled and truly care about your progress.",
-    name: 'Robert Martinez',
+    name: 'Robert',
     avatar: '/images/staff2.png',
   },
   {
     quote:
       "The activities program kept my spirits up during my stay. There is something for everyone, and it made my recovery a more positive experience.",
-    name: 'Linda Thompson',
+    name: 'Linda',
     avatar: '/images/staff2.png',
   },
   {
     quote:
       "I felt like part of a family here. Everyone from the nurses to the administrative staff made me feel at home.",
-    name: 'William Garcia',
+    name: 'William',
     avatar: '/images/staff2.png',
   },
   {
     quote:
       "Their post-acute care services are outstanding. I felt safe, supported, and encouraged every step of the way.",
-    name: 'Karen White',
+    name: 'Karen',
     avatar: '/images/staff2.png',
   },
   {
     quote:
       "Choosing Gridley Post Acute was the best decision we made for my father's recovery. He was treated with dignity and care.",
-    name: 'Jessica Lee',
+    name: 'Jessica',
     avatar: '/images/staff2.png',
   },
 ];
@@ -72,7 +72,7 @@ const TheSwiper: React.FC = () => {
         spaceBetween={0}
         centeredSlides={true}
         autoplay={{
-          delay: 4500,
+          delay: 5500,
           disableOnInteraction: false,
         }}
         navigation={false}
@@ -82,7 +82,7 @@ const TheSwiper: React.FC = () => {
 
         {testimonials.map((testimonial, index) => (
           <SwiperSlide key={index} >
-            <div style={{ textAlign: 'center', marginBottom: '10px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '10px', }}>
               <Image
                 src={testimonial.avatar}
                 alt={testimonial.name}

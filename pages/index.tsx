@@ -4,9 +4,9 @@ import Link from 'next/link';
 import Head from 'next/head';
 import MetaHead from '../components/MetaHead';
 import TheSwiper from '../components/Swiper';
-import NordicWalkingIcon from '@mui/icons-material/NordicWalking';
-import ElderlyWomanIcon from '@mui/icons-material/ElderlyWoman';
-import ElderlyIcon from '@mui/icons-material/Elderly';
+import AirOutlinedIcon from '@mui/icons-material/AirOutlined';
+import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined';
+import GraphicEqOutlinedIcon from '@mui/icons-material/GraphicEqOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 
 
@@ -163,75 +163,23 @@ const Home: React.FC = () => {
         <h1 style={{ color: '#fff' }}>REHABILITATION THERAPY</h1>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'center' }} >
           <div style={rehabColumnStyle}>
-            <NordicWalkingIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
-            <h3 style={{ color: '#fff' }}>Physical Therapy</h3>
+            <FitnessCenterOutlinedIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
+            <h2 style={{ color: '#fff' }}>Physical Therapy</h2>
           </div>
           <div style={rehabColumnStyle}>
-            <ElderlyWomanIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
-            <h3 style={{ color: '#fff' }}>Occupational Therapy</h3>
+            <AirOutlinedIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
+            <h2 style={{ color: '#fff' }}>Respiratory Therapy</h2>
           </div>
           <div style={rehabColumnStyle}>
-            <ElderlyIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
-            <h3 style={{ color: '#fff' }}>Speech Therapy</h3>
+            <GraphicEqOutlinedIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
+            <h2 style={{ color: '#fff' }}>Speech Therapy</h2>
           </div>
         </div>
         <div style={{ width: '80%' }}>
-          <p>The Gridley Post Acute strives to provide our residents with the best quality care; part of that is providing rehabilitation services. The goal is to decrease the length of stay where possible by tailoring rehab services to meet each of our residents' needs and maximizing each resident's independence and capabilities before being discharged.</p>
+          <p>Gridley Post Acute strives to provide our residents with the best quality care; part of that is providing rehabilitation services. At Gridley Post Acute our goal is to reduce our residents length of stay by customizing rehabilitation plans to enhance each resident's independence and abilities prior to discharge.</p>
         </div>
         <Button text="THERAPY" href="/services/rehabilitation-services" />
       </div>
-
-
-
-
-
-
-      {/* Contact and Facility Information Section */}
-      {/* <div  style={contactFacilitySectionStyle}>
-
-        <div className='testEl' >
-          <h3>Gridley Post Acute</h3>
-          <Image
-            src="/images/gpa-front.jpg"
-            alt="Gridley Post Acute"
-            width={400}
-            height={250}
-            style={{ width: '100%', maxWidth: 'full', height: 'auto' }} />
-
-          <p>
-            Gridley Post Acute offers the specialized care you need after an illness or major medical event. Our focus is on helping you return home and get back to the activities you enjoy.
-          </p>
-        </div>
-
-        <div className='testEl'>
-          <Link href='/test'><h3>Why Choose Us?</h3></Link>
-          <br />
-          <Image
-            src="/images/logo2.png"
-            alt="GPA Logo"
-            width={400}
-            height={137}
-            style={{ width: '100%', maxWidth: 'full', height: 'auto' }} />
-          <br />
-
-          <p>At Gridley Post Acute, we understand that choosing the right care facility for your loved one is an important decision. As the only 5-star rated facility in the Butte County area, we strive to go above and beyond to provide exceptional care and support to our residents. We don’t just meet the standards—we set them.</p>
-        </div>
-
-        <div className='testEl'>
-          <h3>Butte County's only Five-Star Facility</h3>
-          <Image
-            src="/images/cms-logo.png"
-            alt="CMS Logo"
-            width={400}
-            height={222}
-            style={{ width: '100%', maxWidth: 'full', height: 'auto' }}
-
-          />
-
-          <p>CMS rates facilities from 1 to 5 stars, with <strong>5 being the highest score!</strong> Read more about CMS scores <Link href="/cms-score">here</Link></p>
-          <p> Compare us to other facilities in the area <Link target='_blank' href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest">here</Link></p>
-        </div>
-      </div> */}
     </div>
   );
 };
@@ -340,14 +288,7 @@ const serviceTitleStyle: React.CSSProperties = {
   marginTop: '10px'
 };
 
-const contactFacilitySectionStyle: React.CSSProperties = {
-  display: 'flex',
-  justifyContent: 'space-around',
-  padding: '50px 20px',
-  background: '#f9f9f9',
-  flexWrap: 'wrap',
 
-};
 
 const contactColumnStyle: React.CSSProperties = {
 
