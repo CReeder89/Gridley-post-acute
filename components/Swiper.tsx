@@ -66,39 +66,41 @@ const testimonials = [
 
 const TheSwiper: React.FC = () => {
   return (
-    <Swiper
-      style={swiperStyles}
-      spaceBetween={0}
-      centeredSlides={true}
-      autoplay={{
-        delay: 4500,
-        disableOnInteraction: false,
-      }}
-      navigation={false}
-      modules={[Autoplay, Navigation]}
-      className="mySwiper"
-    >
-       
-      {testimonials.map((testimonial, index) => (
-        <SwiperSlide key={index} >
-          <div style={{ textAlign: 'center', marginBottom: '10px' }}>
-            <Image
-              src={testimonial.avatar}
-              alt={testimonial.name}
-              width={80}
-              height={80}
-              style={{ borderRadius: '50%' }} // Make the image round
-            />
-          </div>
-          <p style={{ fontStyle: 'italic', fontSize: '1.1rem', marginBottom: '5px', textAlign: 'center' }}>
-            "{testimonial.quote}"
-          </p>
-          <span style={{ display: 'block', fontWeight: 'bold', fontSize: '1rem', color: '#fff', textAlign: 'center' }}>
-            - {testimonial.name}
-          </span>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    
+      <Swiper
+        style={swiperStyles}
+        spaceBetween={0}
+        centeredSlides={true}
+        autoplay={{
+          delay: 4500,
+          disableOnInteraction: false,
+        }}
+        navigation={false}
+        modules={[Autoplay, Navigation]}
+        className="mySwiper"
+      >
+
+        {testimonials.map((testimonial, index) => (
+          <SwiperSlide key={index} >
+            <div style={{ textAlign: 'center', marginBottom: '10px' }}>
+              <Image
+                src={testimonial.avatar}
+                alt={testimonial.name}
+                width={100}
+                height={100}
+                style={{ borderRadius: '50%' }} // Make the image round
+              />
+            </div>
+            <p style={{ fontStyle: 'italic', fontSize: '1.1rem', marginBottom: '5px', textAlign: 'center' }}>
+              "{testimonial.quote}"
+            </p>
+            <span style={{ display: 'block', fontWeight: 'bold', fontSize: '1rem', color: '#000', textAlign: 'center' }}>
+              - {testimonial.name}
+            </span>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+   
   );
 };
 
@@ -106,7 +108,7 @@ const swiperStyles: React.CSSProperties & { [key: string]: string } = {
   '--swiper-navigation-color': '#fff',
   '--swiper-pagination-color': '#fff',
   zIndex: '0',
-  minHeight:'400px'
+ 
 };
 
 export default TheSwiper;
