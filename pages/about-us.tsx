@@ -103,9 +103,9 @@ const PostAcuteCare: React.FC = () => {
             <li>Close Coordination with Healthcare Providers</li>
             <li>Friendly and Compassionate Staff</li>
             <li>Modern Amenities and Comfortable Living Spaces</li>
-            <li>All beds are Medicare and Medicaid certified.</li>
-            <li>All rooms are equipped with electric high/low beds and cable TV.</li>
-            <li>Our full in-house rehab unit offers physical, and speech-language therapy.</li>
+            <li>All beds are Medicare and Medicaid certified</li>
+            <li>All rooms are equipped with electric high/low beds and cable TV</li>
+            <li>Our onsite rehabilitation team offers physical, speech, and respiratory therapy</li>
 
           </ul>
 
