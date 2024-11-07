@@ -25,34 +25,7 @@ const PostAcuteCare: React.FC = () => {
         Our dedicated staff brings both skill and compassion to their work, providing exceptional care to every resident. We welcome visitors and are pleased to offer tours to show how we can support you or your loved one's recovery journey.
       </p>
 
-      <div style={{display: 'flex', flexWrap: 'wrap', alignContent:'center', alignItems:'center',  justifyContent:'space-between'}}>
-        <div>
-          <h2 style={subtitleStyle}>We are here for you</h2>
-          <p style={paragraphStyle}>
-            Gridley Post Acute is proud to be at the forefront of patient care and treatment.
-          </p>
-          <p style={paragraphStyle}>
-            All family members and visitors are welcome.
-          </p>
-          <p style={paragraphStyle}>
-            Compare us to other facilities in the area <Link target='_blank' href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest" style={cmsLinkStyle}>
-              here
-            </Link>
-          </p>
-        </div>
-
-       
-          <div style={{margin: '0' }}>
-            <Image
-              src="/images/gpa-front.jpg"
-              alt="Post-Acute Care"
-              width={400}
-              height={300}
-              style={imageStyle}
-            />
-          </div>
-      
-      </div>
+     
 
       <h1 style={titleStyle}>What is Post Acute Care?</h1>
 
