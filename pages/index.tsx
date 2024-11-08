@@ -135,10 +135,10 @@ const Home: React.FC = () => {
       <div style={heroContainerStyle2}>
         <h1 style={{ color: '#fff' }}>REHABILITATION THERAPY</h1>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', alignContent: 'center' }} >
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignContent: 'center', justifyContent:'center', alignItems: 'center' }} >
 
           <div style={rehabColumnStyle}>
-            <FitnessCenterOutlinedIcon style={{ width: '25%', maxWidth: 'full', height: 'auto' }} />
+            <FitnessCenterOutlinedIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
             <h2 style={{ color: '#fff' }}>Physical</h2>
           </div>
 
@@ -262,7 +262,9 @@ const rehabColumnStyle: React.CSSProperties = {
   display: 'flex',
   flexWrap: 'wrap',
   flexDirection: 'column',
-  alignItems: 'center'
+  alignItems: 'center',
+  justifyContent: 'center',
+  alignContent: 'center'
 
 };
 
