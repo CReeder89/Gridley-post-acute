@@ -8,7 +8,7 @@ import AirOutlinedIcon from '@mui/icons-material/AirOutlined';
 import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined';
 import GraphicEqOutlinedIcon from '@mui/icons-material/GraphicEqOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
-import CottageIcon from '@mui/icons-material/Cottage';
+
 
 
 const Home: React.FC = () => {
@@ -133,22 +133,18 @@ const Home: React.FC = () => {
       {/* Rehab Section */}
       <div style={heroContainerStyle2}>
         <h1 style={{ color: '#fff' }}>REHABILITATION THERAPY</h1>
-        <div style={{padding: '20px', width:'100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'center', alignItems: 'center', overflow: 'hidden'}} >
-          <div style={rehabColumnStyle2}>
-            <FitnessCenterOutlinedIcon style={{ width: '100px', maxWidth: 'full', height: '100px' }} />
-            <h2 style={{ color: '#fff' }}>Physical</h2>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'center' }} >
+          <div style={rehabColumnStyle}>
+            <FitnessCenterOutlinedIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
+            <h2 style={{ color: '#fff' }}>Physical Therapy</h2>
           </div>
-          <div style={rehabColumnStyle2}>
-            <AirOutlinedIcon style={{ width: '100px', maxWidth: 'full', height: '100px' }} />
-            <h2 style={{ color: '#fff' }}>Respiratory</h2>
+          <div style={rehabColumnStyle}>
+            <AirOutlinedIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
+            <h2 style={{ color: '#fff' }}>Respiratory Therapy</h2>
           </div>
-          <div style={rehabColumnStyle2}>
-            <GraphicEqOutlinedIcon style={{ width: '100px', maxWidth: 'full', height: '100px' }} />
-            <h2 style={{ color: '#fff' }}>Speech</h2>
-          </div>
-          <div style={rehabColumnStyle2}>
-            <CottageIcon style={{ width: '100px', maxWidth: 'full', height: '100px' }} />
-            <h2 style={{ color: '#fff' }}>Occupational</h2>
+          <div style={rehabColumnStyle}>
+            <GraphicEqOutlinedIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
+            <h2 style={{ color: '#fff' }}>Speech Therapy</h2>
           </div>
         </div>
         <div style={{ width: '80%' }}>
@@ -219,7 +215,7 @@ const heroContainerStyle2: React.CSSProperties = {
   minHeight: '60vh',
   backgroundImage: 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://images.pexels.com/photos/53435/tree-oak-landscape-view-53435.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")',
   backgroundSize: 'cover',
-  backgroundPosition: 'center',
+  backgroundPosition: 'bottom',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-evenly',
@@ -250,24 +246,10 @@ const heroContainerStyle3: React.CSSProperties = {
 
 const rehabColumnStyle: React.CSSProperties = {
 
-  width: '400px',
+  maxWidth: '400px',
   margin: '10px',
   textAlign: 'center',
   padding: '20px',
-
-};
-
-const rehabColumnStyle2: React.CSSProperties = {
-display:'flex',
-  width: '30%',
-  margin: '10px',
-  textAlign: 'center',
-  padding: '20px',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  alignContent:'center',
-  flex: 1
 
 };
 
