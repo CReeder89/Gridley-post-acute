@@ -2,10 +2,18 @@ import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
 import Button from '../../components/ServiceButton';
+import MetaHead from '../../components/MetaHead';
 
 const SkilledNursing: React.FC = () => {
   return (
     <div style={containerStyle}>
+
+<MetaHead
+        title="Nursing Services - Gridley Post Acute"
+        description="Discover our comprehensive nursing services at Gridley Post Acute, where we provide 24/7 compassionate care tailored to meet the unique needs of each resident."
+        image="/images/gpa-front.jpg"
+        url={`${process.env.WEBSITE}/services/nursing-services`} />
+
       <h1 style={titleStyle}>24-Hour Skilled Nursing Services</h1>
       <p style={introTextStyle}>
         At Gridley Post Acute, our 24-hour skilled nursing services are designed to provide exceptional care and support tailored to meet the unique needs of every resident. Our compassionate team is here around the clock to ensure the health, safety, and well-being of all individuals in our care.
