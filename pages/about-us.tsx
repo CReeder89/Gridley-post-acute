@@ -112,7 +112,7 @@ const PostAcuteCare: React.FC = () => {
           <p>At Gridley Post Acute, we understand that choosing the right care facility for your loved one is an important decision. As the only 5-star rated facility in the Butte County area, we strive to go above and beyond to provide exceptional care and support to our residents. We don’t just meet the standards—we set them.</p>
         </div>
 
-        <div className='testEl'>
+        <div className='testEl'> 
           <h3>Butte County's only 5-Star Facility</h3>
           <Image
             src="/images/cms-logo.png"

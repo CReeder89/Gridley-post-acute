@@ -57,13 +57,24 @@ const MeetTheStaff: React.FC = () => {
         <div className='staffGridStyle'>
           {staff.map((member, index) => (
             <div key={index} style={staffCardStyle}>
+
+              <div style={{background: '#f9f9f9',
+                borderRadius:'50%',
+                width: '175px',
+                height: '175px',
+                display:'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                boxShadow:'5px 5px 5px rgba(0, 0, 0, 0.1), -5px -5px 5px white'}}>
               <Image
                 src={member.image}
-                alt={member.name}
+                alt={member.name} 
                 width={150}
                 height={150}
                 style={roundImageStyle}
               />
+              </div>
+
               <h3 style={staffNameStyle}>{member.name}</h3>
               <p style={staffTitleStyle}>{member.title}</p>
               <p style={staffDescriptionStyle}>{member.description}</p>
@@ -91,7 +102,7 @@ const MeetTheStaff: React.FC = () => {
 // Styles
 
 const containerStyle: React.CSSProperties = {
-  maxWidth: '1200px',
+ maxWidth: '90%',
   margin: '0 auto',
   padding: '20px',
 };
@@ -111,9 +122,15 @@ const staffGridStyle: React.CSSProperties = {
 const staffCardStyle: React.CSSProperties = {
   textAlign: 'center',
   padding: '20px',
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  // boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   borderRadius: '10px',
-  backgroundColor: '#fff',
+  backgroundColor: '#f9f9f9',
+  display: 'flex',
+  justifyContent: 'center',
+  alignContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
+  boxShadow:'5px 5px 5px rgba(0, 0, 0, 0.1), -5px -5px 5px white'
 };
 
 const roundImageStyle: React.CSSProperties = {

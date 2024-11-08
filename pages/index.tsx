@@ -58,7 +58,7 @@ const Home: React.FC = () => {
 
       {/* Services Section */}
 
-      <div style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', alignItems: 'center', justifyContent: 'center', background: '#fff', textAlign: 'center', }}>
+      <div style={{background: '#f9f9f9', display: 'flex', flexDirection: 'column', alignContent: 'center', alignItems: 'center', justifyContent: 'center', textAlign: 'center', }}>
 
         <h1 style={{ marginTop: '30px' }}>Your Health, Our Mission</h1>
 
@@ -114,6 +114,7 @@ const Home: React.FC = () => {
           </div>
 
 
+          
           <div style={serviceColumnStyle}>
             <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
               <Image
@@ -298,10 +299,10 @@ const logoStyle: React.CSSProperties = {
 
 const servicesSectionStyle: React.CSSProperties = {
   display: 'flex',
-  justifyContent: 'space-around',
   padding: '50px 20px',
-  backgroundColor: '#fff',
+  backgroundColor: '#f9f9f9',
   flexWrap: 'wrap',
+  gap: '30px'
 };
 
 const serviceColumnStyle: React.CSSProperties = {
@@ -314,6 +315,9 @@ const serviceColumnStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  boxShadow:'12px 12px 12px rgba(0, 0, 0, 0.1), -10px -10px 10px white',
+  background: '#f9f9f9',
+  borderRadius: '10px'
 };
 
 const serviceTitleStyle: React.CSSProperties = {
