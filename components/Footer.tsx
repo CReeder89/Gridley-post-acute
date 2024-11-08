@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
+import HomeIcon from '@mui/icons-material/Home';
+import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
 
 const Footer: React.FC = () => {
   return (
@@ -8,31 +11,45 @@ const Footer: React.FC = () => {
         {/* Services Section */}
         <div style={{...footerSection, background: '#4F4F50'}}>
           <h3 style={footerSectionTitle}>Services</h3>
-          <ul style={listStyle}>
-            <li><Link href="/services/nursing-services" style={linkStyle}>Skilled Nursing</Link></li>
-            <li><Link href="/services/rehabilitation-services" style={linkStyle}>Rehabilitation</Link></li>
-            <li><Link href="/services/activities-program" style={linkStyle}>Activities</Link></li>
-            <li><Link href="/services/social-services" style={linkStyle}>Social Services</Link></li>
-          </ul>
+         
+            <Link href="/services/nursing-services" style={linkStyle}>Skilled Nursing</Link>
+            <Link href="/services/rehabilitation-services" style={linkStyle}>Rehabilitation</Link>
+            <Link href="/services/activities-program" style={linkStyle}>Activities</Link>
+            <Link href="/services/social-services" style={linkStyle}>Social Services</Link>
+          
         </div>
 
         {/* Resources Section */}
         <div style={{...footerSection, background: '#3a4a5a'}}>
           <h3 style={footerSectionTitle}>Resources</h3>
-          <ul style={listStyle}>
-            <li><Link href="/cms-score" style={linkStyle}>What is CMS?</Link></li>
-            <li><Link href="/test" style={linkStyle}>Choosing a Post-Acute Center</Link></li>
-            <li><Link href="/site-map" style={linkStyle}>Site Map</Link></li>
-            <li><Link href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest" target="_blank" style={linkStyle}>Medicare.gov comparison page</Link></li>
-          </ul>
+         
+            <Link href="/cms-score" style={linkStyle}>What is CMS?</Link>
+            <Link href="/test" style={linkStyle}>Choosing a Post-Acute Center</Link>
+            <Link href="/site-map" style={linkStyle}>Site Map</Link>
+            <Link href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest" target="_blank" style={linkStyle}>Medicare.gov comparison page</Link>
+          
         </div>
 
         {/* Contact Section */}
         <div style={{...footerSection, background: '#4F4F50'}}>
           <h3 style={footerSectionTitle}>Contact Us</h3>
-          <p><strong>Address:</strong> Gridley Post Acute, 246 Spruce Street, Gridley, CA 95948</p>
-          <p>Phone: (530) 456-0400</p>
-          <p><strong>Email:</strong> <Link href="mailto:gridleyinfo@westharborhc.com" style={linkStyle}>gridleyinfo@westharborhc.com</Link></p>
+
+
+          <div style={{display: 'flex', alignContent: 'center', alignItems:'center'}}>
+          <HomeIcon style={{marginRight: '5px'}}/> 
+          <p>246 Spruce Street, Gridley, CA 95948</p>
+          </div>
+
+          <div style={{display: 'flex', alignContent: 'center', alignItems:'center'}}>
+          <PhoneIcon style={{marginRight: '5px'}}/>
+          <p>(530) 456-0400</p>
+          </div>
+
+          <div style={{display: 'flex', alignContent: 'center', alignItems:'center'}}>
+          <EmailIcon style={{marginRight: '5px'}}/>
+          <p> <Link href="mailto:gridleyinfo@westharborhc.com" style={linkStyle}>gridleyinfo@westharborhc.com</Link></p>
+          </div>
+
         </div>
       </div>
 
@@ -68,7 +85,11 @@ const footerContainer: React.CSSProperties = {
 const footerSection: React.CSSProperties = {
   flex: '1 1 200px',
   minWidth: '200px',
-  padding: '20px'
+  padding: '20px',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between'
+
 };
 
 const footerSectionTitle: React.CSSProperties = {
@@ -86,7 +107,7 @@ const listStyle: React.CSSProperties = {
 const linkStyle: React.CSSProperties = {
   color: '#ecf0f1',
   textDecoration: 'none',
-  fontSize: '0.9rem',
+  fontSize: '1rem',
  
   margin: '5px 0',
 };

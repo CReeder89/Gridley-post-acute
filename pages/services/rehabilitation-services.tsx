@@ -34,6 +34,25 @@ const RehabilitationServices: React.FC = () => {
             <li>Post-Amputation Rehabilitation</li>
           </ul>
 
+
+
+          <h2 style={subtitleStyle}>Occupational Therapy</h2>
+          <p style={paragraphStyle}>
+            Our occupational therapy programs are designed to help residents regain the skills and confidence needed for daily living activities. These therapies focus on promoting independence, ensuring that residents can perform essential tasks with dignity and ease.          </p>
+          <ul style={listStyle}>
+            <li>Enhancing Skills for Daily Activities (e.g., eating, dressing, and bathing)</li>
+            <li>Restoring Fine Motor Skills and Coordination</li>
+            <li>Assessing and Adapting Home Environments for Safety</li>
+            <li>Promoting Independence Through Self-Care Training</li>
+            <li>Providing Guidance on Injury Prevention and Energy Conservation</li>
+          </ul>
+
+          <p style={paragraphStyle}>
+            Our goal is to empower residents to lead more independent lives by addressing their unique needs and fostering a sense of achievement and self-sufficiency.
+          </p>
+
+
+
           <h2 style={subtitleStyle}>Respiratory Therapy</h2>
           <p style={paragraphStyle}>
             Our respiratory therapy services help residents manage and improve breathing conditions. Whether recovering from respiratory illnesses or managing chronic conditions, our team provides expert care to enhance lung function and overall quality of life.
@@ -80,10 +99,10 @@ const RehabilitationServices: React.FC = () => {
         </div>
       </div>
 
-       {/* Back to Services Button */}
-       <div style={buttonContainerStyle}>
-          <Button text="Back to All Services" href="/services" />
-        </div>
+      {/* Back to Services Button */}
+      <div style={buttonContainerStyle}>
+        <Button text="Back to All Services" href="/services" />
+      </div>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import AirOutlinedIcon from '@mui/icons-material/AirOutlined';
 import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined';
 import GraphicEqOutlinedIcon from '@mui/icons-material/GraphicEqOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
+import CottageIcon from '@mui/icons-material/Cottage';
 
 
 
@@ -133,20 +134,31 @@ const Home: React.FC = () => {
       {/* Rehab Section */}
       <div style={heroContainerStyle2}>
         <h1 style={{ color: '#fff' }}>REHABILITATION THERAPY</h1>
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'center' }} >
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignContent: 'center' }} >
+
           <div style={rehabColumnStyle}>
-            <FitnessCenterOutlinedIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
-            <h2 style={{ color: '#fff' }}>Physical Therapy</h2>
+            <FitnessCenterOutlinedIcon style={{ width: '25%', maxWidth: 'full', height: 'auto' }} />
+            <h2 style={{ color: '#fff' }}>Physical</h2>
           </div>
+
           <div style={rehabColumnStyle}>
             <AirOutlinedIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
-            <h2 style={{ color: '#fff' }}>Respiratory Therapy</h2>
+            <h2 style={{ color: '#fff' }}>Respiratory</h2>
           </div>
+
+          <div style={rehabColumnStyle}>
+            <CottageIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
+            <h2 style={{ color: '#fff' }}>Occupational</h2>
+          </div>
+
           <div style={rehabColumnStyle}>
             <GraphicEqOutlinedIcon style={{ width: '30%', maxWidth: 'full', height: 'auto' }} />
-            <h2 style={{ color: '#fff' }}>Speech Therapy</h2>
+            <h2 style={{ color: '#fff' }}>Speech</h2>
           </div>
+
         </div>
+
         <div style={{ width: '80%' }}>
           <p>Gridley Post Acute strives to provide our residents with the best quality care; part of that is providing rehabilitation services. At Gridley Post Acute our goal is to reduce our residents length of stay by customizing rehabilitation plans to enhance each resident's independence and abilities prior to discharge.</p>
         </div>
@@ -169,7 +181,7 @@ const Home: React.FC = () => {
       <div style={heroContainerStyle3}>
         <h1 style={{ color: '#fff' }}>Butte County's Only Five-Star Facility</h1>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'center' }} >
-          <div style={rehabColumnStyle}>
+          <div style={starsContainer}>
             <StarOutlinedIcon style={{ width: '20%', maxWidth: 'full', height: 'auto' }} />
             <StarOutlinedIcon style={{ width: '20%', maxWidth: 'full', height: 'auto' }} />
             <StarOutlinedIcon style={{ width: '20%', maxWidth: 'full', height: 'auto' }} />
@@ -245,6 +257,16 @@ const heroContainerStyle3: React.CSSProperties = {
 };
 
 const rehabColumnStyle: React.CSSProperties = {
+  flex: '1 1 150px',
+  padding: '20px',
+  display: 'flex',
+  flexWrap: 'wrap',
+  flexDirection: 'column',
+  alignItems: 'center'
+
+};
+
+const starsContainer: React.CSSProperties = {
 
   maxWidth: '400px',
   margin: '10px',
