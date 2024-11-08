@@ -133,21 +133,21 @@ const Home: React.FC = () => {
       {/* Rehab Section */}
       <div style={heroContainerStyle2}>
         <h1 style={{ color: '#fff' }}>REHABILITATION THERAPY</h1>
-        <div style={{width:'100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'center', alignItems: 'center' }} >
+        <div style={{padding: '20px', width:'100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'center', alignItems: 'center', overflow: 'hidden'}} >
           <div style={rehabColumnStyle2}>
-            <FitnessCenterOutlinedIcon style={{ width: '100px', maxWidth: 'full', height: 'auto' }} />
+            <FitnessCenterOutlinedIcon style={{ width: '100px', maxWidth: 'full', height: '100px' }} />
             <h2 style={{ color: '#fff' }}>Physical</h2>
           </div>
           <div style={rehabColumnStyle2}>
-            <AirOutlinedIcon style={{ width: '100px', maxWidth: 'full', height: 'auto' }} />
+            <AirOutlinedIcon style={{ width: '100px', maxWidth: 'full', height: '100px' }} />
             <h2 style={{ color: '#fff' }}>Respiratory</h2>
           </div>
           <div style={rehabColumnStyle2}>
-            <GraphicEqOutlinedIcon style={{ width: '100px', maxWidth: 'full', height: 'auto' }} />
+            <GraphicEqOutlinedIcon style={{ width: '100px', maxWidth: 'full', height: '100px' }} />
             <h2 style={{ color: '#fff' }}>Speech</h2>
           </div>
           <div style={rehabColumnStyle2}>
-            <CottageIcon style={{ width: '100px', maxWidth: 'full', height: 'auto' }} />
+            <CottageIcon style={{ width: '100px', maxWidth: 'full', height: '100px' }} />
             <h2 style={{ color: '#fff' }}>Occupational</h2>
           </div>
         </div>
