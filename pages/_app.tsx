@@ -5,12 +5,14 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Popup from '../components/Popup';
 import { ReCaptchaProvider } from "next-recaptcha-v3";
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 //import Head from 'next/head';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     
       <ReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
+        <AppRouterCacheProvider>
         <div style={layoutStyle}>
         <Header />
         <div style={mainStyle}>
@@ -19,6 +21,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <Popup />
         <Footer />
         </div>
+        </AppRouterCacheProvider>
       </ReCaptchaProvider>
    
   );
