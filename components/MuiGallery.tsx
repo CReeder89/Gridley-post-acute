@@ -75,7 +75,6 @@ const modalOverlayStyle: React.CSSProperties = {
     maxWidth: '80vw', // Make it responsive to screen width
     maxHeight: '80vh', // Make it responsive to screen height
     minWidth:'80vw',
-    padding: '5px',
     boxShadow: '0 4px 10px rgba(0, 0, 0, 0.25)', // Subtle shadow for better visibility
     display: 'flex', // Flex layout for alignment
     justifyContent: 'center',
