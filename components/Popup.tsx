@@ -51,7 +51,12 @@ const Popup: React.FC = () => {
         
         If you are experiencing difficulty using this website due to a disability or if you require assistance with any information, please call us directly at <strong>(530) 456-0400</strong>. Our team is ready to help ensure you have full access to all information and services.
         </p>
-        <div style={checkboxContainerStyle}>
+        
+      </div>
+
+      <div style={checkboxContainerStyle}>
+
+          <div>
           <input
             type="checkbox"
             id="understandCheckbox"
@@ -61,11 +66,12 @@ const Popup: React.FC = () => {
           <label htmlFor="understandCheckbox" style={checkboxLabelStyle}>
             I understand
           </label>
-        </div>
+          </div>
+        
         <button onClick={handleClose} style={buttonStyle}>
           Close
         </button>
-      </div>
+        </div>
     </div>
   );
 };
@@ -82,6 +88,8 @@ const overlayStyle: React.CSSProperties = {
   alignItems: 'center',
   justifyContent: 'center',
   zIndex: 1003,
+  flexDirection: 'column',
+  gap: '10px'
   
 };
 
@@ -121,12 +129,19 @@ const checkboxContainerStyle: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  alignContent: 'center',
   marginBottom: '20px',
+  gap: '20px',
+  background: 'white',
+  width: '90%',
+  maxWidth: '500px',
+  borderRadius: '8px',
+  padding: '5px'
 };
 
 const checkboxLabelStyle: React.CSSProperties = {
   marginLeft: '10px',
-  color: '#333',
+  color: '#000',
   fontSize: '1rem',
 };
 
