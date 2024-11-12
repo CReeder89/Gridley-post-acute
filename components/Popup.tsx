@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
+import Checkbox from '@mui/material/Checkbox';
+import { red, green } from '@mui/material/colors';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
-const POPUP_VERSION = '1.9.4'; // Update this version each time you change the popup content
+const POPUP_VERSION = '1.9.5'; // Update this version each time you change the popup content
 
 const Popup: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   useEffect(() => {
     // Check if the current popup version has been acknowledged
@@ -57,15 +61,19 @@ const Popup: React.FC = () => {
       <div style={checkboxContainerStyle}>
 
           <div>
-          <input
-            type="checkbox"
-            id="understandCheckbox"
-            checked={isChecked}
-            onChange={handleCheckboxChange}
-          />
-          <label htmlFor="understandCheckbox" style={checkboxLabelStyle}>
-            I understand
-          </label>
+        <FormControlLabel 
+        label="I understand"
+        control={<Checkbox
+          {...label}
+          defaultChecked ={isChecked}
+          onChange={handleCheckboxChange}
+          sx={{
+            color: red[800],
+            '&.Mui-checked': {
+              color: green[600],
+            },
+          }}
+        />}/>
           </div>
         
         <button onClick={handleClose} style={buttonStyle}>
