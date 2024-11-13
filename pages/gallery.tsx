@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import GalleryImage from '../components/GalleryImage';
 import { Gallery } from "next-gallery"
 import MetaHead from '../components/MetaHead';
 import QuiltedImageList from '../components/MuiGallery';
