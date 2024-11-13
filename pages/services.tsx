@@ -68,7 +68,7 @@ const Services: React.FC = () => {
             </div>
             <div style={serviceContentStyle}>
               <h2 style={serviceTitleStyle}>
-                <Link href={service.link}>{service.title}</Link>
+                <Link className='servicePageLinks' href={service.link}>{service.title}</Link>
               </h2>
               <p style={serviceDescriptionStyle}>{service.description}</p>
             </div>
@@ -85,6 +85,7 @@ const servicesContainerStyle: React.CSSProperties = {
   margin: '0 auto',
   padding: '40px 20px',
   lineHeight: '1.6',
+  background: '#f9f9f9'
 };
 
 const pageTitleStyle: React.CSSProperties = {
@@ -95,13 +96,13 @@ const pageTitleStyle: React.CSSProperties = {
 const serviceSectionStyle: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
+  justifyContent: 'center',
   marginBottom: '60px',
   flexWrap: 'wrap',
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   borderRadius: '10px',
-  backgroundColor: '#fff',
-  padding: '20px'
+  backgroundColor: '#f9f9f9',
+  padding: '20px',
+  boxShadow: '12px 12px 12px rgba(0, 0, 0, 0.1), -10px -10px 10px white'
 };
 
 const serviceContentStyle: React.CSSProperties = {

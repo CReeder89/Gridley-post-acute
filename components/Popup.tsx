@@ -3,7 +3,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { red, green } from '@mui/material/colors';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-const POPUP_VERSION = '1.9.5'; // Update this version each time you change the popup content
+const POPUP_VERSION = '1.9.6'; // Update this version each time you change the popup content
 
 const Popup: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);

@@ -210,13 +210,13 @@ const Home: React.FC = () => {
 
 const heroContainerStyle: React.CSSProperties = {
   width: '100%',
-  minHeight: '60vh',
-  backgroundImage: 'url("/images/hero-banner2.jpg")',
+  minHeight: '80vh',
+  backgroundImage: 'linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("/images/hero-banner2.jpg")',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-evenly',
+  justifyContent: 'center',
   color: '#fff',
   textAlign: 'center',
   alignContent: 'center',

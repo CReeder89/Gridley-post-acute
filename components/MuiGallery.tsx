@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { IconButton } from '@mui/material';
 import { CottageOutlined } from '@mui/icons-material';
+import Box from '@mui/material/Box';
 
 function srcset(image: string, size: number, rows = 1, cols = 1) {
     return {
@@ -48,11 +49,25 @@ export default function QuiltedImageList() {
 
             {selectedImage && (
                 <div style={modalOverlayStyle} onClick={handleCloseModal}>
-                    <div style={modalContentStyle}>
+                    <Box 
+                        display={'flex'}
+                        justifyContent={'center'}
+                        alignContent={'center'}
+                        position={'relative'}
+                        boxShadow={'0 4px 10px rgba(0, 0, 0, 0.25)'}
+                        sx={{width: {sm: '90vw', xs: '90vw', md: '90vw', lg: '70vw'}, padding: '5px', background: 'white' }}
+                    >
+                        
                         {/* <CottageOutlined style={modalBtn}/> */}
-                        <Image width={1000} height={1000} src={selectedImage} alt="Enlarged" style={modalImageStyle} />
+                        <Image 
+                            width={1000}
+                            height={1000} 
+                            src={selectedImage} 
+                            layout='responsive'
+                            alt="Enlarged"
+                             />
                         {/* <CottageOutlined style={modalBtn}/> */}
-                    </div>
+                    </Box>
                 </div>)}
         </>
     );
@@ -71,22 +86,7 @@ const modalOverlayStyle: React.CSSProperties = {
     zIndex: 1002, // Ensure it appears above other elements
   };
   
-  const modalContentStyle: React.CSSProperties = {
-    maxWidth: '80vw', // Make it responsive to screen width
-    maxHeight: '80vh', // Make it responsive to screen height
-    minWidth:'80vw',
-    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.25)', // Subtle shadow for better visibility
-    display: 'flex', // Flex layout for alignment
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'relative', // For positioning close button
-
-  };
   
-  const modalImageStyle: React.CSSProperties = {
-    width: '80%', maxWidth:'full', height: 'auto', padding: '5px', background: 'white'
- 
-  };
   
   const modalBtn: React.CSSProperties = {
     color: 'white',
