@@ -330,7 +330,8 @@ const serviceColumnStyle: React.CSSProperties = {
 
 const serviceTitleStyle: React.CSSProperties = {
   marginBottom: '10px',
-  marginTop: '10px'
+  marginTop: '10px',
+  textDecoration: 'underline'
 };
 
 
