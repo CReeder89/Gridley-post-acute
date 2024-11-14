@@ -1,0 +1,22 @@
+.serviceCard {
+    position: relative;
+    flex: 1;
+    min-width: 300px;
+    max-width: auto;
+    margin: 5px 10px;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow:12px 12px 12px rgba(0, 0, 0, 0.1), -10px -10px 10px white;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.serviceCard:hover {
+
+    box-shadow:12px 12px 12px rgba(0, 0, 0, 0.1) inset, -10px -10px 10px white inset;
+    
+}

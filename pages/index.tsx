@@ -70,7 +70,7 @@ const Home: React.FC = () => {
 
 
           
-          <div style={serviceColumnStyle}>
+          <div className='serviceCard'>
             <Link className='cardLink' href={'/services/activities-program'}></Link>
 
             <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
@@ -87,7 +87,7 @@ const Home: React.FC = () => {
               Our engaging activities program promotes physical and mental well-being, fostering social connections and creating a vibrant, fulfilling environment for our residents.          </p>
           </div>
 
-          <div style={serviceColumnStyle}>
+          <div className='serviceCard'>
           <Link className='cardLink' href={'/services/nursing-services'}></Link>
             <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
               <Image
@@ -102,7 +102,7 @@ const Home: React.FC = () => {
               Our skilled nursing team delivers 24/7 comprehensive care, ensuring that each resident receives personalized treatment and support for optimal recovery and well-being.          </p>
           </div>
 
-          <div style={serviceColumnStyle}>
+          <div className='serviceCard'>
           <Link className='cardLink' href={'/about-us'}></Link>
             <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
               <Image
@@ -119,7 +119,7 @@ const Home: React.FC = () => {
 
 
           
-          <div style={serviceColumnStyle}>
+          <div className='serviceCard' >
           <Link className='cardLink' href={'/services/social-services'}></Link>
             <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
               <Image
