@@ -71,14 +71,13 @@ const PostAcuteCare: React.FC = () => {
         <div style={rightContentStyle}>
           <h2 style={sidebarTitleStyle}>Key Benefits of Our Post-Acute Care</h2>
           <ul style={listStyle}>
-            <li>24/7 Skilled Nursing Care</li>
-            <li>Customizable Rehabilitation Plans</li>
+            <li>24/7 nursing care</li>
+            <li>Personalized Rehabilitation Plans</li>
             <li>Close Coordination with Healthcare Providers</li>
-            <li>Friendly and Compassionate Staff</li>
             <li>Modern Amenities and Comfortable Living Spaces</li>
             <li>All beds are Medicare and Medicaid certified</li>
             <li>All rooms are equipped with electric high/low beds and cable TV</li>
-            <li>Our onsite rehabilitation team offers physical, speech, and respiratory therapy</li>
+            <li>Our onsite rehabilitation team offers physical, occupational, speech, and respiratory therapy</li>
 
           </ul>
 
@@ -126,6 +125,7 @@ const PostAcuteCare: React.FC = () => {
           <p>CMS rates facilities from 1 to 5 stars, with <strong>5 being the highest score!</strong> Read more about CMS scores <Link href="/cms-score">here</Link></p>
           <p> Compare us to other facilities in the area <Link target='_blank' href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest">here</Link></p>
         </div>
+        
       </div>
 
       {/* Back to Services Button */}

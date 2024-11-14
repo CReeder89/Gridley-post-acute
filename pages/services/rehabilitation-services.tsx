@@ -16,7 +16,7 @@ const RehabilitationServices: React.FC = () => {
 
       <h1 style={titleStyle}>Rehabilitation Services</h1>
       <p style={introTextStyle}>
-        At Gridley Post Acute, we provide rehabilitation services designed to support residents in recovering strength, mobility, and independence. Our therapies are tailored to meet the unique needs of each individual, ensuring effective and compassionate care.
+      At Gridley Post Acute our goal is to reduce our residents length of stay by customizing rehabilitation plans to enhance each resident's independence and abilities prior to discharge.
       </p>
 
       <div style={contentSectionStyle}>

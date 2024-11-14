@@ -16,7 +16,7 @@ const SkilledNursing: React.FC = () => {
 
       <h1 style={titleStyle}>24-Hour Skilled Nursing Services</h1>
       <p style={introTextStyle}>
-        At Gridley Post Acute, our 24-hour skilled nursing services are designed to provide exceptional care and support tailored to meet the unique needs of every resident. Our compassionate team is here around the clock to ensure the health, safety, and well-being of all individuals in our care.
+        At Gridley Post Acute, our 24-hour skilled nursing services are designed to provide exceptional care and support tailored to meet the unique needs of each resident. Our compassionate team is here around the clock to ensure the health, safety, and well-being of all individuals in our care.
       </p>
 
       <div style={contentSectionStyle}>
@@ -51,6 +51,13 @@ const SkilledNursing: React.FC = () => {
             <li>Audiology Services</li>
             <li>Wound Care</li>
             <li>IV Therapy</li>
+            <li>Nutrition and Hydration Plans and Programs</li>
+            <li>Hospice Care</li>
+            <li>Medication Management and Education</li>
+            <li>Diabetes Management</li>
+            <li>Off-site Dialysis</li>
+            <li>Bowel and Bladder Programs</li>
+            <li>Family Education</li>
           </ul>
         </div>
 

@@ -14,7 +14,6 @@ const Gallery1: React.FC = () => {
 
       <div style={galleryContainerStyle}>
         <h1 style={titleStyle}>Gallery</h1>
-        <p>Page still under development.</p>
         <QuiltedImageList />
       </div>
     </div>
