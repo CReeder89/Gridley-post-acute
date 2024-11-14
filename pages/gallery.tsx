@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Gallery } from "next-gallery"
 import MetaHead from '../components/MetaHead';
 import QuiltedImageList from '../components/MuiGallery';
 
@@ -13,17 +12,11 @@ const Gallery1: React.FC = () => {
         image="/images/gpa-front.jpg"
         url={`${process.env.WEBSITE}/gallery`} />
 
-    <div style={galleryContainerStyle}>
-      <h1 style={titleStyle}>Gallery</h1>
-      <p>Page still under development.</p>
-      
-     
-      
-      <QuiltedImageList />
-
-    
-      
-    </div>
+      <div style={galleryContainerStyle}>
+        <h1 style={titleStyle}>Gallery</h1>
+        <p>Page still under development.</p>
+        <QuiltedImageList />
+      </div>
     </div>
   );
 };

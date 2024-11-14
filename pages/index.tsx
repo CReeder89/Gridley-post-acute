@@ -9,6 +9,7 @@ import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined
 import GraphicEqOutlinedIcon from '@mui/icons-material/GraphicEqOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import CottageIcon from '@mui/icons-material/Cottage';
+import React from 'react';
 
 
 
@@ -68,8 +69,9 @@ const Home: React.FC = () => {
         <div style={servicesSectionStyle}>
 
 
-
+          
           <div style={serviceColumnStyle}>
+            <Link className='cardLink' href={'/services/activities-program'}></Link>
 
             <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
               <Image
@@ -86,6 +88,7 @@ const Home: React.FC = () => {
           </div>
 
           <div style={serviceColumnStyle}>
+          <Link className='cardLink' href={'/services/nursing-services'}></Link>
             <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
               <Image
                 src="/images/cna-group1.jpg"
@@ -100,6 +103,7 @@ const Home: React.FC = () => {
           </div>
 
           <div style={serviceColumnStyle}>
+          <Link className='cardLink' href={'/about-us'}></Link>
             <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
               <Image
                 src="/images/post-acute.jpg"
@@ -116,6 +120,7 @@ const Home: React.FC = () => {
 
           
           <div style={serviceColumnStyle}>
+          <Link className='cardLink' href={'/services/social-services'}></Link>
             <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
               <Image
                 src="/images/social-services.jpg"
@@ -257,6 +262,8 @@ const heroContainerStyle3: React.CSSProperties = {
   flexDirection: 'column'
 };
 
+
+
 const rehabColumnStyle: React.CSSProperties = {
   flex: '1 1 150px',
   padding: '20px',
@@ -306,6 +313,7 @@ const servicesSectionStyle: React.CSSProperties = {
 };
 
 const serviceColumnStyle: React.CSSProperties = {
+  position: 'relative',
   flex: 1,
   minWidth: '300px',
   maxWidth: 'auto',

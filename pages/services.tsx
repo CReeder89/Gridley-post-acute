@@ -57,6 +57,7 @@ const Services: React.FC = () => {
               flexDirection: index % 2 === 0 ? "row" : "row-reverse",
             }}
           >
+            <Link className='cardLink' href={service.link}></Link>
             <div style={imageContainerStyle}>
               <Image
                 src={service.image}
@@ -68,7 +69,7 @@ const Services: React.FC = () => {
             </div>
             <div style={serviceContentStyle}>
               <h2 style={serviceTitleStyle}>
-                <Link className='servicePageLinks' href={service.link}>{service.title}</Link>
+                {service.title}
               </h2>
               <p style={serviceDescriptionStyle}>{service.description}</p>
             </div>
@@ -94,6 +95,7 @@ const pageTitleStyle: React.CSSProperties = {
 };
 
 const serviceSectionStyle: React.CSSProperties = {
+  position: 'relative',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -114,7 +116,7 @@ const serviceContentStyle: React.CSSProperties = {
 
 const serviceTitleStyle: React.CSSProperties = {
   marginBottom: '15px',
-  textDecoration: 'none',
+  textDecoration: 'underline',
 };
 
 const serviceDescriptionStyle: React.CSSProperties = {
