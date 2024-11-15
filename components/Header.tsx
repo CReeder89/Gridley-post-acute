@@ -54,8 +54,10 @@ const Header: React.FC = () => {
             Home
           </Link>
           {/* Services Dropdown */}
-          <div  className="dropdown-container" role="menu">
+          
+          
             <Link
+            className="dropdown-container"
               href="/services"
               onClick={closeMobileMenu}
               aria-haspopup="true"
@@ -77,7 +79,7 @@ const Header: React.FC = () => {
                 Social Services
               </Link>
             </div>
-          </div>
+        
 
           
           <Link  href="/about-us" onClick={closeMobileMenu}>
@@ -97,7 +99,7 @@ const Header: React.FC = () => {
             Contact Us
           </Link>
 
-          <PhoneFloat />
+          <PhoneFloat  />
 
         </nav>
       </div>
