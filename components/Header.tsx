@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import PhoneFloat from './PhoneFloat';
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -95,6 +96,8 @@ const Header: React.FC = () => {
           <Link  href="/contact-us" onClick={closeMobileMenu}>
             Contact Us
           </Link>
+
+          <PhoneFloat />
 
         </nav>
       </div>
