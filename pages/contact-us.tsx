@@ -2,6 +2,14 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useReCaptcha } from 'next-recaptcha-v3';
 import MetaHead from '../components/MetaHead';
+import SuccessAlert from '../components/SuccessAlert';
+import Loader from '../components/Loader';
+import HomeIcon from '@mui/icons-material/Home';
+import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
+import Link from 'next/link';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 
 const ContactUs: React.FC = () => {
@@ -14,6 +22,7 @@ const ContactUs: React.FC = () => {
     callbackTime: '',
   });
   const [status, setStatus] = useState(''); // For showing success/error messages
+  const [loading, setLoading] = useState(false)
   const { executeRecaptcha } = useReCaptcha();
 
   // Handle form input changes
@@ -25,6 +34,8 @@ const ContactUs: React.FC = () => {
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    setLoading(true)
 
     if (!executeRecaptcha) {
       setStatus('reCAPTCHA is not available.');
@@ -54,12 +65,17 @@ const ContactUs: React.FC = () => {
           message: '',
           callbackTime: '',
         });
+        setLoading(false)
       } else {
         setStatus('Failed to send message. Please try again later.');
+        setLoading(false)
       }
     } catch (error) {
       setStatus('An error occurred. Please try again.');
+      setLoading(false)
     }
+
+
   };
 
   return (
@@ -82,23 +98,40 @@ const ContactUs: React.FC = () => {
             height={300}
             style={contactImageStyle}
           />
-          <p style={contactMessageStyle}>
+          <p >
             Welcome to Gridley Post Acute! We're here to help with any questions about our services, to assist with scheduling a tour, or to provide additional information.
-            <br/>
-            <br/>
+            <br />
+            <br />
             Please call us or submit your information, and a member of our team will get back to you shortly          </p>
           {/* Professional Contact Information */}
           <div style={contactDetailsStyle}>
+
             <h3>Contact Information</h3>
-            <p><strong>Phone:</strong> (530) 456-0400</p>
-            <p><strong>Address:</strong> 246 Spruce Street, Gridley, CA 95948</p>
-            <p><strong>Email:</strong> <a href="mailto:gridleyinfo@westharborhc.com">gridleyinfo@westharborhc.com</a></p>
+            <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+              <HomeIcon style={{ marginRight: '5px' }} />
+              <p>246 Spruce Street, Gridley, CA 95948</p>
+            </div>
+
+            <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+              <PhoneIcon style={{ marginRight: '5px' }} />
+              <p>(530) 456-0400</p>
+            </div>
+
+            <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+              <EmailIcon style={{ marginRight: '5px' }} />
+              <p> <Link href="mailto:gridleyinfo@westharborhc.com" style={linkStyle}>gridleyinfo@westharborhc.com</Link></p>
+            </div>
+
           </div>
+
+
+
         </div>
 
         {/* Right Side - Contact Form */}
-        <div style={contactFormInfoStyle}>
-          <form onSubmit={handleSubmit} style={contactFormStyle}>
+
+        <form onSubmit={handleSubmit} style={contactFormStyle}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <label htmlFor="name">Name</label>
             <input
               type="text"
@@ -110,7 +143,8 @@ const ContactUs: React.FC = () => {
               onChange={handleInputChange}
               style={inputStyle}
             />
-
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <label htmlFor="phone">Phone Number</label>
             <input
               type="tel"
@@ -122,7 +156,8 @@ const ContactUs: React.FC = () => {
               onChange={handleInputChange}
               style={inputStyle}
             />
-
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <label htmlFor="email">Email (Optional)</label>
             <input
               type="email"
@@ -133,7 +168,8 @@ const ContactUs: React.FC = () => {
               onChange={handleInputChange}
               style={inputStyle}
             />
-
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <label htmlFor="subject">Subject</label>
             <input
               type="text"
@@ -144,7 +180,8 @@ const ContactUs: React.FC = () => {
               onChange={handleInputChange}
               style={inputStyle}
             />
-
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <label htmlFor="message">Message</label>
             <textarea
               id="message"
@@ -155,7 +192,8 @@ const ContactUs: React.FC = () => {
               onChange={handleInputChange}
               style={contactMessageStyle}
             />
-
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <label htmlFor="callbackTime">Best Call Back Time</label>
             <input
               type="text"
@@ -166,12 +204,18 @@ const ContactUs: React.FC = () => {
               onChange={handleInputChange}
               style={inputStyle}
             />
+          </div>
 
-            <button type="submit" style={buttonStyle}>Submit</button>
-            {status && <p style={statusMessageStyle}>{status}</p>}
-          </form>
-        </div>
+          <button type="submit" style={buttonStyle}>{loading ? <Loader /> : 'Submit'}</button>
+          <SuccessAlert message={status} onClose={() => setStatus('')} />
+
+        </form>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3084.4759533844663!2d-121.69302852311927!3d39.368102471627424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80834d5b339fba17%3A0x2dc5ed986d723914!2sGridley%20Post%20Acute!5e0!3m2!1sen!2sus!4v1731627311332!5m2!1sen!2sus" width="100%" height="300" style={{ border: 0 }} loading="lazy" allowFullScreen></iframe>
+
       </div>
+
+
     </div>
   );
 };
@@ -196,12 +240,12 @@ const contactImageStyle: React.CSSProperties = {
   borderRadius: '8px',
   width: '100%',
   height: 'auto',
-  maxWidth: '400px',
+
 };
 
 const contactMessageStyle: React.CSSProperties = {
-  margin: '20px 0',
   lineHeight: '1.6',
+  height: '100px'
 };
 
 const contactDetailsStyle: React.CSSProperties = {
@@ -209,16 +253,14 @@ const contactDetailsStyle: React.CSSProperties = {
   fontSize: '1rem',
 };
 
-const contactFormInfoStyle: React.CSSProperties = {
-  flex: 1,
-  minWidth: '300px',
-  textAlign: 'left',
-};
+
 
 const contactFormStyle: React.CSSProperties = {
+  flex: 1,
   display: 'flex',
   flexDirection: 'column',
-  gap: '15px',
+  gap: '15px'
+
 };
 
 const inputStyle: React.CSSProperties = {
@@ -239,10 +281,11 @@ const buttonStyle: React.CSSProperties = {
   cursor: 'pointer',
 };
 
-const statusMessageStyle: React.CSSProperties = {
-  marginTop: '10px',
+
+const linkStyle: React.CSSProperties = {
+  textDecoration: 'none',
   fontSize: '1rem',
-  color: '#2c3e50',
+  margin: '5px 0',
 };
 
 // Responsive styling

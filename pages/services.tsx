@@ -52,8 +52,8 @@ const Services: React.FC = () => {
         {services.map((service, index) => (
           <div
             key={index}
+            className='serviceSectionStyle'
             style={{
-              ...serviceSectionStyle,
               flexDirection: index % 2 === 0 ? "row" : "row-reverse",
             }}
           >
