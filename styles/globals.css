@@ -326,7 +326,7 @@ nav a:hover {
 
 
 /* Responsive Design */
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .nav {
     display: none;
     position: absolute;
