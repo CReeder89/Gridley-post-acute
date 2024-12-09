@@ -38,9 +38,6 @@ const SiteMap: React.FC = () => {
               <Link href="/services/rehabilitation-services" style={linkStyle}>Rehabilitation Services</Link>
             </li>
             <li style={listItemStyle}>
-              <Link href="/services/post-acute-care" style={linkStyle}>Post-Acute Care</Link>
-            </li>
-            <li style={listItemStyle}>
               <Link href="/services/activities-program" style={linkStyle}>Activities Program</Link>
             </li>
             <li style={listItemStyle}>
@@ -48,9 +45,9 @@ const SiteMap: React.FC = () => {
             </li>
           </ul>
         </li>
-        <li style={listItemStyle}>
+        {/* <li style={listItemStyle}>
           <Link href="/meet-the-staff" style={linkStyle}>Meet the Staff</Link>
-        </li>
+        </li> */}
         <li style={listItemStyle}>
           <Link href="/gallery" style={linkStyle}>Gallery</Link>
         </li>
