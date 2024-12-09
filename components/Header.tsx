@@ -87,9 +87,9 @@ const Header: React.FC = () => {
           </Link>
         
 
-          <Link  href="/meet-the-staff" onClick={closeMobileMenu}>
+          {/* <Link  href="/meet-the-staff" onClick={closeMobileMenu}>
             Our Staff
-          </Link>
+          </Link> */}
 
           <Link  href="/gallery" onClick={closeMobileMenu}>
             Gallery

@@ -5,14 +5,45 @@ import MetaHead from '../components/MetaHead';
 import Button from '../components/ServiceButton';
 
 const PostAcuteCare: React.FC = () => {
+  const staff = [
+    {
+      name: "Matt Maylin",
+      title: "Administrator",
+      description:
+        "With a commitment to excellence, Matt oversees the daily operations at Gridley Post Acute, fostering a supportive environment for both residents and staff. His leadership ensures that every resident receives compassionate, quality care.",
+      image: "/images/staff2.png",
+    },
+    {
+      name: "Monica Voris",
+      title: "Director of Nursing",
+      description:
+        "Monica is devoted to ensuring the highest level of care for each resident. She combines medical expertise with a compassionate approach, making certain that our residents feel safe, respected, and well-cared-for.",
+      image: "/images/staff2.png",
+    },
+    {
+      name: "Robert Hinman",
+      title: "Rehabilitation Specialist",
+      description:
+        "Robert's expertise in rehabilitation empowers residents to regain strength and confidence. His personalized approach to therapy aids each individual’s journey toward improved mobility and independence.",
+      image: "/images/staff2.png",
+    },
+    {
+      name: "Nicole Sperber",
+      title: "Social Services",
+      description:
+        "Nicole offers invaluable support to residents and their families, guiding them through the transition and offering resources that enhance emotional and social well-being. Her compassion and dedication make a difference every day.",
+      image: "/images/staff2.png",
+    },
+  ];
+
   return (
     <div style={containerStyle}>
       <MetaHead
-       title="About Us - Gridley Post Acute"
-       description="Learn more about Gridley Post Acute and our commitment to delivering compassionate, high-quality care. Meet our dedicated team and explore our mission to support your health and recovery journey."
-       image="/images/gpa-front.jpg" 
-       url= {`${process.env.WEBSITE}/about-us`} />
-    
+        title="About Us - Gridley Post Acute"
+        description="Learn more about Gridley Post Acute and our commitment to delivering compassionate, high-quality care. Meet our dedicated team and explore our mission to support your health and recovery journey."
+        image="/images/gpa-front.jpg"
+        url={`${process.env.WEBSITE}/about-us`} />
+
 
       <h1 style={titleStyle}>About Us</h1>
       <p style={introTextStyle}>
@@ -25,7 +56,40 @@ const PostAcuteCare: React.FC = () => {
         Our dedicated staff brings both skill and compassion to their work, providing exceptional care to every resident. We welcome visitors and are pleased to offer tours to show how we can support you or your loved one's recovery journey.
       </p>
 
-     
+      <div style={{marginBottom: "30px"}}>
+        <h2 style={titleStyle}>People to Know</h2>
+
+        {/* Individual Staff Members */}
+        <div className='staffGridStyle'>
+          {staff.map((member, index) => (
+            <div key={index} style={staffCardStyle}>
+
+              {/* <div style={{background: '#f9f9f9',
+                borderRadius:'50%',
+                width: '175px',
+                height: '175px',
+                display:'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                boxShadow:'5px 5px 5px rgba(0, 0, 0, 0.1), -5px -5px 5px white'}}>
+              <Image
+                src={member.image}
+                alt={member.name} 
+                width={150}
+                height={150}
+                style={roundImageStyle}
+              />
+              </div> */}
+
+              <h3 style={staffNameStyle}>{member.name}</h3>
+              <p style={staffTitleStyle}>{member.title}</p>
+              {/* <p style={staffDescriptionStyle}>{member.description}</p> */}
+            </div>
+          ))}
+        </div>
+      </div>
+
+
 
       <h1 style={titleStyle}>What is Post Acute Care?</h1>
 
@@ -93,7 +157,9 @@ const PostAcuteCare: React.FC = () => {
         </div>
       </div>
 
+
       {/* More info Cards */}
+
 
       <div style={contactFacilitySectionStyle}>
 
@@ -111,7 +177,7 @@ const PostAcuteCare: React.FC = () => {
           <p>At Gridley Post Acute, we understand that choosing the right care facility for your loved one is an important decision. As the only 5-star rated facility in the Butte County area, we strive to go above and beyond to provide exceptional care and support to our residents. We don’t just meet the standards—we set them.</p>
         </div>
 
-        <div className='testEl'> 
+        <div className='testEl'>
           <h3>Butte County's only 5-Star Facility</h3>
           <Image
             src="/images/cms-logo.png"
@@ -125,8 +191,13 @@ const PostAcuteCare: React.FC = () => {
           <p>CMS rates facilities from 1 to 5 stars, with <strong>5 being the highest score!</strong> Read more about CMS scores <Link href="/cms-score">here</Link></p>
           <p> Compare us to other facilities in the area <Link target='_blank' href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest">here</Link></p>
         </div>
-        
+
       </div>
+
+
+
+
+
 
       {/* Back to Services Button */}
       <div style={buttonContainerStyle}>
@@ -232,5 +303,39 @@ const cmsLinkStyle: React.CSSProperties = {
   color: '#0066cc',
   textDecoration: 'underline',
 };
+
+const staffCardStyle: React.CSSProperties = {
+  textAlign: 'center',
+  padding: '20px',
+  // boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  borderRadius: '10px',
+  backgroundColor: '#f9f9f9',
+  display: 'flex',
+  justifyContent: 'center',
+  alignContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
+  boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1), -5px -5px 5px white'
+};
+
+const roundImageStyle: React.CSSProperties = {
+  borderRadius: '50%',
+  objectFit: 'cover',
+};
+
+const staffNameStyle: React.CSSProperties = {
+  fontSize: '1.5rem',
+  color: '#2c3e50',
+};
+
+const staffTitleStyle: React.CSSProperties = {
+  fontSize: '1.2rem',
+  color: '#666',
+};
+
+const staffDescriptionStyle: React.CSSProperties = {
+  color: '#333',
+};
+
 
 export default PostAcuteCare;
