@@ -46,18 +46,18 @@ const SkilledNursing: React.FC = () => {
 
           <h2 style={subtitleStyle}>Resident Services</h2>
           <ul style={listStyle}>
-            <li>Infection Prevention</li>
-            <li>Catheter Care</li>
-            <li>Audiology Services</li>
-            <li>Wound Care</li>
-            <li>IV Therapy</li>
-            <li>Nutrition and Hydration Plans and Programs</li>
-            <li>Hospice Care</li>
-            <li>Medication Management and Education</li>
-            <li>Diabetes Management</li>
-            <li>Off-site Dialysis</li>
-            <li>Bowel and Bladder Programs</li>
-            <li>Family Education</li>
+            <li>Infection prevention</li>
+            <li>Catheter care</li>
+            <li>Audiology services</li>
+            <li>Wound care</li>
+            <li>IV therapy</li>
+            <li>Nutrition and hydration plans and programs</li>
+            <li>Hospice care</li>
+            <li>Medication management and education</li>
+            <li>Diabetes management</li>
+            <li>Off-site dialysis</li>
+            <li>Bowel and bladder programs</li>
+            <li>Family education</li>
           </ul>
         </div>
 
@@ -65,7 +65,7 @@ const SkilledNursing: React.FC = () => {
         <div style={rightContentStyle}>
           <h2 style={sidebarTitleStyle}>Why Choose Us for Skilled Nursing?</h2>
           <ul style={listStyle}>
-            <li>24/7 Skilled Nursing Care</li>
+            <li>24/7 skilled nursing care</li>
             <li>Dedicated team of RNs, LVNs, and CNAs</li>
             <li>Comprehensive care plans tailored to each resident</li>
             <li>Family-centered approach to care</li>

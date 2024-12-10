@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
           <h3 style={footerSectionTitle}>Resources</h3>
          
             <Link href="/cms-score" style={linkStyle}>What is CMS?</Link>
-            <Link href="/test" style={linkStyle}>Choosing a Post-Acute Center</Link>
+            <Link href="/test" style={linkStyle}>Choosing a Post Acute Center</Link>
             <Link href="/site-map" style={linkStyle}>Site Map</Link>
             <Link href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest" target="_blank" style={linkStyle}>Medicare.gov comparison page</Link>
           

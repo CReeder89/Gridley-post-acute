@@ -52,7 +52,7 @@ const testimonials = [
   },
   {
     quote:
-      "Their post-acute care services are outstanding. I felt safe, supported, and encouraged every step of the way.",
+      "Their post acute care services are outstanding. I felt safe, supported, and encouraged every step of the way.",
     name: 'Karen',
     avatar: '/images/staff2.png',
   },

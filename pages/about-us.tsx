@@ -3,36 +3,41 @@ import React from 'react';
 import Image from 'next/image';
 import MetaHead from '../components/MetaHead';
 import Button from '../components/ServiceButton';
+import Divider from '@mui/material/Divider';
 
 const PostAcuteCare: React.FC = () => {
   const staff = [
     {
       name: "Matt Maylin",
       title: "Administrator",
-      description:
-        "With a commitment to excellence, Matt oversees the daily operations at Gridley Post Acute, fostering a supportive environment for both residents and staff. His leadership ensures that every resident receives compassionate, quality care.",
-      image: "/images/staff2.png",
     },
     {
       name: "Monica Voris",
       title: "Director of Nursing",
-      description:
-        "Monica is devoted to ensuring the highest level of care for each resident. She combines medical expertise with a compassionate approach, making certain that our residents feel safe, respected, and well-cared-for.",
-      image: "/images/staff2.png",
     },
     {
       name: "Robert Hinman",
       title: "Rehabilitation Specialist",
-      description:
-        "Robert's expertise in rehabilitation empowers residents to regain strength and confidence. His personalized approach to therapy aids each individual’s journey toward improved mobility and independence.",
-      image: "/images/staff2.png",
     },
     {
-      name: "Nicole Sperber",
+      name: "Nichole Sperber",
       title: "Social Services",
-      description:
-        "Nicole offers invaluable support to residents and their families, guiding them through the transition and offering resources that enhance emotional and social well-being. Her compassion and dedication make a difference every day.",
-      image: "/images/staff2.png",
+    },
+    {
+      name: "Nancy Zepeda",
+      title: "Billing",
+    },
+    {
+      name: "Phaedra Snow",
+      title: "Admissions Director",
+    },
+    {
+      name: "Bill Lagrone",
+      title: "Maintenance Director",
+    },
+    {
+      name: "Sarah Boesen",
+      title: "Marketing Director",
     },
   ];
 
@@ -47,7 +52,7 @@ const PostAcuteCare: React.FC = () => {
 
       <h1 style={titleStyle}>About Us</h1>
       <p style={introTextStyle}>
-        Gridley Post Acute is a 24 hour skilled nursing facility located in Gridley, California. Gridley is located 60 miles North of Sacramento and 30 miles South of Chico. We are proud to be a part of the West Harbor Healthcare line of skilled nursing facilities located throughout California.
+        Gridley Post Acute is a 24-hour skilled nursing facility located in Gridley, California. Gridley is located 60 miles North of Sacramento and 30 miles South of Chico. We are proud to be a part of the West Harbor Healthcare line of skilled nursing facilities located throughout California.
         <br />
         <br />
         Our mission is to support residents in regaining independence and returning home. We offer a full range of therapy services including physical, occupational, respiratory, and speech therapy.
@@ -98,17 +103,18 @@ const PostAcuteCare: React.FC = () => {
         <div style={leftContentStyle}>
           <h2 style={subtitleStyle}>Seamless Transitions</h2>
           <p style={paragraphStyle}>
-            Our post-acute care program bridges the gap between hospital and home. Whether recovering from surgery, illness, or an injury, we offer personalized care plans to help residents regain independence and confidence. Our interdisciplinary team works closely with residents, families, and healthcare providers to ensure continuity of care.
+            Our post acute care program bridges the gap between hospital and home. Whether recovering from surgery, illness, or an injury, we offer personalized care plans to help residents regain independence and confidence. Our interdisciplinary team works closely with residents, families, and healthcare providers to ensure continuity of care.
           </p>
 
-          <h2 style={subtitleStyle}>Comprehensive Support</h2>
+          {/* <h2 style={subtitleStyle}>Comprehensive Support</h2>
           <p style={paragraphStyle}>
-            Post-acute care addresses both physical and emotional needs. We provide services such as:
+            Post acute care addresses both physical and emotional needs. We provide services such as:
           </p>
           <ul style={listStyle}>
-            <li>Physical Therapy: Restoring strength, mobility, and function</li>
+            <li>Physical Therapy: restoring strength, mobility, and function</li>
             <li>Speech Therapy: Improving communication and swallowing abilities</li>
             <li>Respiratory Therapy: Supporting respiratory health and lung function</li>
+            <li>Occupational Therapy: Enhancing daily living skills and independence</li>
           </ul>
 
           <h2 style={subtitleStyle}>Daily Living Assistance</h2>
@@ -116,15 +122,15 @@ const PostAcuteCare: React.FC = () => {
             Our team is here to help residents manage their daily needs with dignity and care. We provide assistance with:
           </p>
           <ul style={listStyle}>
-            <li>Eating and Nutrition Plans</li>
-            <li>Bathing and Personal Hygiene</li>
-            <li>Dressing and Grooming</li>
+            <li>Eating and nutrition plans</li>
+            <li>Bathing and personal hygiene</li>
+            <li>Dressing and grooming</li>
           </ul>
 
           <h2 style={subtitleStyle}>Emotional and Social Well-Being</h2>
           <p style={paragraphStyle}>
-            Adjusting to post-acute care can be challenging. That's why we emphasize emotional support and social connection. From recreational activities to counseling services, we create a nurturing environment to help residents feel at ease and supported during their recovery journey.
-          </p>
+            Adjusting to post acute care can be challenging. That's why we emphasize emotional support and social connection. From recreational activities to counseling services, we create a nurturing environment to help residents feel at ease and supported during their recovery journey.
+          </p> */}
 
           <p style={paragraphStyle}>
             Our dedicated staff is always available to listen, assist, and ensure that residents feel comfortable and respected throughout their stay.
@@ -133,31 +139,35 @@ const PostAcuteCare: React.FC = () => {
 
         {/* Right Side - Visuals and Key Points */}
         <div style={rightContentStyle}>
-          <h2 style={sidebarTitleStyle}>Key Benefits of Our Post-Acute Care</h2>
+          <h2 style={sidebarTitleStyle}>Key Benefits of Our Post Acute Care</h2>
           <ul style={listStyle}>
             <li>24/7 nursing care</li>
-            <li>Personalized Rehabilitation Plans</li>
-            <li>Close Coordination with Healthcare Providers</li>
-            <li>Modern Amenities and Comfortable Living Spaces</li>
+            <li>Personalized rehabilitation plans</li>
+            <li>Close coordination with healthcare providers</li>
             <li>All beds are Medicare and Medicaid certified</li>
             <li>All rooms are equipped with electric high/low beds and cable TV</li>
             <li>Our onsite rehabilitation team offers physical, occupational, speech, and respiratory therapy</li>
 
           </ul>
 
-          <div style={imageContainerStyle}>
+          {/* <div style={imageContainerStyle}>
             <Image
               src="/images/post-acute.jpg"
-              alt="Post-Acute Care"
+              alt="Post Acute Care"
               width={400}
               height={300}
               style={imageStyle}
             />
-          </div>
+          </div> */}
         </div>
       </div>
 
+      {/* Back to Services Button */}
+      <div style={buttonContainerStyle}>
+        <Button text="See All Services" href="/services" />
+      </div>
 
+<Divider />
       {/* More info Cards */}
 
 
@@ -194,15 +204,6 @@ const PostAcuteCare: React.FC = () => {
 
       </div>
 
-
-
-
-
-
-      {/* Back to Services Button */}
-      <div style={buttonContainerStyle}>
-        <Button text="See All Services" href="/services" />
-      </div>
     </div>
   );
 };
@@ -232,7 +233,7 @@ const contentSectionStyle: React.CSSProperties = {
   alignItems: 'flex-start',
   gap: '20px',
   flexWrap: 'wrap',
-  marginBottom: '10px',
+  marginBottom: '50px',
 };
 
 const leftContentStyle: React.CSSProperties = {

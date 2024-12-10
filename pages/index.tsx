@@ -103,7 +103,7 @@ const Home: React.FC = () => {
           </div>
 
           <div className='serviceCard'>
-          <Link className='cardLink' href={'/about-us'}></Link>
+          <Link className='cardLink' href={'/services/rehabilitation-services'}></Link>
             <div style={{ display: 'flex', justifyContent: 'center', background: '#000', width: '200px', height: '200px', overflow: 'hidden' }}>
               <Image
                 src="/images/post-acute.jpg"
@@ -112,9 +112,9 @@ const Home: React.FC = () => {
                 height={250}
                 style={{ width: 'auto', maxWidth: 'full', height: 'full' }} />
             </div>
-            <h3 style={serviceTitleStyle}>Post Acute Care</h3>
+            <h3 style={serviceTitleStyle}>Rehabilitation</h3>
             <p>
-              We offer specialized post-acute care designed to support a smooth transition from hospital to home, with tailored rehabilitation programs that enhance recovery and independence.          </p>
+            Our comprehensive rehabilitation program is designed to provide personalized care, helping patients restore strength, improve mobility, and regain independence for a better quality of life.</p>
           </div>
 
 

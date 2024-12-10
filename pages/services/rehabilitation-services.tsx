@@ -27,11 +27,11 @@ const RehabilitationServices: React.FC = () => {
             Our physical therapy programs focus on improving strength, mobility, and balance. These programs are especially beneficial for residents recovering from surgeries, strokes, or injuries, helping them regain independence and confidence.
           </p>
           <ul style={listStyle}>
-            <li>Pain Reduction and Management</li>
-            <li>Building Strength and Endurance</li>
-            <li>Improving Mobility and Balance</li>
-            <li>Post-Stroke Motor Control Restoration</li>
-            <li>Post-Amputation Rehabilitation</li>
+            <li>Pain reduction and management</li>
+            <li>Building strength and endurance</li>
+            <li>Improving mobility and balance</li>
+            <li>Post-stroke motor control restoration</li>
+            <li>Post-amputation rehabilitation</li>
           </ul>
 
 
@@ -40,11 +40,11 @@ const RehabilitationServices: React.FC = () => {
           <p style={paragraphStyle}>
             Our occupational therapy programs are designed to help residents regain the skills and confidence needed for daily living activities. These therapies focus on promoting independence, ensuring that residents can perform essential tasks with dignity and ease.          </p>
           <ul style={listStyle}>
-            <li>Enhancing Skills for Daily Activities (e.g., eating, dressing, and bathing)</li>
-            <li>Restoring Fine Motor Skills and Coordination</li>
-            <li>Assessing and Adapting Home Environments for Safety</li>
-            <li>Promoting Independence Through Self-Care Training</li>
-            <li>Providing Guidance on Injury Prevention and Energy Conservation</li>
+            <li>Enhancing skills for daily activities (e.g., eating, dressing, and bathing)</li>
+            <li>Restoring fine motor skills and coordination</li>
+            <li>Assessing and adapting home environments for safety</li>
+            <li>Promoting independence through self-care training</li>
+            <li>Providing guidance on injury prevention and energy conservation</li>
           </ul>
 
           <p style={paragraphStyle}>
@@ -58,11 +58,11 @@ const RehabilitationServices: React.FC = () => {
             Our respiratory therapy services help residents manage and improve breathing conditions. Whether recovering from respiratory illnesses or managing chronic conditions, our team provides expert care to enhance lung function and overall quality of life.
           </p>
           <ul style={listStyle}>
-            <li>Oxygen Therapy Management</li>
-            <li>Education on Breathing Techniques</li>
-            <li>Ventilator Care and Support</li>
-            <li>Assistance with Chronic Conditions like COPD</li>
-            <li>Monitoring and Adjusting Respiratory Equipment</li>
+            <li>Oxygen therapy management</li>
+            <li>Education on breathing techniques</li>
+            <li>Ventilator care and support</li>
+            <li>Assistance with chronic conditions like COPD</li>
+            <li>Monitoring and adjusting respiratory equipment</li>
           </ul>
 
           <h2 style={subtitleStyle}>Speech Therapy</h2>
@@ -70,10 +70,10 @@ const RehabilitationServices: React.FC = () => {
             Our speech therapy programs address challenges with communication, swallowing, and cognitive skills. We also work closely with families to provide guidance and training to support residents in their recovery.
           </p>
           <ul style={listStyle}>
-            <li>Improving Speech Clarity and Expression</li>
-            <li>Treatment for Swallowing Issues (Dysphagia)</li>
-            <li>Enhancing Listening and Comprehension Skills</li>
-            <li>Family Education on Oral Motor Skills Management</li>
+            <li>Improving speech clarity and expression</li>
+            <li>Treatment for swallowing issues (Dysphagia)</li>
+            <li>Enhancing listening and comprehension skills</li>
+            <li>Family education on oral motor skills management</li>
           </ul>
         </div>
 
@@ -81,10 +81,10 @@ const RehabilitationServices: React.FC = () => {
         <div style={rightContentStyle}>
           <h2 style={sidebarTitleStyle}>What Makes Our Rehabilitation Services Unique?</h2>
           <ul style={listStyle}>
-            <li>Individualized Therapy Plans for Every Resident</li>
-            <li>Skilled and Compassionate Therapists</li>
-            <li>Collaborative Approach with Residents and Families</li>
-            <li>Focus on Recovery and Long-Term Wellness</li>
+            <li>Individualized therapy plans for every resident</li>
+            <li>Skilled and compassionate therapists</li>
+            <li>Collaborative approach with residents and families</li>
+            <li>Focus on recovery and long-term wellness</li>
           </ul>
 
           <div style={{ width: '300px', margin: '20px auto', borderRadius: '10px' }}>

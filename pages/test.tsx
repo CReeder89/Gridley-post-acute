@@ -8,7 +8,7 @@ const WhyChooseUs: React.FC = () => {
     <div style={containerStyle}>
       <h1 style={titleStyle}>Why Choose Gridley Post Acute?</h1>
       <p style={introTextStyle}>
-        At Gridley Post Acute, we strive to set the standard in quality care, offering compassionate and professional services tailored to meet the unique needs of every resident. As the only <strong>5-star rated facility</strong> in the area, we are proud to be the trusted choice for post-acute care.
+        At Gridley Post Acute, we strive to set the standard in quality care, offering compassionate and professional services tailored to meet the unique needs of every resident. As the only <strong>5-star rated facility</strong> in the area, we are proud to be the trusted choice for post acute care.
       </p>
 
       <div style={contentSectionStyle}>
@@ -43,14 +43,14 @@ const WhyChooseUs: React.FC = () => {
         <div style={rightContentStyle}>
           <h2 style={sidebarTitleStyle}>Our Services</h2>
           <ul style={listStyle}>
-            <li>Registered Dietitian</li>
-            <li>Respiratory Therapy</li>
-            <li>24/7 Skilled Nursing Care</li>
-            <li>Wound Care</li>
-            <li>Hospice Care</li>
-            <li>Physical Therapy</li>
-            <li>Occupational Therapy</li>
-            <li>Speech Therapy</li>
+            <li>Registered dietitian</li>
+            <li>Respiratory therapy</li>
+            <li>24/7 Skilled nursing care</li>
+            <li>Wound care</li>
+            <li>Hospice care</li>
+            <li>Physical therapy</li>
+            <li>Occupational therapy</li>
+            <li>Speech therapy</li>
           </ul>
 
           {/* Add an image slider or promotional image */}

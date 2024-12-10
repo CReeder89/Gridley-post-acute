@@ -40,7 +40,7 @@ const Services: React.FC = () => {
 
       <MetaHead
         title="Services - Gridley Post Acute"
-        description="Discover the wide range of healthcare services offered at Gridley Post Acute, including 24/7 nursing care, rehabilitation, post-acute support, activities programs, and social services designed to support recovery and well-being."
+        description="Discover the wide range of healthcare services offered at Gridley Post Acute, including 24/7 nursing care, rehabilitation, post acute support, activities programs, and social services designed to support recovery and well-being."
         image="/images/gpa-front.jpg"
         url={`${process.env.WEBSITE}/services`}/>
 

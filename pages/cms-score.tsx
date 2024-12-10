@@ -11,7 +11,7 @@ const CMSScore: React.FC = () => {
           The Centers for Medicare & Medicaid Services (CMS) provides a <strong>5-star quality rating system</strong> to help patients and families compare nursing homes based on the level of care they provide. The system rates facilities from 1 to 5 stars, with 5 being the highest score and indicating the highest quality of care.
         </p>
         <p style={textStyle}>
-          At <strong>Gridley Post Acute</strong>, we are proud to be the <strong>only facility in Butte County with a 5-star CMS rating</strong>, reflecting our commitment to providing exceptional care to our residents. Here’s what goes into achieving and maintaining this top-tier rating.
+          At <strong>Gridley Post Acute</strong>, we are proud to be the <strong>only facility in Butte County with a 5-star CMS rating</strong>, reflecting our commitment to providing exceptional care to our residents. Here's what goes into achieving and maintaining this top-tier rating:
         </p>
       </div>
 
@@ -38,7 +38,7 @@ const CMSScore: React.FC = () => {
       <h2 style={sectionTitleStyle}>Maintaining a 5-Star Rating</h2>
       <div style={sectionStyle}>
         <p style={textStyle}>
-          Achieving a 5-star CMS rating is no small feat, and maintaining it requires dedication to <strong>continuous improvement</strong> and <strong>exceptional care</strong> standards. Here are a few key factors that help us maintain our top rating:
+        Achieving a 5-star CMS rating is remarkable, and maintaining it requires dedication to <strong>continuous improvement</strong> and <strong>exceptional care</strong> standards. Here are a few key factors that help us maintain our top rating:
         </p>
 
         <ul style={listStyle}>
