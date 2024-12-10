@@ -16,7 +16,7 @@ const SocialServices: React.FC = () => {
 
       <h1 style={titleStyle}>Social Services</h1>
       <p style={introTextStyle}>
-        At Gridley Post Acute, our Social Services team is committed to supporting residents and their families through every stage of care. With compassion and expertise, we ensure smooth transitions into our facility and back home, offering guidance, resources, and emotional support.
+        At Gridley Post Acute, Our social services team works closely with families to foster strong relationships, provide support during transition and coordinate care conferences. With compassion and expertise, we ensure smooth transitions into our facility and back home.
       </p>
 
       <div style={contentSectionStyle}>
@@ -24,7 +24,7 @@ const SocialServices: React.FC = () => {
         <div style={leftContentStyle}>
           <h2 style={subtitleStyle}>Family Support and Involvement</h2>
           <p style={paragraphStyle}>
-            We believe family involvement is essential to the well-being and recovery of our residents. Our Social Services team works closely with families to maintain strong connections and offer guidance during times of transition. Whether it’s facilitating family meetings or providing counseling, we are here to help every step of the way.
+            We believe family involvement is essential to the well-being and recovery of our residents. Our Social Services team works closely with families to maintain strong connections and offer guidance during times of transition. Whether it's facilitating family meetings or providing counseling, we are here to help every step of the way.
           </p>
 
           <h2 style={subtitleStyle}>Personalized Care and Advocacy</h2>
@@ -34,7 +34,7 @@ const SocialServices: React.FC = () => {
 
           <h2 style={subtitleStyle}>Discharge Planning and Transition Assistance</h2>
           <p style={paragraphStyle}>
-            Preparing for discharge can be overwhelming, but our Social Services team ensures a seamless transition. From arranging home care services to assisting with transportation, we provide the tools and support needed for residents to return home or transition to another facility with confidence.
+          Preparing for discharge can feel overwhelming, but our social services team ensures a smooth transition by coordinating  with home health services or facilitating a  move to an assisted living facility if needed.
           </p>
         </div>
 
@@ -42,11 +42,9 @@ const SocialServices: React.FC = () => {
         <div style={rightContentStyle}>
           <h2 style={sidebarTitleStyle}>Key Aspects of Our Social Services</h2>
           <ul style={listStyle}>
-            <li>Family Counseling and Guidance</li>
-            <li>Access to Community Resources</li>
-            <li>Discharge Planning and Coordination</li>
-            <li>Advocacy for Resident Rights</li>
-            <li>Help with Medicare/Medicaid and Financial Questions</li>
+            <li>Scheduling care conferences</li>
+            <li>Providing community resources</li>
+            <li>Discharge planning and coordination</li>
           </ul>
 
           <div style={imageContainerStyle}>
