@@ -61,39 +61,7 @@ const PostAcuteCare: React.FC = () => {
         Our dedicated staff brings both skill and compassion to their work, providing exceptional care to every resident. We welcome visitors and are pleased to offer tours to show how we can support you or your loved one's recovery journey.
       </p>
 
-      <div style={{marginBottom: "30px"}}>
-        <h2 style={titleStyle}>People to Know</h2>
-
-        {/* Individual Staff Members */}
-        <div className='staffGridStyle'>
-          {staff.map((member, index) => (
-            <div key={index} style={staffCardStyle}>
-
-              {/* <div style={{background: '#f9f9f9',
-                borderRadius:'50%',
-                width: '175px',
-                height: '175px',
-                display:'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                boxShadow:'5px 5px 5px rgba(0, 0, 0, 0.1), -5px -5px 5px white'}}>
-              <Image
-                src={member.image}
-                alt={member.name} 
-                width={150}
-                height={150}
-                style={roundImageStyle}
-              />
-              </div> */}
-
-              <h3 style={staffNameStyle}>{member.name}</h3>
-              <p style={staffTitleStyle}>{member.title}</p>
-              {/* <p style={staffDescriptionStyle}>{member.description}</p> */}
-            </div>
-          ))}
-        </div>
-      </div>
-
+      
 
 
       <h1 style={titleStyle}>What is Post Acute Care?</h1>
@@ -162,10 +130,46 @@ const PostAcuteCare: React.FC = () => {
         </div>
       </div>
 
+      
+
       {/* Back to Services Button */}
       <div style={buttonContainerStyle}>
         <Button text="See All Services" href="/services" />
       </div>
+
+      <div style={{marginBottom: "30px"}}>
+       <Divider><h2>People to Know</h2></Divider>
+
+        {/* Individual Staff Members */}
+        <div className='staffGridStyle'>
+          {staff.map((member, index) => (
+            <div key={index} style={staffCardStyle}>
+
+              {/* <div style={{background: '#f9f9f9',
+                borderRadius:'50%',
+                width: '175px',
+                height: '175px',
+                display:'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                boxShadow:'5px 5px 5px rgba(0, 0, 0, 0.1), -5px -5px 5px white'}}>
+              <Image
+                src={member.image}
+                alt={member.name} 
+                width={150}
+                height={150}
+                style={roundImageStyle}
+              />
+              </div> */}
+
+              <h3 style={staffNameStyle}>{member.name}</h3>
+              <p style={staffTitleStyle}>{member.title}</p>
+              {/* <p style={staffDescriptionStyle}>{member.description}</p> */}
+            </div>
+          ))}
+        </div>
+      </div>
+
 
 <Divider />
       {/* More info Cards */}
