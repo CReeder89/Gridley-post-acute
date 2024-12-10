@@ -238,15 +238,20 @@ const contentSectionStyle: React.CSSProperties = {
 
 const leftContentStyle: React.CSSProperties = {
   flex: 2,
+  minWidth: '300px', // Ensure the columns have a minimum width
 };
 
 const rightContentStyle: React.CSSProperties = {
   flex: 1,
+  minWidth: '300px', // Ensure the columns have a minimum width
   backgroundColor: '#f8f9fa',
   padding: '20px',
   borderRadius: '8px',
   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
 };
+
+
+
 
 const subtitleStyle: React.CSSProperties = {
   fontSize: '1.5rem',
