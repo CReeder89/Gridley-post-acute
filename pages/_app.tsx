@@ -5,7 +5,7 @@ import '../styles/serviceCards.css'
 import type { AppProps } from 'next/app';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Popup from '../components/Popup';
+// import Popup from '../components/Popup';
 import { ReCaptchaProvider } from "next-recaptcha-v3";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 //import Head from 'next/head';
@@ -20,7 +20,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <div style={mainStyle}>
         <Component  {...pageProps} />
         </div>
-        <Popup />
+        {/* <Popup /> */}
         <Footer />
         </div>
         </AppRouterCacheProvider>

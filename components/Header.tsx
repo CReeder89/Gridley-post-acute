@@ -60,7 +60,6 @@ const Header: React.FC = () => {
             className="dropdown-container"
               href="/services"
               onClick={closeMobileMenu}
-              aria-haspopup="true"
               aria-expanded={isMobileMenuOpen}
             >
               Services
