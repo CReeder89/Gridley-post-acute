@@ -91,7 +91,7 @@ const Careers: React.FC = () => {
               <li>Registered Nurse (RN)</li>
               <li>Certified Nursing Assistant (CNA)</li>
               <li>Physical Therapist</li>
-              <li>Administrative Staff</li>
+              {/* <li>Administrative Staff</li> */}
             </ul>
           </div>
         </div>
