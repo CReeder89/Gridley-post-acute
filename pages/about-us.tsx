@@ -188,11 +188,11 @@ const PostAcuteCare: React.FC = () => {
             style={{ width: '100%', maxWidth: 'full', height: 'auto' }} />
           <br />
 
-          <p>At Gridley Post Acute, we understand that choosing the right care facility for your loved one is an important decision. As the only 5-star rated facility in the Butte County area, we strive to go above and beyond to provide exceptional care and support to our residents. We don’t just meet the standards—we set them.</p>
+          <p>At Gridley Post Acute, we understand that choosing the right care facility for your loved one is an important decision. As a CMS 4-Star rated facility, we strive to go above and beyond to provide exceptional care and support to our residents. We don’t just meet the standards—we set them.</p>
         </div>
 
         <div className='testEl'>
-          <h3>Butte County's only 5-Star Facility</h3>
+          <h3>A CMS 4-Star Rated Facility</h3>
           <Image
             src="/images/cms-logo.png"
             alt="CMS Logo"
@@ -202,7 +202,7 @@ const PostAcuteCare: React.FC = () => {
 
           />
 
-          <p>CMS rates facilities from 1 to 5 stars, with <strong>5 being the highest score!</strong> Read more about CMS scores <Link href="/cms-score">here</Link></p>
+          <p>CMS rates facilities from 1 to 5 stars. We are proud to hold a <strong>CMS 4-Star quality rating</strong>, reflecting our commitment to exceptional care. Read more about CMS scores <Link href="/cms-score">here</Link></p>
           <p> Compare us to other facilities in the area <Link target='_blank' href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest">here</Link></p>
         </div>
 

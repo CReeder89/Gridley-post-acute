@@ -19,7 +19,7 @@ const Home: React.FC = () => {
 
       <MetaHead
         title="Gridley Post Acute | Skilled Nursing & Rehabilitation"
-        description="Gridley Post Acute provides compassionate and comprehensive 24-hour skilled nursing care and rehabilitation services. Learn why we're the only 5-star rated facility in Butte County."
+        description="Gridley Post Acute provides compassionate and comprehensive 24-hour skilled nursing care and rehabilitation services. Learn about our CMS 4-Star rated facility in Butte County."
         image="/images/gpa-front.jpg"
         url={`${process.env.WEBSITE}`} />
 
@@ -29,7 +29,7 @@ const Home: React.FC = () => {
       <div style={heroContainerStyle}>
 
         <div style={heroContentStyle} className='glass'>
-          <div style={logoContainerStyle}>
+          {/* <div style={logoContainerStyle}>
             <Image
               src="/images/logo.jpg"
               alt="Gridley Post Acute Logo"
@@ -37,11 +37,11 @@ const Home: React.FC = () => {
               height={86}
               style={{ ...logoStyle, width: '100%', maxWidth: '220px' }}
             />
-          </div>
+          </div> */}
 
 
           <Image
-            src="/images/5star-banner3.png"
+            src="/images/logo.jpg"
             alt="Gridley Post Acute Logo"
             width={324}
             height={111}
@@ -183,12 +183,11 @@ const Home: React.FC = () => {
 
 
 
-      {/* 5-star section */}
+      {/* CMS rating section */}
       <div style={heroContainerStyle3}>
-        <h1 style={{ color: '#fff' }}>Butte County's Only Five-Star Facility</h1>
+        <h1 style={{ color: '#fff' }}>A CMS 4-Star Rated Facility</h1>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'center' }} >
           <div style={starsContainer}>
-            <StarOutlinedIcon style={{ width: '20%', maxWidth: 'full', height: 'auto' }} />
             <StarOutlinedIcon style={{ width: '20%', maxWidth: 'full', height: 'auto' }} />
             <StarOutlinedIcon style={{ width: '20%', maxWidth: 'full', height: 'auto' }} />
             <StarOutlinedIcon style={{ width: '20%', maxWidth: 'full', height: 'auto' }} />

@@ -11,7 +11,7 @@ const CMSScore: React.FC = () => {
           The Centers for Medicare & Medicaid Services (CMS) provides a <strong>5-star quality rating system</strong> to help patients and families compare nursing homes based on the level of care they provide. The system rates facilities from 1 to 5 stars, with 5 being the highest score and indicating the highest quality of care.
         </p>
         <p style={textStyle}>
-          At <strong>Gridley Post Acute</strong>, we are proud to be the <strong>only facility in Butte County with a 5-star CMS rating</strong>, reflecting our commitment to providing exceptional care to our residents. Here's what goes into achieving and maintaining this top-tier rating:
+          At <strong>Gridley Post Acute</strong>, we are proud to hold a <strong>CMS 4-Star quality rating</strong>, reflecting our commitment to providing exceptional care to our residents. Here's what goes into earning and sustaining a strong CMS rating:
         </p>
       </div>
 
@@ -34,11 +34,11 @@ const CMSScore: React.FC = () => {
         </p>
       </div>
 
-      {/* Maintaining a 5-Star Rating */}
-      <h2 style={sectionTitleStyle}>Maintaining a 5-Star Rating</h2>
+      {/* Sustaining a Strong CMS Rating */}
+      <h2 style={sectionTitleStyle}>Sustaining a Strong CMS Rating</h2>
       <div style={sectionStyle}>
         <p style={textStyle}>
-        Achieving a 5-star CMS rating is remarkable, and maintaining it requires dedication to <strong>continuous improvement</strong> and <strong>exceptional care</strong> standards. Here are a few key factors that help us maintain our top rating:
+        Earning a CMS 4-Star rating reflects dedication to <strong>continuous improvement</strong> and <strong>exceptional care</strong> standards. Here are a few key factors that help us sustain our strong rating:
         </p>
 
         <ul style={listStyle}>
@@ -49,7 +49,7 @@ const CMSScore: React.FC = () => {
         </ul>
 
         <p style={textStyle}>
-          At Gridley Post Acute, we understand that maintaining a 5-star rating is about more than just meeting the minimum standards — it's about exceeding them to ensure the best possible outcomes for our residents.
+          At Gridley Post Acute, we understand that sustaining a strong CMS rating is about more than just meeting the minimum standards — it's about exceeding them to ensure the best possible outcomes for our residents.
         </p>
       </div>
 
@@ -57,10 +57,10 @@ const CMSScore: React.FC = () => {
       <h2 style={sectionTitleStyle}>Why It Matters for Patients and Families</h2>
       <div style={sectionStyle}>
         <p style={textStyle}>
-          Choosing a nursing facility for yourself or a loved one is one of the most important decisions you can make. A 5-star CMS rating is a reflection of <strong>exceptional care</strong> and <strong>trustworthiness</strong>. It ensures peace of mind knowing that your loved one will receive top-notch care in a safe, supportive environment.
+          Choosing a nursing facility for yourself or a loved one is one of the most important decisions you can make. A strong CMS rating is a reflection of <strong>exceptional care</strong> and <strong>trustworthiness</strong>. It helps families feel confident that their loved one will receive quality care in a safe, supportive environment.
         </p>
         <p style={textStyle}>
-          At Gridley Post Acute, we take pride in our 5-star CMS rating because it stands for our <strong>commitment to excellence</strong>, the <strong>compassionate care</strong> we provide, and the <strong>well-being of our residents</strong>.
+          At Gridley Post Acute, we take pride in our CMS 4-Star rating because it stands for our <strong>commitment to excellence</strong>, the <strong>compassionate care</strong> we provide, and the <strong>well-being of our residents</strong>.
         </p>
       </div>
 
@@ -68,7 +68,7 @@ const CMSScore: React.FC = () => {
       <div style={imageContainerStyle}>
         <Image
           src="/images/cms-logo.png"  // Replace with your actual image
-          alt="CMS 5-Star Rating"
+          alt="CMS 4-Star Rating"
           width={420}
           height={242}
           style={{ width: '100%', maxWidth: '420px', height: 'auto' }}
