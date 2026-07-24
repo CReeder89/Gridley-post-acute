@@ -2,18 +2,20 @@ import Link from 'next/link';
 import React from 'react';
 import TheSwiper from '../components/Swiper';
 import Image from 'next/image';
+import AnimateIn from '../components/AnimateIn';
 
 const WhyChooseUs: React.FC = () => {
   return (
     <div style={containerStyle}>
-      <h1 style={titleStyle}>Why Choose Gridley Post Acute?</h1>
-      <p style={introTextStyle}>
-        At Gridley Post Acute, we strive to set the standard in quality care, offering compassionate and professional services tailored to meet the unique needs of every resident. As a <strong>CMS 4-Star rated facility</strong>, we are proud to be the trusted choice for post acute care.
-      </p>
+      <AnimateIn immediate>
+        <h1 style={titleStyle}>Why Choose Gridley Post Acute?</h1>
+        <p style={introTextStyle}>
+          At Gridley Post Acute, we strive to set the standard in quality care, offering compassionate and professional services tailored to meet the unique needs of every resident. As a <strong>CMS 4-Star rated facility</strong>, we are proud to be the trusted choice for post acute care.
+        </p>
+      </AnimateIn>
 
       <div style={contentSectionStyle}>
-        {/* Left Side - Main Content */}
-        <div style={leftContentStyle}>
+        <AnimateIn variant="slideLeft" style={leftContentStyle}>
           <h2 style={subtitleStyle}>Comprehensive Care Continuum</h2>
           <p style={paragraphStyle}>
             Seamlessly transition from the hospital to our Skilled Nursing Facility, where our dedicated team ensures a continuum of care for your physical, emotional, and social well-being.
@@ -37,10 +39,9 @@ const WhyChooseUs: React.FC = () => {
           <p style={paragraphStyle}>
             Don’t just take our word for it—compare us to other facilities in the area on the official <Link href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest" target="_blank" style={linkStyle}>Medicare.gov comparison page</Link>.
           </p>
-        </div>
+        </AnimateIn>
 
-        {/* Right Side - Services Overview */}
-        <div style={rightContentStyle}>
+        <AnimateIn variant="slideRight" delay={0.1} style={rightContentStyle}>
           <h2 style={sidebarTitleStyle}>Our Services</h2>
           <ul style={listStyle}>
             <li>Registered dietitian</li>
@@ -53,9 +54,7 @@ const WhyChooseUs: React.FC = () => {
             <li>Speech therapy</li>
           </ul>
 
-          {/* Add an image slider or promotional image */}
           <div style={{ width: '300px', margin: '20px auto', borderRadius: '10px'}}>
-            {/* Placeholder for a swiper or promotional image */}
             <Image
             src="/images/cna-group2.jpg"
             alt="GPA Logo"
@@ -63,9 +62,11 @@ const WhyChooseUs: React.FC = () => {
             height={137}
             style={{ width: '100%',  height: 'auto' }} />
           </div>
-        </div>
+        </AnimateIn>
       </div>
-      <TheSwiper />
+      <AnimateIn delay={0.1} style={{ width: '100%' }}>
+        <TheSwiper />
+      </AnimateIn>
     </div>
   );
 };

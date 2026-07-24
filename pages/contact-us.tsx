@@ -4,6 +4,7 @@ import { useReCaptcha } from 'next-recaptcha-v3';
 import MetaHead from '../components/MetaHead';
 import SuccessAlert from '../components/SuccessAlert';
 import Loader from '../components/Loader';
+import AnimateIn from '../components/AnimateIn';
 import HomeIcon from '@mui/icons-material/Home';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -89,8 +90,7 @@ const ContactUs: React.FC = () => {
 
 
       <div style={contactContainerStyle}>
-        {/* Left Side - Picture and Message */}
-        <div style={contactInfoStyle}>
+        <AnimateIn variant="slideLeft" style={contactInfoStyle}>
           <Image
             src="/images/contact.jpg" // Replace with your actual image path
             alt="Contact Us"
@@ -126,10 +126,11 @@ const ContactUs: React.FC = () => {
 
 
 
-        </div>
+        </AnimateIn>
 
         {/* Right Side - Contact Form */}
 
+        <AnimateIn variant="slideRight" delay={0.1} style={{ flex: 1, minWidth: 280 }}>
         <form onSubmit={handleSubmit} style={contactFormStyle}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <label htmlFor="name">Name</label>
@@ -210,6 +211,7 @@ const ContactUs: React.FC = () => {
           <SuccessAlert message={status} onClose={() => setStatus('')} />
 
         </form>
+        </AnimateIn>
 
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3084.4759533844663!2d-121.69302852311927!3d39.368102471627424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80834d5b339fba17%3A0x2dc5ed986d723914!2sGridley%20Post%20Acute!5e0!3m2!1sen!2sus!4v1731627311332!5m2!1sen!2sus" width="100%" height="300" style={{ border: 0 }} loading="lazy" allowFullScreen></iframe>
 

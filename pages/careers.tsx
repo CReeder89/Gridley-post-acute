@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useReCaptcha } from 'next-recaptcha-v3';
 import MetaHead from '../components/MetaHead';
+import AnimateIn from '../components/AnimateIn';
 
 const Careers: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -72,8 +73,7 @@ const Careers: React.FC = () => {
 
 
       <div style={careersContainerStyle}>
-        {/* Left Side - Picture and Message */}
-        <div style={careersInfoStyle}>
+        <AnimateIn variant="slideLeft" style={careersInfoStyle}>
           <Image
             src="/images/cna-group1.jpg" // Replace with your actual image path
             alt="Careers at Gridley Post Acute"
@@ -94,10 +94,10 @@ const Careers: React.FC = () => {
               {/* <li>Administrative Staff</li> */}
             </ul>
           </div>
-        </div>
+        </AnimateIn>
 
         {/* Right Side - Careers Form */}
-        <div style={careersFormInfoStyle}>
+        <AnimateIn variant="slideRight" delay={0.1} style={careersFormInfoStyle}>
           <form onSubmit={handleSubmit} style={careersFormStyle}>
             <label htmlFor="name">Name</label>
             <input
@@ -173,7 +173,7 @@ const Careers: React.FC = () => {
             <button type="submit" style={buttonStyle}>Submit</button>
             {status && <p style={statusMessageStyle}>{status}</p>}
           </form>
-        </div>
+        </AnimateIn>
       </div>
     </div>
   );

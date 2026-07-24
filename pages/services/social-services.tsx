@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import MetaHead from '../../components/MetaHead';
 import Button from '../../components/ServiceButton';
+import AnimateIn from '../../components/AnimateIn';
 
 const SocialServices: React.FC = () => {
   return (
@@ -14,14 +15,16 @@ const SocialServices: React.FC = () => {
         url={`${process.env.WEBSITE}/services/social-services`}
       />
 
-      <h1 style={titleStyle}>Social Services</h1>
-      <p style={introTextStyle}>
-        At Gridley Post Acute, Our social services team works closely with families to foster strong relationships, provide support during transition and coordinate care conferences. With compassion and expertise, we ensure smooth transitions into our facility and back home.
-      </p>
+      <AnimateIn immediate>
+        <h1 style={titleStyle}>Social Services</h1>
+        <p style={introTextStyle}>
+          At Gridley Post Acute, Our social services team works closely with families to foster strong relationships, provide support during transition and coordinate care conferences. With compassion and expertise, we ensure smooth transitions into our facility and back home.
+        </p>
+      </AnimateIn>
 
       <div style={contentSectionStyle}>
         {/* Left Side - Main Content */}
-        <div style={leftContentStyle}>
+        <AnimateIn variant="slideLeft" style={leftContentStyle}>
           <h2 style={subtitleStyle}>Family Support and Involvement</h2>
           <p style={paragraphStyle}>
             We believe family involvement is essential to the well-being and recovery of our residents. Our Social Services team works closely with families to maintain strong connections and offer guidance during times of transition. Whether it's facilitating family meetings or providing counseling, we are here to help every step of the way.
@@ -36,10 +39,10 @@ const SocialServices: React.FC = () => {
           <p style={paragraphStyle}>
           Preparing for discharge can feel overwhelming, but our social services team ensures a smooth transition by coordinating  with home health services or facilitating a  move to an assisted living facility if needed.
           </p>
-        </div>
+        </AnimateIn>
 
         {/* Right Side - Key Points and Visuals */}
-        <div style={rightContentStyle}>
+        <AnimateIn variant="slideRight" delay={0.1} style={rightContentStyle}>
           <h2 style={sidebarTitleStyle}>Key Aspects of Our Social Services</h2>
           <ul style={listStyle}>
             <li>Scheduling care conferences</li>
@@ -56,13 +59,15 @@ const SocialServices: React.FC = () => {
               style={imageStyle}
             />
           </div>
-        </div>
+        </AnimateIn>
       </div>
 
       {/* Back to Services Button */}
-      <div style={buttonContainerStyle}>
-        <Button text="Back to All Services" href="/services" />
-      </div>
+      <AnimateIn delay={0.05}>
+        <div style={buttonContainerStyle}>
+          <Button text="Back to All Services" href="/services" />
+        </div>
+      </AnimateIn>
     </div>
   );
 };

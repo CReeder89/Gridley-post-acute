@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import MetaHead from '../components/MetaHead';
+import AnimateIn from '../components/AnimateIn';
 
 const Services: React.FC = () => {
   const services = [
@@ -32,6 +33,13 @@ const Services: React.FC = () => {
       image: "/images/social-services.jpg",
       link: "/services/social-services",
     },
+    {
+      title: "West Harbor CNA Academy",
+      description:
+        "Begin your healthcare career with confidence. West Harbor CNA Academy offers tuition-free CNA training for qualified students, with classroom instruction in Historic Downtown Gridley and hands-on clinical experience at Gridley Post Acute and Bridgeview Post Acute.",
+      image: "/images/cna-group2.jpg",
+      link: "/cna-academy",
+    },
   ];
 
   return (
@@ -46,16 +54,19 @@ const Services: React.FC = () => {
 
       <div style={servicesContainerStyle}>
 
-        {/* Page Title */}
-        <h1 style={pageTitleStyle}>Gridley Post Acute Services</h1>
+        <AnimateIn immediate>
+          <h1 style={pageTitleStyle}>Gridley Post Acute Services</h1>
+        </AnimateIn>
 
         {services.map((service, index) => (
-          <div
+          <AnimateIn
             key={index}
+            delay={index * 0.06}
             className='serviceSectionStyle'
             style={{
               flexDirection: index % 2 === 0 ? "row" : "row-reverse",
             }}
+            whileHover={{ y: -3 }}
           >
             <Link className='cardLink' href={service.link}></Link>
             <div style={imageContainerStyle}>
@@ -73,7 +84,7 @@ const Services: React.FC = () => {
               </h2>
               <p style={serviceDescriptionStyle}>{service.description}</p>
             </div>
-          </div>
+          </AnimateIn>
         ))}
       </div>
     </div>

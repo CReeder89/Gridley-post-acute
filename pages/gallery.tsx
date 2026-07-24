@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import MetaHead from '../components/MetaHead';
 import QuiltedImageList from '../components/MuiGallery';
+import AnimateIn from '../components/AnimateIn';
 
 const Gallery1: React.FC = () => {
 
@@ -13,8 +13,12 @@ const Gallery1: React.FC = () => {
         url={`${process.env.WEBSITE}/gallery`} />
 
       <div style={galleryContainerStyle}>
-        <h1 style={titleStyle}>Gallery</h1>
-        <QuiltedImageList />
+        <AnimateIn immediate>
+          <h1 style={titleStyle}>Gallery</h1>
+        </AnimateIn>
+        <AnimateIn delay={0.1} variant="fade">
+          <QuiltedImageList />
+        </AnimateIn>
       </div>
     </div>
   );

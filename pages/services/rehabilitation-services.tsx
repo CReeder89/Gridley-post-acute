@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import MetaHead from '../../components/MetaHead';
 import Button from '../../components/ServiceButton';
+import AnimateIn from '../../components/AnimateIn';
 
 const RehabilitationServices: React.FC = () => {
   return (
@@ -14,14 +15,16 @@ const RehabilitationServices: React.FC = () => {
         url={`${process.env.WEBSITE}/services/rehabilitation-services`}
       />
 
-      <h1 style={titleStyle}>Rehabilitation Services</h1>
-      <p style={introTextStyle}>
-      At Gridley Post Acute our goal is to reduce our residents length of stay by customizing rehabilitation plans to enhance each resident's independence and abilities prior to discharge.
-      </p>
+      <AnimateIn immediate>
+        <h1 style={titleStyle}>Rehabilitation Services</h1>
+        <p style={introTextStyle}>
+        At Gridley Post Acute our goal is to reduce our residents length of stay by customizing rehabilitation plans to enhance each resident's independence and abilities prior to discharge.
+        </p>
+      </AnimateIn>
 
       <div style={contentSectionStyle}>
         {/* Left Side - Main Content */}
-        <div style={leftContentStyle}>
+        <AnimateIn variant="slideLeft" style={leftContentStyle}>
           <h2 style={subtitleStyle}>Physical Therapy</h2>
           <p style={paragraphStyle}>
             Our physical therapy programs focus on improving strength, mobility, and balance. These programs are especially beneficial for residents recovering from surgeries, strokes, or injuries, helping them regain independence and confidence.
@@ -75,10 +78,10 @@ const RehabilitationServices: React.FC = () => {
             <li>Enhancing listening and comprehension skills</li>
             <li>Family education on oral motor skills management</li>
           </ul>
-        </div>
+        </AnimateIn>
 
         {/* Right Side - Visuals and Key Points */}
-        <div style={rightContentStyle}>
+        <AnimateIn variant="slideRight" delay={0.1} style={rightContentStyle}>
           <h2 style={sidebarTitleStyle}>What Makes Our Rehabilitation Services Unique?</h2>
           <ul style={listStyle}>
             <li>Individualized therapy plans for every resident</li>
@@ -96,13 +99,15 @@ const RehabilitationServices: React.FC = () => {
               style={{ width: '100%', height: 'auto', borderRadius: '10px' }}
             />
           </div>
-        </div>
+        </AnimateIn>
       </div>
 
       {/* Back to Services Button */}
-      <div style={buttonContainerStyle}>
-        <Button text="Back to All Services" href="/services" />
-      </div>
+      <AnimateIn delay={0.05}>
+        <div style={buttonContainerStyle}>
+          <Button text="Back to All Services" href="/services" />
+        </div>
+      </AnimateIn>
     </div>
   );
 };

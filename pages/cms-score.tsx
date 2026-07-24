@@ -1,23 +1,26 @@
 import Image from 'next/image';
+import AnimateIn from '../components/AnimateIn';
 
 const CMSScore: React.FC = () => {
   return (
     <div style={containerStyle}>
-      <h1 style={titleStyle}>What is a CMS Score?</h1>
+      <AnimateIn immediate>
+        <h1 style={titleStyle}>What is a CMS Score?</h1>
+      </AnimateIn>
 
-      {/* Introduction Section */}
-      <div style={sectionStyle}>
+      <AnimateIn style={sectionStyle}>
         <p style={textStyle}>
           The Centers for Medicare & Medicaid Services (CMS) provides a <strong>5-star quality rating system</strong> to help patients and families compare nursing homes based on the level of care they provide. The system rates facilities from 1 to 5 stars, with 5 being the highest score and indicating the highest quality of care.
         </p>
         <p style={textStyle}>
           At <strong>Gridley Post Acute</strong>, we are proud to hold a <strong>CMS 4-Star quality rating</strong>, reflecting our commitment to providing exceptional care to our residents. Here's what goes into earning and sustaining a strong CMS rating:
         </p>
-      </div>
+      </AnimateIn>
 
-      {/* What Goes Into a CMS Score */}
-      <h2 style={sectionTitleStyle}>What Goes Into a CMS Score?</h2>
-      <div style={sectionStyle}>
+      <AnimateIn>
+        <h2 style={sectionTitleStyle}>What Goes Into a CMS Score?</h2>
+      </AnimateIn>
+      <AnimateIn delay={0.08} style={sectionStyle}>
         <h3 style={subTitleStyle}>1. Health Inspections</h3>
         <p style={textStyle}>
           The health inspection rating is based on the findings from state inspectors who visit the facility annually and after complaints. They examine areas such as resident care, staff practices, and overall facility conditions. A higher score indicates fewer deficiencies and better compliance with federal regulations.
@@ -32,11 +35,12 @@ const CMSScore: React.FC = () => {
         <p style={textStyle}>
           CMS evaluates various quality measures, including how well facilities prevent bedsores, manage infections, and control pain for residents. These measures are based on data submitted by the facility and assess the overall health and well-being of residents.
         </p>
-      </div>
+      </AnimateIn>
 
-      {/* Sustaining a Strong CMS Rating */}
-      <h2 style={sectionTitleStyle}>Sustaining a Strong CMS Rating</h2>
-      <div style={sectionStyle}>
+      <AnimateIn>
+        <h2 style={sectionTitleStyle}>Sustaining a Strong CMS Rating</h2>
+      </AnimateIn>
+      <AnimateIn delay={0.08} style={sectionStyle}>
         <p style={textStyle}>
         Earning a CMS 4-Star rating reflects dedication to <strong>continuous improvement</strong> and <strong>exceptional care</strong> standards. Here are a few key factors that help us sustain our strong rating:
         </p>
@@ -51,29 +55,29 @@ const CMSScore: React.FC = () => {
         <p style={textStyle}>
           At Gridley Post Acute, we understand that sustaining a strong CMS rating is about more than just meeting the minimum standards — it's about exceeding them to ensure the best possible outcomes for our residents.
         </p>
-      </div>
+      </AnimateIn>
 
-      {/* Why It Matters */}
-      <h2 style={sectionTitleStyle}>Why It Matters for Patients and Families</h2>
-      <div style={sectionStyle}>
+      <AnimateIn>
+        <h2 style={sectionTitleStyle}>Why It Matters for Patients and Families</h2>
+      </AnimateIn>
+      <AnimateIn delay={0.08} style={sectionStyle}>
         <p style={textStyle}>
           Choosing a nursing facility for yourself or a loved one is one of the most important decisions you can make. A strong CMS rating is a reflection of <strong>exceptional care</strong> and <strong>trustworthiness</strong>. It helps families feel confident that their loved one will receive quality care in a safe, supportive environment.
         </p>
         <p style={textStyle}>
           At Gridley Post Acute, we take pride in our CMS 4-Star rating because it stands for our <strong>commitment to excellence</strong>, the <strong>compassionate care</strong> we provide, and the <strong>well-being of our residents</strong>.
         </p>
-      </div>
+      </AnimateIn>
 
-      {/* Optional: Add an Image or Graphic Related to CMS Rating */}
-      <div style={imageContainerStyle}>
+      <AnimateIn variant="scaleIn" style={imageContainerStyle}>
         <Image
-          src="/images/cms-logo.png"  // Replace with your actual image
+          src="/images/cms-logo.png"
           alt="CMS 4-Star Rating"
           width={420}
           height={242}
           style={{ width: '100%', maxWidth: '420px', height: 'auto' }}
         />
-      </div>
+      </AnimateIn>
     </div>
   );
 };

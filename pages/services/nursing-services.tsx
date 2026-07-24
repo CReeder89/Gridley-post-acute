@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Button from '../../components/ServiceButton';
 import MetaHead from '../../components/MetaHead';
+import AnimateIn from '../../components/AnimateIn';
 
 const SkilledNursing: React.FC = () => {
   return (
@@ -14,14 +15,16 @@ const SkilledNursing: React.FC = () => {
         image="/images/gpa-front.jpg"
         url={`${process.env.WEBSITE}/services/nursing-services`} />
 
-      <h1 style={titleStyle}>24-Hour Skilled Nursing Services</h1>
-      <p style={introTextStyle}>
-        At Gridley Post Acute, our 24-hour skilled nursing services are designed to provide exceptional care and support tailored to meet the unique needs of each resident. Our compassionate team is here around the clock to ensure the health, safety, and well-being of all individuals in our care.
-      </p>
+      <AnimateIn immediate>
+        <h1 style={titleStyle}>24-Hour Skilled Nursing Services</h1>
+        <p style={introTextStyle}>
+          At Gridley Post Acute, our 24-hour skilled nursing services are designed to provide exceptional care and support tailored to meet the unique needs of each resident. Our compassionate team is here around the clock to ensure the health, safety, and well-being of all individuals in our care.
+        </p>
+      </AnimateIn>
 
       <div style={contentSectionStyle}>
         {/* Left Side - Main Content */}
-        <div style={leftContentStyle}>
+        <AnimateIn variant="slideLeft" style={leftContentStyle}>
           <h2 style={subtitleStyle}>Daily Living</h2>
           <p style={paragraphStyle}>
             Gridley Post Acute has an on-staff Medical Director who is responsible for coordinating with the nursing staff to consistently look for ways we can improve conditions and medical services for our residents. Our on-staff Director of Nursing oversees the day-to-day care and treatment plans of each resident, ensuring that every individual receives the highest level of care.
@@ -59,10 +62,10 @@ const SkilledNursing: React.FC = () => {
             <li>Bowel and bladder programs</li>
             <li>Family education</li>
           </ul>
-        </div>
+        </AnimateIn>
 
         {/* Right Side - Key Features */}
-        <div style={rightContentStyle}>
+        <AnimateIn variant="slideRight" delay={0.1} style={rightContentStyle}>
           <h2 style={sidebarTitleStyle}>Why Choose Us for Skilled Nursing?</h2>
           <ul style={listStyle}>
             <li>24/7 skilled nursing care</li>
@@ -81,13 +84,15 @@ const SkilledNursing: React.FC = () => {
               style={{ width: '100%', height: 'auto', borderRadius: '10px' }}
             />
           </div>
-        </div>
+        </AnimateIn>
       </div>
 
       {/* Back to Services Button */}
-      <div style={buttonContainerStyle}>
+      <AnimateIn delay={0.05}>
+        <div style={buttonContainerStyle}>
           <Button text="Back to All Services" href="/services" />
         </div>
+      </AnimateIn>
     </div>
   );
 };

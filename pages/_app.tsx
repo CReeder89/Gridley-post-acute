@@ -2,6 +2,7 @@
 import '../styles/globals.css';
 import '../styles/buttonStyles.css'
 import '../styles/serviceCards.css'
+import '../styles/cnaAcademy.css'
 import type { AppProps } from 'next/app';
 import Header from '../components/Header';
 import Footer from '../components/Footer';

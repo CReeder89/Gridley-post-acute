@@ -1,32 +1,37 @@
-
 import React from 'react';
 import Head from 'next/head';
 
-interface ButtonProps {
-    title: string;
-    description: string;
-    image: string;
-    url: string;
+interface MetaHeadProps {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  keywords?: string;
 }
 
-const MetaHead: React.FC<ButtonProps> = ({ title, description, image, url }) => {
-    return (
-        <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="keywords" content="skilled nursing, rehabilitation, Gridley, post acute care, Butte County, 4-star nursing facility" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content="Discover our top-rated skilled nursing and rehabilitation services in Butte County. Gridley Post Acute is committed to exceptional care." />
-        <meta property="og:image" content={image} /> {/* Replace with your image */}
-        <meta property="og:url" content= {url} /> {/* Replace with your website URL */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content="Providing exceptional skilled nursing care in Butte County. Learn more about our CMS 4-star rated care." />
-        <meta name="twitter:image" content={image} /> {/* Replace with your image */}
-      </Head>
-    );
+const MetaHead: React.FC<MetaHeadProps> = ({
+  title,
+  description,
+  image,
+  url,
+  keywords = 'skilled nursing, rehabilitation, Gridley, post acute care, Butte County, 4-star nursing facility, CNA Academy, West Harbor CNA Academy',
+}) => {
+  return (
+    <Head>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+      <meta property="og:url" content={url} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
+    </Head>
+  );
 };
-
-
 
 export default MetaHead;
