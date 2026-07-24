@@ -85,12 +85,13 @@ const footerContainer: React.CSSProperties = {
 
 const footerSection: React.CSSProperties = {
   flex: '1 1 200px',
-  minWidth: '200px',
+  minWidth: 0,
+  maxWidth: '100%',
   padding: '20px',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-between'
-
+  justifyContent: 'space-between',
+  overflowWrap: 'anywhere',
 };
 
 const footerSectionTitle: React.CSSProperties = {
@@ -109,17 +110,17 @@ const linkStyle: React.CSSProperties = {
   color: '#ecf0f1',
   textDecoration: 'none',
   fontSize: '1rem',
- 
   margin: '5px 0',
+  overflowWrap: 'anywhere',
+  wordBreak: 'break-word',
 };
 
 const linkStyle2: React.CSSProperties = {
   color: '#ecf0f1',
   textDecoration: 'none',
   fontSize: '0.9rem',
-  display: 'block',
+  display: 'inline',
   margin: '5px 0',
-  whiteSpace: 'nowrap'
 };
 
 const buttonStyle: React.CSSProperties = {

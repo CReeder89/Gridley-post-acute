@@ -931,12 +931,20 @@
 
 .academy-social h2 {
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .academy-social__intro {
   max-width: 520px;
   margin: 0 auto 24px;
   color: #555;
+  text-align: center;
+}
+
+.academy-section--narrow .academy-social h2,
+.academy-section--narrow .academy-social p,
+.academy-section--narrow .academy-social__intro {
+  text-align: center;
 }
 
 .academy-social__list {

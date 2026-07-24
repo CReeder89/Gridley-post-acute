@@ -33,8 +33,10 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 const layoutStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
-  minHeight: '100vh', // Full height of the viewport
-
+  minHeight: '100vh',
+  width: '100%',
+  maxWidth: '100%',
+  overflowX: 'hidden',
 };
 
 const mainStyle: React.CSSProperties = {
