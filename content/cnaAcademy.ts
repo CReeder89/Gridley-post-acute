@@ -72,6 +72,12 @@ export const academyNav = [
   { label: 'Contact', href: '/cna-academy/contact' },
 ] as const;
 
+/** Key program dates — update here to refresh site-wide callouts */
+export const academyProgram = {
+  firstClassDate: 'January 4, 2027',
+  firstClassNote: 'First class begins January 4, 2027.',
+} as const;
+
 export const academySeo = {
   landing: {
     title: 'West Harbor CNA Academy | Tuition-Free CNA Training in Gridley, CA',
@@ -103,6 +109,7 @@ export const landingContent = {
   hero: {
     headline: 'Begin Your Healthcare Career With Confidence',
     subheading: 'Tuition-Free CNA Training for Qualified Students',
+    note: academyProgram.firstClassNote,
     primaryCta: { label: 'Learn More', href: '/cna-academy/about' },
     secondaryCta: { label: 'Apply Today', href: '/cna-academy/apply' },
     backgroundImage: '/images/cna-group2.jpg',
@@ -191,6 +198,7 @@ export const aboutContent = {
   hero: {
     headline: 'Your Journey to a Meaningful Career Starts Here',
     subheading: 'About West Harbor CNA Academy',
+    note: academyProgram.firstClassNote,
     backgroundImage: '/images/cna-group1.jpg',
   },
   /**
@@ -229,7 +237,7 @@ export const aboutContent = {
       'West Harbor Healthcare CNA Academy',
     ],
     imageSrc: '/images/mollie_openshaw.JPEG',
-    imageAlt: 'Photo placeholder for Mollie Openshaw, Co-Program Director and CNA Instructor',
+    imageAlt: 'Mollie Openshaw, Co-Program Director and CNA Instructor',
   },
   about: {
     title: 'About West Harbor CNA Academy',
@@ -367,6 +375,7 @@ export const aboutContent = {
   },
   timeline: {
     title: 'Your Path to Becoming a CNA',
+    intro: `Our inaugural class begins ${academyProgram.firstClassDate}. Apply now to take the first step.`,
     steps: [
       'Apply',
       'Interview',
@@ -390,6 +399,7 @@ export const applyContent = {
     headline: 'Apply to West Harbor CNA Academy',
     subheading:
       'Complete the multi-step application below. Your progress is saved automatically so you can return later.',
+    note: academyProgram.firstClassNote,
   },
   success: {
     title: 'Application Submitted Successfully',

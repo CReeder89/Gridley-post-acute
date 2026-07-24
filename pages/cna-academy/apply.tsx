@@ -18,6 +18,9 @@ const CnaAcademyApply: React.FC = () => {
       <header className="academy-page-header">
         <h1>{applyContent.hero.headline}</h1>
         <p>{applyContent.hero.subheading}</p>
+        {applyContent.hero.note ? (
+          <p className="academy-page-header__note">{applyContent.hero.note}</p>
+        ) : null}
       </header>
 
       <div className="academy-section academy-section--form">

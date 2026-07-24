@@ -6,6 +6,8 @@ interface AcademyHeroProps {
   headline: string;
   subheading: string;
   backgroundImage: string;
+  /** Optional highlight line (e.g. class start date) */
+  note?: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   /** Smaller hero for inner pages */
@@ -16,6 +18,7 @@ const AcademyHero: React.FC<AcademyHeroProps> = ({
   headline,
   subheading,
   backgroundImage,
+  note,
   primaryCta,
   secondaryCta,
   compact = false,
@@ -36,6 +39,7 @@ const AcademyHero: React.FC<AcademyHeroProps> = ({
       >
         <h1 id="academy-hero-heading">{headline}</h1>
         <p>{subheading}</p>
+        {note ? <p className="academy-hero__note">{note}</p> : null}
         {(primaryCta || secondaryCta) && (
           <div className="academy-hero__actions" role="group" aria-label="Primary actions">
             {primaryCta && <Button text={primaryCta.label} href={primaryCta.href} />}

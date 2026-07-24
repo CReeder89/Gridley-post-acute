@@ -4,13 +4,15 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 interface TimelineProps {
   title: string;
+  intro?: string;
   steps: readonly string[];
 }
 
-const Timeline: React.FC<TimelineProps> = ({ title, steps }) => {
+const Timeline: React.FC<TimelineProps> = ({ title, intro, steps }) => {
   return (
     <section className="academy-section academy-timeline-section" aria-labelledby="timeline-heading">
       <h2 id="timeline-heading">{title}</h2>
+      {intro ? <p className="academy-section__intro">{intro}</p> : null}
       <ol className="academy-timeline" role="list">
         {steps.map((step, index) => (
           <li key={step} className="academy-timeline__item">

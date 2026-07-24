@@ -68,6 +68,7 @@ const CnaAcademyLanding: React.FC = () => {
         headline={hero.headline}
         subheading={hero.subheading}
         backgroundImage={hero.backgroundImage}
+        note={hero.note}
         primaryCta={hero.primaryCta}
         secondaryCta={hero.secondaryCta}
       />

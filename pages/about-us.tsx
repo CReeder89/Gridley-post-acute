@@ -42,7 +42,7 @@ const PostAcuteCare: React.FC = () => {
     },
     {
       name: "Mollie Openshaw",
-      title: "Co-Program Director",
+      title: "CNA Academy Director",
     },
   ];
 

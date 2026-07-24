@@ -39,6 +39,7 @@ const CnaAcademyAbout: React.FC = () => {
         headline={aboutContent.hero.headline}
         subheading={aboutContent.hero.subheading}
         backgroundImage={aboutContent.hero.backgroundImage}
+        note={aboutContent.hero.note}
         compact
       />
 
@@ -134,7 +135,7 @@ const CnaAcademyAbout: React.FC = () => {
         paragraphs={mission.paragraphs}
       />
 
-      <Timeline title={timeline.title} steps={timeline.steps} />
+      <Timeline title={timeline.title} intro={timeline.intro} steps={timeline.steps} />
 
       <CTASection
         headline={finalCta.headline}
