@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { useReCaptcha } from 'next-recaptcha-v3';
+import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
-import MetaHead from '../components/MetaHead';
-import ContactCard, { type ContactCardData } from '../components/cna-academy/ContactCard';
+import { useReCaptcha } from 'next-recaptcha-v3';
+import MetaHead from '../../components/MetaHead';
+import ContactCard from '../../components/cna-academy/ContactCard';
+import { academyContact, academySeo, contactPageContent } from '../../content/cnaAcademy';
 
 const fieldSx = {
   '& .MuiOutlinedInput-root': { backgroundColor: '#fff' },
@@ -14,49 +15,26 @@ const fieldSx = {
   '& .MuiInputLabel-root.Mui-focused': { color: '#2c3e50' },
 };
 
-const facilityContact: ContactCardData = {
-  role: 'Skilled Nursing & Rehabilitation',
-  name: 'Gridley Post Acute',
-  nameId: 'facility-contact-name',
-  welcomeMessage:
-    "Welcome to Gridley Post Acute! We're here to help with any questions about our services, to assist with scheduling a tour, or to provide additional information. Please call us or submit your information, and a member of our team will get back to you shortly.",
-  phone: '(530) 456-0400',
-  phoneHref: 'tel:530-456-0400',
-  email: 'gridleyinfo@westharborhc.com',
-  emailHref: 'mailto:gridleyinfo@westharborhc.com',
-  officeLocation: '246 Spruce Street, Gridley, CA 95948',
-  photoSrc: '/images/contact.jpg',
-  photoAlt: 'Gridley Post Acute facility',
-  directionsUrl: 'https://maps.google.com/?q=246+Spruce+Street,+Gridley,+CA+95948',
-  showSocial: false,
-};
-
-const MAP_EMBED_URL =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3084.4759533844663!2d-121.69302852311927!3d39.368102471627424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80834d5b339fba17%3A0x2dc5ed986d723914!2sGridley%20Post%20Acute!5e0!3m2!1sen!2sus!4v1731627311332!5m2!1sen!2sus';
-
-const emptyForm = {
-  name: '',
-  email: '',
-  phone: '',
-  subject: '',
-  message: '',
-  callbackTime: '',
-};
-
-const ContactUs: React.FC = () => {
-  const [formData, setFormData] = useState(emptyForm);
+const CnaAcademyContact: React.FC = () => {
+  const seo = academySeo.contact;
+  const { executeRecaptcha } = useReCaptcha();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [submitting, setSubmitting] = useState(false);
-  const { executeRecaptcha } = useReCaptcha();
 
   const validate = () => {
     const next: Record<string, string> = {};
     if (!formData.name.trim()) next.name = 'Name is required';
-    if (!formData.phone.trim()) next.phone = 'Phone is required';
-    if (formData.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       next.email = 'Enter a valid email';
     }
+    if (!formData.phone.trim()) next.phone = 'Phone is required';
     if (!formData.message.trim() || formData.message.trim().length < 10) {
       next.message = 'Please enter a message (at least 10 characters)';
     }
@@ -77,8 +55,8 @@ const ContactUs: React.FC = () => {
     setStatus('idle');
 
     try {
-      const captchaToken = await executeRecaptcha('contactForm');
-      const res = await fetch('/api/contact', {
+      const captchaToken = await executeRecaptcha('cnaAcademyContact');
+      const res = await fetch('/api/cna-academy/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, captchaToken }),
@@ -86,7 +64,7 @@ const ContactUs: React.FC = () => {
 
       if (res.ok) {
         setStatus('success');
-        setFormData(emptyForm);
+        setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
         setStatus('error');
       }
@@ -100,19 +78,19 @@ const ContactUs: React.FC = () => {
   return (
     <div className="academy-page">
       <MetaHead
-        title="Contact Us - Gridley Post Acute"
-        description="Get in touch with Gridley Post Acute. Our team is here to answer your questions, schedule a tour, or provide more information about our services. We look forward to hearing from you."
-        image="/images/gpa-front.jpg"
-        url={`${process.env.WEBSITE}/contact-us`}
+        title={seo.title}
+        description={seo.description}
+        image="/images/cna-group1.jpg"
+        url={`${process.env.WEBSITE}${seo.path}`}
       />
 
       <header className="academy-page-header">
-        <h1>Contact Us</h1>
-        <p>Questions, tours, or more information — we&apos;re here to help.</p>
+        <h1>{contactPageContent.hero.headline}</h1>
+        <p>{contactPageContent.hero.subheading}</p>
       </header>
 
       <div className="academy-section academy-contact-layout">
-        <ContactCard contact={facilityContact} />
+        <ContactCard />
 
         <div className="academy-contact-right">
           <section className="academy-contact-form-panel" aria-labelledby="contact-form-heading">
@@ -120,8 +98,8 @@ const ContactUs: React.FC = () => {
 
             {status === 'success' ? (
               <div className="academy-success academy-success--compact" role="status" aria-live="polite">
-                <h3>Thank you!</h3>
-                <p>Your message has been sent. A member of our team will get back to you shortly.</p>
+                <h3>{contactPageContent.formSuccess.title}</h3>
+                <p>{contactPageContent.formSuccess.message}</p>
                 <Button
                   variant="outlined"
                   sx={{ mt: 1, borderColor: '#2c3e50', color: '#2c3e50' }}
@@ -133,7 +111,7 @@ const ContactUs: React.FC = () => {
             ) : (
               <form onSubmit={handleSubmit} noValidate className="academy-contact-form">
                 <TextField
-                  id="contact-name"
+                  id="academy-contact-name"
                   label="Name"
                   name="name"
                   value={formData.name}
@@ -146,7 +124,21 @@ const ContactUs: React.FC = () => {
                   sx={fieldSx}
                 />
                 <TextField
-                  id="contact-phone"
+                  id="academy-contact-email"
+                  label="Email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                  fullWidth
+                  error={!!errors.email}
+                  helperText={errors.email}
+                  autoComplete="email"
+                  sx={fieldSx}
+                />
+                <TextField
+                  id="academy-contact-phone"
                   label="Phone"
                   name="phone"
                   type="tel"
@@ -160,29 +152,7 @@ const ContactUs: React.FC = () => {
                   sx={fieldSx}
                 />
                 <TextField
-                  id="contact-email"
-                  label="Email (optional)"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  fullWidth
-                  error={!!errors.email}
-                  helperText={errors.email}
-                  autoComplete="email"
-                  sx={fieldSx}
-                />
-                <TextField
-                  id="contact-subject"
-                  label="Subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  fullWidth
-                  sx={fieldSx}
-                />
-                <TextField
-                  id="contact-message"
+                  id="academy-contact-message"
                   label="Message"
                   name="message"
                   value={formData.message}
@@ -193,16 +163,6 @@ const ContactUs: React.FC = () => {
                   rows={5}
                   error={!!errors.message}
                   helperText={errors.message}
-                  sx={fieldSx}
-                />
-                <TextField
-                  id="contact-callback"
-                  label="Best callback time"
-                  name="callbackTime"
-                  value={formData.callbackTime}
-                  onChange={(e) => setFormData({ ...formData, callbackTime: e.target.value })}
-                  fullWidth
-                  placeholder="Preferred times to call you back"
                   sx={fieldSx}
                 />
 
@@ -230,8 +190,8 @@ const ContactUs: React.FC = () => {
             <div className="academy-contact-map-frame">
               <iframe
                 className="academy-contact-map"
-                src={MAP_EMBED_URL}
-                title="Map of Gridley Post Acute at 246 Spruce Street, Gridley, CA"
+                src={academyContact.mapEmbedUrl}
+                title={`Map of West Harbor CNA Academy at ${academyContact.officeLocation}`}
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
@@ -244,4 +204,4 @@ const ContactUs: React.FC = () => {
   );
 };
 
-export default ContactUs;
+export default CnaAcademyContact;

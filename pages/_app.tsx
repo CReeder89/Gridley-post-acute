@@ -2,6 +2,7 @@
 import '../styles/globals.css';
 import '../styles/buttonStyles.css'
 import '../styles/serviceCards.css'
+import '../styles/cnaAcademy.css'
 import type { AppProps } from 'next/app';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -15,7 +16,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     
       <ReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
         <AppRouterCacheProvider>
-        <div style={layoutStyle}>
+        <div className="site-layout" style={layoutStyle}>
         <Header />
         <div style={mainStyle}>
         <Component  {...pageProps} />
@@ -32,12 +33,16 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 const layoutStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
-  minHeight: '100vh', // Full height of the viewport
-
+  minHeight: '100vh',
+  width: '100%',
+  maxWidth: '100%',
 };
 
 const mainStyle: React.CSSProperties = {
-  flex: 1, // Take up remaining space
+  flex: 1,
+  width: '100%',
+  maxWidth: '100%',
+  overflowX: 'hidden',
 };
 
 export default MyApp;

@@ -5,7 +5,16 @@
   box-sizing: border-box;
 }
 
-html,
+html {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #f9f9f9;
@@ -13,18 +22,34 @@ body {
   line-height: 1.6;
   scroll-behavior: smooth;
   width: 100%;
-  height: 100%;
+  max-width: 100%;
+  min-height: 100%;
   margin: 0;
+  padding: 0;
+  position: relative;
+  /* Keep both axes visible on body so Safari doesn't create a second scrollport */
+  overflow: visible;
 }
 
-body {
+/* App root — clip any child that sticks out (Swiper, fixed badge, etc.) */
+#__next,
+.site-layout {
   width: 100%;
-  margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .grecaptcha-badge {
-  visibility: hidden;
-  /* Hides the default badge */
+  visibility: hidden !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  left: -9999px !important;
+  right: auto !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
 }
 
 
@@ -69,18 +94,35 @@ button {
     background-color: #2980b9;
   } */
 
-/* Navigation link styling */
+/* Navigation — fixed shell is transform-free for Safari full-bleed */
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1001;
+  background: transparent;
+  overflow: visible;
+  box-shadow: none;
+}
+
+.header__shell {
+  width: 100%;
   padding: 10px 20px;
   background-color: #2c3e50;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  will-change: transform, opacity;
+}
+
+/* Keeps page content below the fixed header */
+.header-offset {
+  height: var(--site-header-height, 86px);
+  flex-shrink: 0;
   width: 100%;
-  position: sticky;
-  position: -webkit-sticky;
-  /* Safari */
-  top: 0;
-  z-index: 1001;
-  
 }
 
 .header-content {
@@ -193,7 +235,7 @@ nav .dropdown-container:hover .dropdown-menu{
 /* General page styles */
 .staffGridStyle {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
  
 }
@@ -265,7 +307,9 @@ nav .dropdown-container:hover .dropdown-menu{
 
 .swiper {
   width: 100%;
+  max-width: 100%;
   height: auto;
+  overflow: hidden;
 }
 
 .swiper-slide {
@@ -299,7 +343,7 @@ nav .dropdown-container:hover .dropdown-menu{
   .nav {
     display: none;
     position: absolute;
-    top: 60px;
+    top: 100%;
     left: 0;
     right: 0;
     background-color: #2c3e50;
@@ -313,6 +357,14 @@ nav .dropdown-container:hover .dropdown-menu{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    /* Keep menu within the viewport so nested links remain reachable */
+    max-height: calc(100dvh - 70px);
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    padding-bottom: 32px;
   }
 
   .nav.open a{

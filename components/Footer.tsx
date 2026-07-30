@@ -25,6 +25,7 @@ const Footer: React.FC = () => {
          
             <Link href="/cms-score" style={linkStyle}>What is CMS?</Link>
             <Link href="/test" style={linkStyle}>Choosing a Post Acute Center</Link>
+            <Link href="/cna-academy" style={linkStyle}>CNA Academy</Link>
             <Link href="/site-map" style={linkStyle}>Site Map</Link>
             <Link href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest" target="_blank" style={linkStyle}>Medicare.gov comparison page</Link>
           
@@ -84,12 +85,13 @@ const footerContainer: React.CSSProperties = {
 
 const footerSection: React.CSSProperties = {
   flex: '1 1 200px',
-  minWidth: '200px',
+  minWidth: 0,
+  maxWidth: '100%',
   padding: '20px',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-between'
-
+  justifyContent: 'space-between',
+  overflowWrap: 'anywhere',
 };
 
 const footerSectionTitle: React.CSSProperties = {
@@ -108,17 +110,17 @@ const linkStyle: React.CSSProperties = {
   color: '#ecf0f1',
   textDecoration: 'none',
   fontSize: '1rem',
- 
   margin: '5px 0',
+  overflowWrap: 'anywhere',
+  wordBreak: 'break-word',
 };
 
 const linkStyle2: React.CSSProperties = {
   color: '#ecf0f1',
   textDecoration: 'none',
   fontSize: '0.9rem',
-  display: 'block',
+  display: 'inline',
   margin: '5px 0',
-  whiteSpace: 'nowrap'
 };
 
 const buttonStyle: React.CSSProperties = {

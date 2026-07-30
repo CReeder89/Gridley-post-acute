@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import MetaHead from '../../components/MetaHead';
 import Button from '../../components/ServiceButton';
+import AnimateIn from '../../components/AnimateIn';
 
 const ActivitiesProgram: React.FC = () => {
   return (
@@ -14,14 +15,16 @@ const ActivitiesProgram: React.FC = () => {
         url={`${process.env.WEBSITE}/services/activities-program`}
       />
 
-      <h1 style={titleStyle}>Activities Program</h1>
-      <p style={introTextStyle}>
-        At Gridley Post Acute, we recognize the importance of staying active and engaged for overall health and happiness. Our activities program is thoughtfully designed to offer therapeutic and enjoyable experiences, fostering community, connection, and creativity for all residents.
-      </p>
+      <AnimateIn immediate>
+        <h1 style={titleStyle}>Activities Program</h1>
+        <p style={introTextStyle}>
+          At Gridley Post Acute, we recognize the importance of staying active and engaged for overall health and happiness. Our activities program is thoughtfully designed to offer therapeutic and enjoyable experiences, fostering community, connection, and creativity for all residents.
+        </p>
+      </AnimateIn>
 
       <div style={contentSectionStyle}>
         {/* Left Side - Main Content */}
-        <div style={leftContentStyle}>
+        <AnimateIn variant="slideLeft" style={leftContentStyle}>
           <h2 style={subtitleStyle}>Diverse and Enriching Activities</h2>
           <p style={paragraphStyle}>
             Our activities program caters to a wide range of interests and abilities, ensuring that every resident can find joy and fulfillment. We offer:
@@ -48,10 +51,10 @@ const ActivitiesProgram: React.FC = () => {
           <p style={paragraphStyle}>
             We ensure that activities are accessible and adaptable for all residents, regardless of physical or cognitive abilities. Our compassionate staff works closely with each resident to provide personalized support and encouragement, making every activity meaningful and enjoyable.
           </p>
-        </div>
+        </AnimateIn>
 
         {/* Right Side - Visuals and Key Points */}
-        <div style={rightContentStyle}>
+        <AnimateIn variant="slideRight" delay={0.1} style={rightContentStyle}>
           <h2 style={sidebarTitleStyle}>Why Participate in Activities?</h2>
           <ul style={listStyle}>
             <li>Improves physical health and mobility</li>
@@ -70,13 +73,15 @@ const ActivitiesProgram: React.FC = () => {
               style={imageStyle}
             />
           </div>
-        </div>
+        </AnimateIn>
       </div>
 
       {/* Back to Services Button */}
-      <div style={buttonContainerStyle}>
-        <Button text="Back to All Services" href="/services" />
-      </div>
+      <AnimateIn delay={0.05}>
+        <div style={buttonContainerStyle}>
+          <Button text="Back to All Services" href="/services" />
+        </div>
+      </AnimateIn>
     </div>
   );
 };
