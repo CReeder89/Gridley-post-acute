@@ -10,7 +10,7 @@ const WhyChooseUs: React.FC = () => {
       <AnimateIn immediate>
         <h1 style={titleStyle}>Why Choose Gridley Post Acute?</h1>
         <p style={introTextStyle}>
-          At Gridley Post Acute, we strive to set the standard in quality care, offering compassionate and professional services tailored to meet the unique needs of every resident. As a <strong>CMS 4-Star rated facility</strong>, we are proud to be the trusted choice for post acute care.
+          At Gridley Post Acute, we strive to set the standard in quality care, offering compassionate and professional services tailored to meet the unique needs of every resident. As a <strong>CMS 5-Star rated facility</strong>, we are proud to be the trusted choice for post acute care.
         </p>
       </AnimateIn>
 

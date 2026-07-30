@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
+import { useReCaptcha } from 'next-recaptcha-v3';
 import MetaHead from '../../components/MetaHead';
 import ContactCard from '../../components/cna-academy/ContactCard';
 import { academyContact, academySeo, contactPageContent } from '../../content/cnaAcademy';
@@ -16,6 +17,7 @@ const fieldSx = {
 
 const CnaAcademyContact: React.FC = () => {
   const seo = academySeo.contact;
+  const { executeRecaptcha } = useReCaptcha();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -40,31 +42,32 @@ const CnaAcademyContact: React.FC = () => {
     return Object.keys(next).length === 0;
   };
 
-  /**
-   * FUTURE BACKEND INTEGRATION:
-   * POST to `/api/cna-academy/contact` (or reuse `/api/contact` with a subject flag).
-   * Include reCAPTCHA token via `useReCaptcha` from next-recaptcha-v3, mirroring contact-us.tsx.
-   */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
+    if (!executeRecaptcha) {
+      setStatus('error');
+      return;
+    }
+
     setSubmitting(true);
     setStatus('idle');
+
     try {
-      // const captchaToken = await executeRecaptcha('cnaAcademyContact');
-      // const res = await fetch('/api/cna-academy/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ ...formData, captchaToken }),
-      // });
+      const captchaToken = await executeRecaptcha('cnaAcademyContact');
+      const res = await fetch('/api/cna-academy/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, captchaToken }),
+      });
 
-      await new Promise((r) => setTimeout(r, 500));
-      // eslint-disable-next-line no-console
-      console.info('[CNA Academy] Contact form payload ready for API:', formData);
-
-      setStatus('success');
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      if (res.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        setStatus('error');
+      }
     } catch {
       setStatus('error');
     } finally {

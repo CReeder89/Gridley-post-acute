@@ -16,7 +16,7 @@ const Home: React.FC = () => {
     <div>
       <MetaHead
         title="Gridley Post Acute | Skilled Nursing & Rehabilitation"
-        description="Gridley Post Acute provides compassionate and comprehensive 24-hour skilled nursing care and rehabilitation services. Learn about our CMS 4-Star rated facility in Butte County."
+        description="Gridley Post Acute provides compassionate and comprehensive 24-hour skilled nursing care and rehabilitation services. Learn about our CMS 5-Star rated facility in Butte County."
         image="/images/gpa-front.jpg"
         url={`${process.env.WEBSITE}`}
       />
@@ -284,14 +284,15 @@ const Home: React.FC = () => {
       {/* CMS rating section */}
       <div style={heroContainerStyle3}>
         <AnimateIn>
-          <h1 style={{ color: '#fff' }}>A CMS 4-Star Rated Facility</h1>
+          <h1 style={{ color: '#fff' }}>A CMS 5-Star Rated Facility</h1>
         </AnimateIn>
         <AnimateIn delay={0.1} style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignContent: 'center' }}>
           <div style={starsContainer}>
-            <StarOutlinedIcon style={{ width: '20%', maxWidth: 'full', height: 'auto' }} />
-            <StarOutlinedIcon style={{ width: '20%', maxWidth: 'full', height: 'auto' }} />
-            <StarOutlinedIcon style={{ width: '20%', maxWidth: 'full', height: 'auto' }} />
-            <StarOutlinedIcon style={{ width: '20%', maxWidth: 'full', height: 'auto' }} />
+            <StarOutlinedIcon style={{ width: '18%', maxWidth: 'full', height: 'auto' }} />
+            <StarOutlinedIcon style={{ width: '18%', maxWidth: 'full', height: 'auto' }} />
+            <StarOutlinedIcon style={{ width: '18%', maxWidth: 'full', height: 'auto' }} />
+            <StarOutlinedIcon style={{ width: '18%', maxWidth: 'full', height: 'auto' }} />
+            <StarOutlinedIcon style={{ width: '18%', maxWidth: 'full', height: 'auto' }} />
             <h3 style={{ color: '#fff' }}>CMS SCORE</h3>
           </div>
         </AnimateIn>
@@ -402,7 +403,7 @@ const serviceTitleStyle: React.CSSProperties = {
 
 const academySectionStyle: React.CSSProperties = {
   width: '100%',
-  minHeight: '50vh',
+  minHeight: '70vh',
   backgroundImage:
     'linear-gradient(rgba(44, 62, 80, 0.88), rgba(44, 62, 80, 0.92)), url("/images/cna-group1.jpg")',
   backgroundSize: 'cover',

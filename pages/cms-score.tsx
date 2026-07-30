@@ -13,7 +13,7 @@ const CMSScore: React.FC = () => {
           The Centers for Medicare & Medicaid Services (CMS) provides a <strong>5-star quality rating system</strong> to help patients and families compare nursing homes based on the level of care they provide. The system rates facilities from 1 to 5 stars, with 5 being the highest score and indicating the highest quality of care.
         </p>
         <p style={textStyle}>
-          At <strong>Gridley Post Acute</strong>, we are proud to hold a <strong>CMS 4-Star quality rating</strong>, reflecting our commitment to providing exceptional care to our residents. Here's what goes into earning and sustaining a strong CMS rating:
+          At <strong>Gridley Post Acute</strong>, we are proud to hold a <strong>CMS 5-Star quality rating</strong>, reflecting our commitment to providing exceptional care to our residents. Here's what goes into earning and sustaining a strong CMS rating:
         </p>
       </AnimateIn>
 
@@ -42,7 +42,7 @@ const CMSScore: React.FC = () => {
       </AnimateIn>
       <AnimateIn delay={0.08} style={sectionStyle}>
         <p style={textStyle}>
-        Earning a CMS 4-Star rating reflects dedication to <strong>continuous improvement</strong> and <strong>exceptional care</strong> standards. Here are a few key factors that help us sustain our strong rating:
+        Earning a CMS 5-Star rating reflects dedication to <strong>continuous improvement</strong> and <strong>exceptional care</strong> standards. Here are a few key factors that help us sustain our strong rating:
         </p>
 
         <ul style={listStyle}>
@@ -65,14 +65,14 @@ const CMSScore: React.FC = () => {
           Choosing a nursing facility for yourself or a loved one is one of the most important decisions you can make. A strong CMS rating is a reflection of <strong>exceptional care</strong> and <strong>trustworthiness</strong>. It helps families feel confident that their loved one will receive quality care in a safe, supportive environment.
         </p>
         <p style={textStyle}>
-          At Gridley Post Acute, we take pride in our CMS 4-Star rating because it stands for our <strong>commitment to excellence</strong>, the <strong>compassionate care</strong> we provide, and the <strong>well-being of our residents</strong>.
+          At Gridley Post Acute, we take pride in our CMS 5-Star rating because it stands for our <strong>commitment to excellence</strong>, the <strong>compassionate care</strong> we provide, and the <strong>well-being of our residents</strong>.
         </p>
       </AnimateIn>
 
       <AnimateIn variant="scaleIn" style={imageContainerStyle}>
         <Image
           src="/images/cms-logo.png"
-          alt="CMS 4-Star Rating"
+          alt="CMS 5-Star Rating"
           width={420}
           height={242}
           style={{ width: '100%', maxWidth: '420px', height: 'auto' }}

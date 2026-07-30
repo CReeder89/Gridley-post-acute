@@ -14,7 +14,7 @@ const MetaHead: React.FC<MetaHeadProps> = ({
   description,
   image,
   url,
-  keywords = 'skilled nursing, rehabilitation, Gridley, post acute care, Butte County, 4-star nursing facility, CNA Academy, West Harbor CNA Academy',
+  keywords = 'skilled nursing, rehabilitation, Gridley, post acute care, Butte County, 5-star nursing facility, CNA Academy, West Harbor CNA Academy',
 }) => {
   return (
     <Head>

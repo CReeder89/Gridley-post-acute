@@ -8,14 +8,52 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { academyContact } from '../../content/cnaAcademy';
 import AcademySocialLinks from './AcademySocialLinks';
 
+export type ContactCardData = {
+  role?: string;
+  name: string;
+  nameId?: string;
+  welcomeMessage: string;
+  phone: string;
+  phoneHref: string;
+  email: string;
+  emailHref: string;
+  officeHours?: string;
+  officeLocation: string;
+  photoSrc: string;
+  photoAlt: string;
+  directionsUrl: string;
+  /** When true, show Academy social links under the actions */
+  showSocial?: boolean;
+  socialLabel?: string;
+};
+
 interface ContactCardProps {
-  /** Override defaults from content config when needed */
-  contact?: typeof academyContact;
+  contact?: ContactCardData;
 }
 
-const ContactCard: React.FC<ContactCardProps> = ({ contact = academyContact }) => {
+const ContactCard: React.FC<ContactCardProps> = ({
+  contact = {
+    role: academyContact.directorTitle,
+    name: academyContact.directorName,
+    nameId: 'director-name',
+    welcomeMessage: academyContact.welcomeMessage,
+    phone: academyContact.phone,
+    phoneHref: academyContact.phoneHref,
+    email: academyContact.email,
+    emailHref: academyContact.emailHref,
+    officeHours: academyContact.officeHours,
+    officeLocation: academyContact.officeLocation,
+    photoSrc: academyContact.photoSrc,
+    photoAlt: academyContact.photoAlt,
+    directionsUrl: academyContact.directionsUrl,
+    showSocial: true,
+    socialLabel: 'Follow the Academy',
+  },
+}) => {
+  const headingId = contact.nameId || 'contact-card-name';
+
   return (
-    <article className="academy-contact-card" aria-labelledby="director-name">
+    <article className="academy-contact-card" aria-labelledby={headingId}>
       <div className="academy-contact-card__photo">
         <Image
           src={contact.photoSrc}
@@ -26,8 +64,8 @@ const ContactCard: React.FC<ContactCardProps> = ({ contact = academyContact }) =
         />
       </div>
       <div className="academy-contact-card__body">
-        <p className="academy-contact-card__role">{contact.directorTitle}</p>
-        <h2 id="director-name">{contact.directorName}</h2>
+        {contact.role && <p className="academy-contact-card__role">{contact.role}</p>}
+        <h2 id={headingId}>{contact.name}</h2>
         <p className="academy-contact-card__welcome">{contact.welcomeMessage}</p>
 
         <ul className="academy-contact-card__details" role="list">
@@ -39,10 +77,12 @@ const ContactCard: React.FC<ContactCardProps> = ({ contact = academyContact }) =
             <EmailIcon fontSize="small" aria-hidden="true" />
             <a href={contact.emailHref}>{contact.email}</a>
           </li>
-          <li>
-            <AccessTimeIcon fontSize="small" aria-hidden="true" />
-            <span>{contact.officeHours}</span>
-          </li>
+          {contact.officeHours && (
+            <li>
+              <AccessTimeIcon fontSize="small" aria-hidden="true" />
+              <span>{contact.officeHours}</span>
+            </li>
+          )}
           <li>
             <LocationOnIcon fontSize="small" aria-hidden="true" />
             <span>{contact.officeLocation}</span>
@@ -66,10 +106,14 @@ const ContactCard: React.FC<ContactCardProps> = ({ contact = academyContact }) =
           </a>
         </div>
 
-        <div className="academy-contact-card__social">
-          <p className="academy-contact-card__social-label">Follow the Academy</p>
-          <AcademySocialLinks compact />
-        </div>
+        {contact.showSocial && (
+          <div className="academy-contact-card__social">
+            <p className="academy-contact-card__social-label">
+              {contact.socialLabel || 'Follow Us'}
+            </p>
+            <AcademySocialLinks compact />
+          </div>
+        )}
       </div>
     </article>
   );

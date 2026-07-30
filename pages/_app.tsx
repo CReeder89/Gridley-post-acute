@@ -16,7 +16,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     
       <ReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
         <AppRouterCacheProvider>
-        <div style={layoutStyle}>
+        <div className="site-layout" style={layoutStyle}>
         <Header />
         <div style={mainStyle}>
         <Component  {...pageProps} />
@@ -36,11 +36,13 @@ const layoutStyle: React.CSSProperties = {
   minHeight: '100vh',
   width: '100%',
   maxWidth: '100%',
-  overflowX: 'hidden',
 };
 
 const mainStyle: React.CSSProperties = {
-  flex: 1, // Take up remaining space
+  flex: 1,
+  width: '100%',
+  maxWidth: '100%',
+  overflowX: 'hidden',
 };
 
 export default MyApp;

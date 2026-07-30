@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useReCaptcha } from 'next-recaptcha-v3';
@@ -41,14 +41,39 @@ function loadSavedValues(): ApplicationFormValues {
   }
 }
 
-function loadSavedStep(): number {
+function isBlankDraft(values: ApplicationFormValues): boolean {
+  return (
+    !values.firstName?.trim() &&
+    !values.lastName?.trim() &&
+    !values.email?.trim() &&
+    !values.phone?.trim() &&
+    !values.whyCna?.trim()
+  );
+}
+
+function loadSavedStep(values: ApplicationFormValues): number {
   if (typeof window === 'undefined') return 0;
   try {
     const raw = localStorage.getItem(STORAGE_STEP_KEY);
     const step = raw ? Number(raw) : 0;
-    return Number.isFinite(step) && step >= 0 && step < applyContent.steps.length ? step : 0;
+    if (!Number.isFinite(step) || step < 0 || step >= applyContent.steps.length) return 0;
+    // Stale post-submit drafts: blank form stuck on Review → start fresh
+    if (step > 0 && isBlankDraft(values)) {
+      clearDraft();
+      return 0;
+    }
+    return step;
   } catch {
     return 0;
+  }
+}
+
+function clearDraft() {
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(STORAGE_STEP_KEY);
+  } catch {
+    // Ignore private mode / storage errors
   }
 }
 
@@ -64,6 +89,9 @@ const ApplicationStepper: React.FC = () => {
     diploma: null,
     governmentId: null,
   });
+  // Pause localStorage writes after a successful submit so reset() doesn't
+  // re-save blank values + the review step index.
+  const persistDraft = useRef(true);
 
   const {
     control,
@@ -81,7 +109,7 @@ const ApplicationStepper: React.FC = () => {
 
   useEffect(() => {
     const saved = loadSavedValues();
-    const step = loadSavedStep();
+    const step = loadSavedStep(saved);
     reset(saved);
     setActiveStep(step);
     setHydrated(true);
@@ -90,6 +118,7 @@ const ApplicationStepper: React.FC = () => {
   useEffect(() => {
     if (!hydrated) return;
     const subscription = watch((values) => {
+      if (!persistDraft.current) return;
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(values));
         localStorage.setItem(STORAGE_STEP_KEY, String(activeStep));
@@ -107,9 +136,14 @@ const ApplicationStepper: React.FC = () => {
     []
   );
 
-  const clearDraft = () => {
-    localStorage.removeItem(STORAGE_KEY);
-    localStorage.removeItem(STORAGE_STEP_KEY);
+  const startFreshApplication = () => {
+    persistDraft.current = true;
+    clearDraft();
+    reset(defaultApplicationValues);
+    setFiles({ resume: null, diploma: null, governmentId: null });
+    setActiveStep(0);
+    setSubmitError('');
+    setSubmitted(false);
   };
 
   const handleNext = async () => {
@@ -118,13 +152,17 @@ const ApplicationStepper: React.FC = () => {
     if (!valid) return;
     const next = Math.min(activeStep + 1, applyContent.steps.length - 1);
     setActiveStep(next);
-    localStorage.setItem(STORAGE_STEP_KEY, String(next));
+    if (persistDraft.current) {
+      localStorage.setItem(STORAGE_STEP_KEY, String(next));
+    }
   };
 
   const handleBack = () => {
     const prev = Math.max(activeStep - 1, 0);
     setActiveStep(prev);
-    localStorage.setItem(STORAGE_STEP_KEY, String(prev));
+    if (persistDraft.current) {
+      localStorage.setItem(STORAGE_STEP_KEY, String(prev));
+    }
   };
 
   /** Posts to /api/cna-academy/apply → emails EMAIL_TO_CAREER */
@@ -159,15 +197,22 @@ const ApplicationStepper: React.FC = () => {
         throw new Error(payload?.message || 'Failed to submit application');
       }
 
+      // Stop draft writes before reset/clear so blank review state is not persisted.
+      persistDraft.current = false;
       clearDraft();
-      setSubmitted(true);
       reset(defaultApplicationValues);
       setFiles({ resume: null, diploma: null, governmentId: null });
+      setActiveStep(0);
+      setSubmitted(true);
     } catch {
       setSubmitError('Something went wrong. Please try again or contact the Academy.');
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const handleSubmitClick = () => {
+    void handleSubmit(onSubmit)();
   };
 
   if (!hydrated) {
@@ -188,16 +233,15 @@ const ApplicationStepper: React.FC = () => {
         <Button
           variant="contained"
           sx={{ mt: 2, backgroundColor: '#2c3e50', '&:hover': { backgroundColor: '#354e66' } }}
-          onClick={() => {
-            setSubmitted(false);
-            setActiveStep(0);
-          }}
+          onClick={startFreshApplication}
         >
           Submit another application
         </Button>
       </div>
     );
   }
+
+  const isReviewStep = activeStep >= applyContent.steps.length - 1;
 
   return (
     <div className="academy-stepper">
@@ -219,7 +263,21 @@ const ApplicationStepper: React.FC = () => {
         ))}
       </Stepper>
 
-      <form onSubmit={handleSubmit(onSubmit)} noValidate aria-label="CNA Academy application">
+      {/*
+        Never rely on native form submit — multi-step Next→Submit button swaps
+        (and Enter in inputs) were auto-firing submission on the Review step.
+      */}
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        onKeyDown={(e) => {
+          if (e.key !== 'Enter') return;
+          const tag = (e.target as HTMLElement).tagName;
+          if (tag === 'TEXTAREA') return;
+          e.preventDefault();
+        }}
+        noValidate
+        aria-label="CNA Academy application"
+      >
         <div className="academy-stepper__panel">
           {activeStep === 0 && <PersonalInfoStep control={control} />}
           {activeStep === 1 && <EducationStep control={control} />}
@@ -248,7 +306,7 @@ const ApplicationStepper: React.FC = () => {
             Back
           </Button>
 
-          {activeStep < applyContent.steps.length - 1 ? (
+          {!isReviewStep ? (
             <Button
               type="button"
               onClick={handleNext}
@@ -260,7 +318,8 @@ const ApplicationStepper: React.FC = () => {
             </Button>
           ) : (
             <Button
-              type="submit"
+              type="button"
+              onClick={handleSubmitClick}
               disabled={submitting}
               variant="contained"
               sx={{ backgroundColor: '#2c3e50', '&:hover': { backgroundColor: '#354e66' } }}
