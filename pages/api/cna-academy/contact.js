@@ -51,9 +51,9 @@ export default async function handler(req, res) {
       from: process.env.EMAIL_USER,
       replyTo: email,
       to: destination,
-      subject: `West Harbor CNA Academy Contact: ${name}`,
+      subject: `West Harbor CNA Training Contact: ${name}`,
       text: [
-        'New message for Mollie Openshaw / West Harbor CNA Academy',
+        'New message for Mollie Openshaw / West Harbor CNA Training',
         '',
         `Name: ${name}`,
         `Email: ${email}`,
@@ -67,7 +67,7 @@ export default async function handler(req, res) {
     await transporter.sendMail(mailOptions);
     return res.status(200).json({ message: 'Email sent successfully!' });
   } catch (error) {
-    console.error('CNA Academy contact email failed:', error);
+    console.error('CNA Training contact email failed:', error);
     return res.status(500).json({ message: 'Failed to send email.' });
   }
 }

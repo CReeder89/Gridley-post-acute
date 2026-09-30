@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
          
             <Link href="/cms-score" style={linkStyle}>What is CMS?</Link>
             <Link href="/test" style={linkStyle}>Choosing a Post Acute Center</Link>
-            <Link href="/cna-academy" style={linkStyle}>CNA Academy</Link>
+            <Link href="/cna-academy" style={linkStyle}>CNA Training</Link>
             <Link href="/site-map" style={linkStyle}>Site Map</Link>
             <Link href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest" target="_blank" style={linkStyle}>Medicare.gov comparison page</Link>
           
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
 
           <div style={{display: 'flex', alignContent: 'center', alignItems:'center'}}>
           <PhoneIcon style={{marginRight: '5px'}}/>
-          <p>(530) 456-0400</p>
+          <p><a href="tel:530-456-0400" style={linkStyle}>(530) 456-0400</a></p>
           </div>
 
           <div style={{display: 'flex', alignContent: 'center', alignItems:'center'}}>
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
           <Link href="/accessibility" style={linkStyle2}>Web Accessibility</Link> 
         </div>
 
-        <p style={{fontSize:'1rem'}}>© 2024 All Rights Reserved.</p>
+        <p style={{fontSize:'1rem'}}>© {new Date().getFullYear()} All Rights Reserved.</p>
       </div>
     </footer>
   );

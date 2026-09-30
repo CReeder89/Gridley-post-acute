@@ -66,7 +66,7 @@ const AcademySocialLinks: React.FC<AcademySocialLinksProps> = ({
                 aria-label={
                   isPlaceholder
                     ? `${link.label} (link coming soon)`
-                    : `West Harbor CNA Academy on ${link.label}`
+                    : `West Harbor CNA Training on ${link.label}`
                 }
                 title={isPlaceholder ? `${link.label} — coming soon` : link.label}
                 {...(!isPlaceholder

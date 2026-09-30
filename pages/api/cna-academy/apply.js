@@ -124,9 +124,9 @@ export default async function handler(req, res) {
       from: email || process.env.EMAIL_USER,
       to: destination,
       replyTo: email || undefined,
-      subject: `West Harbor CNA Academy Application: ${firstName} ${lastName}`.trim(),
+      subject: `West Harbor CNA Training Application: ${firstName} ${lastName}`.trim(),
       text: [
-        'New West Harbor CNA Academy application',
+        'New West Harbor CNA Training application',
         '',
         '— Personal Information —',
         `Name: ${firstName} ${lastName}`,
@@ -159,7 +159,7 @@ export default async function handler(req, res) {
     await transporter.sendMail(mailOptions);
     return res.status(200).json({ message: 'Application sent successfully!' });
   } catch (error) {
-    console.error('CNA Academy application error:', error);
+    console.error('CNA Training application error:', error);
     return res.status(500).json({ message: 'Failed to send application.' });
   }
 }

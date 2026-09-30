@@ -47,7 +47,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
     photoAlt: academyContact.photoAlt,
     directionsUrl: academyContact.directionsUrl,
     showSocial: true,
-    socialLabel: 'Follow the Academy',
+    socialLabel: 'Follow CNA Training',
   },
 }) => {
   const headingId = contact.nameId || 'contact-card-name';

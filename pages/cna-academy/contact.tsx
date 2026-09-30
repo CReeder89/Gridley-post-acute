@@ -191,7 +191,7 @@ const CnaAcademyContact: React.FC = () => {
               <iframe
                 className="academy-contact-map"
                 src={academyContact.mapEmbedUrl}
-                title={`Map of West Harbor CNA Academy at ${academyContact.officeLocation}`}
+                title={`Map of West Harbor CNA Training at ${academyContact.officeLocation}`}
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"

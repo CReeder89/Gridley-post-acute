@@ -117,6 +117,11 @@ const ContactUs: React.FC = () => {
         <div className="academy-contact-right">
           <section className="academy-contact-form-panel" aria-labelledby="contact-form-heading">
             <h2 id="contact-form-heading">Send a Message</h2>
+            <p>
+              A member of our team will follow up using the contact information you provide. If you
+              would rather speak with someone directly, call{' '}
+              <a href="tel:530-456-0400">(530) 456-0400</a>.
+            </p>
 
             {status === 'success' ? (
               <div className="academy-success academy-success--compact" role="status" aria-live="polite">
@@ -174,7 +179,7 @@ const ContactUs: React.FC = () => {
                 />
                 <TextField
                   id="contact-subject"
-                  label="Subject"
+                  label="Subject (optional)"
                   name="subject"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}

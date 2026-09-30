@@ -205,7 +205,7 @@ const ApplicationStepper: React.FC = () => {
       setActiveStep(0);
       setSubmitted(true);
     } catch {
-      setSubmitError('Something went wrong. Please try again or contact the Academy.');
+      setSubmitError('Something went wrong. Please try again or contact CNA Training.');
     } finally {
       setSubmitting(false);
     }
@@ -276,7 +276,7 @@ const ApplicationStepper: React.FC = () => {
           e.preventDefault();
         }}
         noValidate
-        aria-label="CNA Academy application"
+        aria-label="CNA Training application"
       >
         <div className="academy-stepper__panel">
           {activeStep === 0 && <PersonalInfoStep control={control} />}

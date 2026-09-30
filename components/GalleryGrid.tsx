@@ -66,7 +66,7 @@ const galleryItems: GalleryItem[] = [
   },
   {
     src: '/images/cna-group1.jpg',
-    title: 'Care team and CNA Academy',
+    title: 'Care team and CNA Training',
   },
   {
     src: '/images/cna-group2.jpg',

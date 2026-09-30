@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import AnimateIn from '../components/AnimateIn';
 
 const CMSScore: React.FC = () => {
@@ -14,6 +15,18 @@ const CMSScore: React.FC = () => {
         </p>
         <p style={textStyle}>
           At <strong>Gridley Post Acute</strong>, we are proud to hold a <strong>CMS 5-Star quality rating</strong>, reflecting our commitment to providing exceptional care to our residents. Here's what goes into earning and sustaining a strong CMS rating:
+        </p>
+        <p style={textStyle}>
+          CMS ratings can change over time. For current information and to compare nearby facilities,
+          visit{' '}
+          <Link
+            href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Medicare Care Compare
+          </Link>
+          .
         </p>
       </AnimateIn>
 

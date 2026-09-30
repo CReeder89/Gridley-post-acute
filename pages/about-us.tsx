@@ -14,7 +14,7 @@ const staff = [
   { name: 'Phaedra Snow', title: 'Admissions Director' },
   { name: 'Bill Lagrone', title: 'Maintenance Director' },
   { name: 'Sarah Boesen', title: 'Marketing Director' },
-  { name: 'Mollie Openshaw', title: 'CNA Academy Director' },
+  { name: 'Mollie Openshaw', title: 'CNA Training Director' },
 ];
 
 const benefits = [

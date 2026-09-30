@@ -36,7 +36,13 @@ const Home: React.FC = () => {
           </p>
         </AnimateIn>
         <AnimateIn immediate delay={0.15}>
-          <Button text="Explore Our Services" href="/services" />
+          <div style={homeHeroActionsStyle}>
+            <Button text="Schedule a Tour" href="/contact-us" />
+            <Link className="serviceButton" href="tel:530-456-0400">
+              Call (530) 456-0400
+            </Link>
+            <Button text="Explore Our Services" href="/services" />
+          </div>
         </AnimateIn>
       </div>
 
@@ -250,11 +256,11 @@ const Home: React.FC = () => {
         </AnimateIn>
       </div>
 
-      {/* West Harbor CNA Academy Section */}
+      {/* West Harbor CNA Training Section */}
       <div style={academySectionStyle}>
         <AnimateIn style={academySectionInnerStyle}>
           <div style={academyTextStyle}>
-            <p style={academyEyebrowStyle}>West Harbor CNA Academy</p>
+            <p style={academyEyebrowStyle}>West Harbor CNA Training</p>
             <h2 style={{ color: '#fff', marginBottom: '12px' }}>
               Begin Your Healthcare Career With Confidence
             </h2>
@@ -272,7 +278,7 @@ const Home: React.FC = () => {
           <div style={academyImageWrapStyle}>
             <Image
               src="/images/cna-group2.jpg"
-              alt="West Harbor CNA Academy students and caregivers"
+              alt="West Harbor CNA Training students and caregivers"
               width={560}
               height={380}
               style={{ width: '100%', height: 'auto', borderRadius: 12 }}
@@ -386,6 +392,14 @@ const starsContainer: React.CSSProperties = {
 };
 
 const heroContentStyle: React.CSSProperties = {};
+
+const homeHeroActionsStyle: React.CSSProperties = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '8px',
+};
 
 const servicesSectionStyle: React.CSSProperties = {
   display: 'flex',

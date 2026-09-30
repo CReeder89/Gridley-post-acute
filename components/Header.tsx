@@ -215,7 +215,7 @@ const Header: React.FC = () => {
                   onClick={closeMobileMenu}
                   aria-haspopup="true"
                 >
-                  CNA Academy
+                  CNA Training
                 </Link>
                 <div className="dropdown-menu" role="menu">
                   {academyNav.map((item) => (
