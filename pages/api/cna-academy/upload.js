@@ -1,4 +1,5 @@
-import { handleUpload } from '@vercel/blob/client';
+import { issueSignedToken } from '@vercel/blob';
+import { handleUploadPresigned } from '@vercel/blob/client';
 
 const MAX_FILE_SIZE = 15 * 1024 * 1024;
 const ALLOWED_TYPES = [
@@ -25,10 +26,10 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ message: 'Method not allowed' });
 
   try {
-    const response = await handleUpload({
+    const response = await handleUploadPresigned({
       body: req.body,
       request: req,
-      onBeforeGenerateToken: async (pathname, clientPayload) => {
+      getSignedToken: async (pathname, clientPayload) => {
         let payload;
         try {
           payload = JSON.parse(clientPayload || '{}');
@@ -44,11 +45,25 @@ export default async function handler(req, res) {
           throw new Error('reCAPTCHA verification failed. Please try again.');
         }
 
-        return {
+        const validUntil = Date.now() + 10 * 60 * 1000;
+        const constraints = {
+          pathname,
+          operations: ['put'],
           allowedContentTypes: [payload.contentType],
           maximumSizeInBytes: MAX_FILE_SIZE,
-          addRandomSuffix: true,
-          validUntil: Date.now() + 10 * 60 * 1000,
+          validUntil,
+        };
+        const token = await issueSignedToken(constraints);
+        return {
+          token,
+          urlOptions: {
+            operation: 'put',
+            pathname,
+            validUntil,
+            allowedContentTypes: [payload.contentType],
+            maximumSizeInBytes: MAX_FILE_SIZE,
+            addRandomSuffix: true,
+          },
         };
       },
     });

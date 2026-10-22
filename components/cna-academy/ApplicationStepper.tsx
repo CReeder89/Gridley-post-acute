@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useReCaptcha } from 'next-recaptcha-v3';
-import { upload } from '@vercel/blob/client';
+import { uploadPresigned } from '@vercel/blob/client';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
@@ -223,7 +223,7 @@ const ApplicationStepper: React.FC = () => {
         const captchaToken = await executeRecaptcha('cnaAcademyUpload');
         const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_').slice(-120) || `${field}.bin`;
         const pathname = `cna-applications/${crypto.randomUUID()}/${field}/${safeName}`;
-        const blob = await upload(pathname, file, {
+        const blob = await uploadPresigned(pathname, file, {
           access: 'private',
           handleUploadUrl: '/api/cna-academy/upload',
           clientPayload: JSON.stringify({ captchaToken, contentType: allowedMimes[0] }),
