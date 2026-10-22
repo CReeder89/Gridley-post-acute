@@ -145,6 +145,19 @@ const AboutUs: React.FC = () => {
         </div>
       </section>
 
+      <section className="services-cta" aria-labelledby="about-careers-heading">
+        <AnimateIn className="services-cta__inner">
+          <h2 id="about-careers-heading">Want to join our team?</h2>
+          <p>
+            We&apos;re always looking for compassionate, dedicated people who want to make a
+            difference in the lives of our residents.
+          </p>
+          <div className="services-cta__actions">
+            <Button text="Explore Careers" href="/careers" />
+          </div>
+        </AnimateIn>
+      </section>
+
       <section className="about-highlights" aria-label="Quality and why choose us">
         <AnimateIn className="about-highlight">
           <h2>Why Choose Us?</h2>
