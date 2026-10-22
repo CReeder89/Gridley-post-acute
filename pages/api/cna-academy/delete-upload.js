@@ -4,7 +4,9 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ message: 'Method not allowed' });
   try {
     const { pathname, captchaToken } = req.body || {};
-    if (!/^cna-applications\/[a-f0-9-]{36}\/(resume|diploma|governmentId)\/[\w.-]+$/i.test(pathname || '')) {
+    const validCnaPath = /^cna-applications\/[a-f0-9-]{36}\/(resume|diploma|governmentId)\/[\w.-]+$/i.test(pathname || '');
+    const validJobPath = /^job-applications\/[a-f0-9-]{36}\/resume\/[\w.-]+$/i.test(pathname || '');
+    if (!validCnaPath && !validJobPath) {
       return res.status(400).json({ message: 'Invalid document.' });
     }
     if (!captchaToken || !process.env.RECAPTCHA_SECRET_KEY) {

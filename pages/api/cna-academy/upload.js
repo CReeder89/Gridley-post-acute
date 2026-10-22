@@ -37,7 +37,9 @@ export default async function handler(req, res) {
           throw new Error('Invalid upload request.');
         }
 
-        const validPath = /^cna-applications\/[a-f0-9-]{36}\/(resume|diploma|governmentId)\/[\w.-]+$/i.test(pathname);
+        const validPath = payload.applicationType === 'job'
+          ? /^job-applications\/[a-f0-9-]{36}\/resume\/[\w.-]+$/i.test(pathname)
+          : /^cna-applications\/[a-f0-9-]{36}\/(resume|diploma|governmentId)\/[\w.-]+$/i.test(pathname);
         if (!validPath || !ALLOWED_TYPES.includes(payload.contentType)) {
           throw new Error('Unsupported application document.');
         }

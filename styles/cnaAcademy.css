@@ -821,6 +821,92 @@
   padding-bottom: 72px;
 }
 
+/* Careers application form */
+.academy-careers-page {
+  background: linear-gradient(180deg, #f7f8f6 0, #fff 340px);
+}
+
+.academy-careers-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 32px;
+  align-items: start;
+  padding-top: 24px;
+  padding-bottom: 72px;
+}
+
+.academy-careers-intro {
+  padding: 8px 4px;
+  color: #3f4d59;
+  line-height: 1.7;
+}
+
+.academy-careers-intro h2 {
+  margin: 24px 0 12px;
+  color: #2c3e50;
+  line-height: 1.25;
+}
+
+.academy-careers-intro h3 {
+  margin: 24px 0 8px;
+  color: #2c3e50;
+}
+
+.academy-careers-intro ul {
+  padding-left: 22px;
+  margin: 8px 0;
+}
+
+.academy-careers-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(44, 62, 80, 0.12);
+}
+
+.academy-careers-form-panel {
+  min-width: 0;
+}
+
+.academy-careers-form-intro {
+  color: #5d6872;
+  margin: -8px 0 20px;
+}
+
+.academy-careers-resume-field {
+  min-width: 0;
+}
+
+.academy-careers-file-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px dashed #aebbc6;
+  border-radius: 8px;
+  background: #f8fafb;
+  color: #354e66;
+}
+
+.academy-careers-file-input:focus-visible {
+  outline: 3px solid rgba(44, 62, 80, 0.28);
+  outline-offset: 2px;
+}
+
+.academy-careers-uploaded-file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #eef3f6;
+  color: #2c3e50;
+  overflow-wrap: anywhere;
+}
+
 .academy-contact-right {
   display: flex;
   flex-direction: column;
@@ -1601,7 +1687,8 @@
 
   .academy-split-cards,
   .academy-media-row,
-  .academy-contact-layout {
+  .academy-contact-layout,
+  .academy-careers-layout {
     grid-template-columns: 1fr;
   }
 }
