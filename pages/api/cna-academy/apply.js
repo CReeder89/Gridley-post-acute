@@ -111,7 +111,10 @@ export default async function handler(req, res) {
       auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
     });
     await transporter.sendMail({
-      from: email || process.env.EMAIL_USER,
+      from: {
+        name: 'New Application',
+        address: process.env.EMAIL_USER || destination,
+      },
       to: destination,
       replyTo: email || undefined,
       subject: `West Harbor CNA Training Application: ${firstName} ${lastName}`.trim(),
