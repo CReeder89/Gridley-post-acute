@@ -5,7 +5,7 @@ import type { ApplicationFormValues } from './schema';
 
 interface Props {
   control: Control<ApplicationFormValues>;
-  onFileSelected: (field: 'resume' | 'diploma' | 'governmentId', file: File | null) => void;
+  onFileSelected: (field: 'resume' | 'diploma' | 'governmentId', file: File | null) => boolean | Promise<boolean>;
 }
 
 const DocumentsStep: React.FC<Props> = ({ control, onFileSelected }) => (
@@ -14,8 +14,7 @@ const DocumentsStep: React.FC<Props> = ({ control, onFileSelected }) => (
       Documents
     </h3>
     <p className="academy-form-hint">
-      Upload PDF or image files. Files are held locally until submission; reconnect the upload handler
-      when the backend is ready.
+      Upload PDF, JPG, PNG, DOC, or DOCX files. Each document can be up to 15 MB. Your files are uploaded securely and are not saved with your draft, so please select them again if you return after closing this page.
     </p>
     <FormFileField
       name="resumeName"

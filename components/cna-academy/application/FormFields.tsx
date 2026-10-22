@@ -174,7 +174,7 @@ interface FileFieldProps<T extends FieldValues> {
   control: Control<T>;
   label: string;
   accept?: string;
-  onFileSelected?: (file: File | null) => void;
+  onFileSelected?: (file: File | null) => boolean | Promise<boolean>;
 }
 
 export function FormFileField<T extends FieldValues>({
@@ -199,10 +199,16 @@ export function FormFileField<T extends FieldValues>({
             accept={accept}
             className="academy-file-input"
             aria-describedby={fieldState.error ? `${String(name)}-error` : undefined}
-            onChange={(e) => {
+            onChange={async (e) => {
+              const input = e.currentTarget;
               const file = e.target.files?.[0] ?? null;
+              const accepted = (await onFileSelected?.(file)) ?? true;
+              if (!accepted) {
+                input.value = '';
+                field.onChange('');
+                return;
+              }
               field.onChange(file ? file.name : '');
-              onFileSelected?.(file);
             }}
           />
           {field.value ? (
