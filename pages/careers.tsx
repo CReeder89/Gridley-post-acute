@@ -9,6 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import MetaHead from '../components/MetaHead';
 import AnimateIn from '../components/AnimateIn';
+import { convertHeicToJpeg, isHeicFile } from '../lib/convertHeicToJpeg';
 
 type ResumeDocument = { pathname: string; filename: string; contentType: string; size: number };
 
@@ -55,14 +56,10 @@ const Careers: React.FC = () => {
     if (!file) return;
     setStatus(null);
     const extension = file.name.split('.').pop()?.toLowerCase() || '';
+    const isHeic = isHeicFile(file);
     const contentType = allowedResumeTypes[extension];
-    if (!contentType || (file.type && file.type !== contentType)) {
-      setStatus({ type: 'error', message: 'Choose a PDF, JPG, PNG, DOC, or DOCX file.' });
-      event.target.value = '';
-      return;
-    }
-    if (file.size > MAX_RESUME_SIZE) {
-      setStatus({ type: 'error', message: 'The resume must be 15 MB or smaller.' });
+    if (!isHeic && (!contentType || (file.type && file.type !== contentType))) {
+      setStatus({ type: 'error', message: 'Choose a PDF, JPG, PNG, HEIC, HEIF, DOC, or DOCX file.' });
       event.target.value = '';
       return;
     }
@@ -74,19 +71,28 @@ const Careers: React.FC = () => {
 
     setUploading(true);
     try {
+      const uploadFile = await convertHeicToJpeg(file);
+      const uploadExtension = uploadFile.name.split('.').pop()?.toLowerCase() || '';
+      const uploadContentType = allowedResumeTypes[uploadExtension];
+      if (!uploadContentType || (uploadFile.type && uploadFile.type !== uploadContentType)) {
+        throw new Error('The selected document could not be prepared for upload. Please try another file.');
+      }
+      if (uploadFile.size > MAX_RESUME_SIZE) {
+        throw new Error('The resume must be 15 MB or smaller after conversion.');
+      }
       const captchaToken = await executeRecaptcha('jobResumeUpload');
-      const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_').slice(-120) || 'resume.pdf';
+      const safeName = uploadFile.name.replace(/[^a-zA-Z0-9._-]/g, '_').slice(-120) || 'resume.pdf';
       const pathname = `job-applications/${crypto.randomUUID()}/resume/${safeName}`;
-      const blob = await uploadPresigned(pathname, file, {
+      const blob = await uploadPresigned(pathname, uploadFile, {
         access: 'private',
         handleUploadUrl: '/api/cna-training/upload',
-        clientPayload: JSON.stringify({ captchaToken, contentType, applicationType: 'job' }),
-        contentType,
+        clientPayload: JSON.stringify({ captchaToken, contentType: uploadContentType, applicationType: 'job' }),
+        contentType: uploadContentType,
       });
       if (resumeDocument) {
         try { await deleteResume(resumeDocument); } catch { /* New upload remains available. */ }
       }
-      setResumeDocument({ pathname: blob.pathname, filename: file.name, contentType, size: file.size });
+      setResumeDocument({ pathname: blob.pathname, filename: uploadFile.name, contentType: uploadContentType, size: uploadFile.size });
       setFormData((current) => ({ ...current, resumeLink: '' }));
     } catch (error) {
       setStatus({ type: 'error', message: error instanceof Error ? error.message : 'Resume upload failed. Please try again.' });
@@ -204,12 +210,12 @@ const Careers: React.FC = () => {
 
                 <FormControl className="academy-careers-resume-field">
                   <FormLabel htmlFor="resume-upload" sx={{ mb: 1, color: '#2c3e50' }}>Resume</FormLabel>
-                  <p className="academy-form-hint">Upload a PDF, JPG, PNG, DOC, or DOCX file (up to 15 MB), or provide a link instead.</p>
+                  <p className="academy-form-hint">Upload a PDF, JPG, PNG, HEIC, HEIF, DOC, or DOCX file (up to 15 MB). iPhone HEIC/HEIF photos are converted to JPEG. You can also provide a link instead.</p>
                   <input
                     ref={fileInputRef}
                     id="resume-upload"
                     type="file"
-                    accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                    accept=".pdf,.jpg,.jpeg,.png,.heic,.heif,.doc,.docx"
                     onChange={handleResumeSelected}
                     disabled={uploading || submitting || Boolean(formData.resumeLink.trim())}
                     className="academy-careers-file-input"

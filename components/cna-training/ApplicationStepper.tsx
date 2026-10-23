@@ -26,6 +26,7 @@ import EmploymentStep from './application/EmploymentStep';
 import QuestionsStep from './application/QuestionsStep';
 import DocumentsStep from './application/DocumentsStep';
 import ReviewStep from './application/ReviewStep';
+import { convertHeicToJpeg, isHeicFile } from '../../lib/convertHeicToJpeg';
 
 type UploadedDocument = { pathname: string; filename: string; contentType: string; size: number };
 type UploadedFiles = Record<'resume' | 'diploma' | 'governmentId', UploadedDocument | null>;
@@ -193,22 +194,10 @@ const ApplicationStepper: React.FC = () => {
       }
 
       const extension = file.name.split('.').pop()?.toLowerCase() ?? '';
+      const isHeic = isHeicFile(file);
       const allowedMimes = allowedFileTypes[extension];
-      if (!allowedMimes || (file.type && !allowedMimes.includes(file.type))) {
-        setFileError('That file type is not supported. Choose a PDF, JPG, PNG, DOC, or DOCX file.');
-        return false;
-      }
-
-      if (file.size > MAX_FILE_SIZE) {
-        setFileError('Each document must be 15 MB or less.');
-        return false;
-      }
-      const otherFilesSize = Object.entries(files).reduce(
-        (total, [key, current]) => total + (key !== field ? current?.size ?? 0 : 0),
-        0
-      );
-      if (otherFilesSize + file.size > MAX_TOTAL_FILE_SIZE) {
-        setFileError('The three documents must total 18 MB or less. Choose smaller files or compress the scans.');
+      if (!isHeic && (!allowedMimes || (file.type && !allowedMimes.includes(file.type)))) {
+        setFileError('That file type is not supported. Choose a PDF, JPG, PNG, HEIC, HEIF, DOC, or DOCX file.');
         return false;
       }
 
@@ -220,19 +209,39 @@ const ApplicationStepper: React.FC = () => {
       setFileError('');
       setUploadingFile(true);
       try {
+        const uploadFile = await convertHeicToJpeg(file);
+        const uploadExtension = uploadFile.name.split('.').pop()?.toLowerCase() ?? '';
+        const uploadMime = allowedFileTypes[uploadExtension]?.[0];
+        if (!uploadMime || (uploadFile.type && uploadFile.type !== uploadMime)) {
+          setFileError('The selected document could not be prepared for upload. Please try another file.');
+          return false;
+        }
+        if (uploadFile.size > MAX_FILE_SIZE) {
+          setFileError('Each document must be 15 MB or less after conversion.');
+          return false;
+        }
+        const otherFilesSize = Object.entries(files).reduce(
+          (total, [key, current]) => total + (key !== field ? current?.size ?? 0 : 0),
+          0
+        );
+        if (otherFilesSize + uploadFile.size > MAX_TOTAL_FILE_SIZE) {
+          setFileError('The three documents must total 18 MB or less. Choose smaller files or compress the scans.');
+          return false;
+        }
+
         const captchaToken = await executeRecaptcha('cnaAcademyUpload');
-        const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_').slice(-120) || `${field}.bin`;
+        const safeName = uploadFile.name.replace(/[^a-zA-Z0-9._-]/g, '_').slice(-120) || `${field}.bin`;
         const pathname = `cna-applications/${crypto.randomUUID()}/${field}/${safeName}`;
-        const blob = await uploadPresigned(pathname, file, {
+        const blob = await uploadPresigned(pathname, uploadFile, {
           access: 'private',
           handleUploadUrl: '/api/cna-training/upload',
-          clientPayload: JSON.stringify({ captchaToken, contentType: allowedMimes[0] }),
-          contentType: allowedMimes[0],
+          clientPayload: JSON.stringify({ captchaToken, contentType: uploadMime }),
+          contentType: uploadMime,
         });
         if (files[field]) void deleteStoredDocument(files[field]);
         setFiles((prev) => ({
           ...prev,
-          [field]: { pathname: blob.pathname, filename: file.name, contentType: allowedMimes[0], size: file.size },
+          [field]: { pathname: blob.pathname, filename: uploadFile.name, contentType: uploadMime, size: uploadFile.size },
         }));
         return true;
       } catch (error) {

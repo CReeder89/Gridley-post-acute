@@ -181,7 +181,7 @@ export function FormFileField<T extends FieldValues>({
   name,
   control,
   label,
-  accept = '.pdf,.jpg,.jpeg,.png,.doc,.docx',
+  accept = '.pdf,.jpg,.jpeg,.png,.heic,.heif,.doc,.docx',
   onFileSelected,
 }: FileFieldProps<T>) {
   return (

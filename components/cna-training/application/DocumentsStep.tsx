@@ -14,7 +14,7 @@ const DocumentsStep: React.FC<Props> = ({ control, onFileSelected }) => (
       Documents
     </h3>
     <p className="academy-form-hint">
-      Upload PDF, JPG, PNG, DOC, or DOCX files. Each document can be up to 15 MB. Your files are uploaded securely and are not saved with your draft, so please select them again if you return after closing this page.
+      Upload PDF, JPG, PNG, HEIC, HEIF, DOC, or DOCX files. iPhone HEIC/HEIF photos are converted to JPEG before upload. Each document can be up to 15 MB. Your files are uploaded securely and are not saved with your draft, so please select them again if you return after closing this page.
     </p>
     <FormFileField
       name="resumeName"
