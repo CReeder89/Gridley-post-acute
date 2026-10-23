@@ -252,7 +252,7 @@ const Home: React.FC = () => {
           <TheSwiper />
         </AnimateIn>
         <AnimateIn delay={0.15}>
-          <Button text="READ MORE" href="/test" />
+          <Button text="READ MORE" href="/why-choose-us" />
         </AnimateIn>
       </div>
 

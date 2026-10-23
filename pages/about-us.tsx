@@ -173,7 +173,7 @@ const AboutUs: React.FC = () => {
             facility, we strive to go above and beyond — we don&apos;t just meet the standards, we
             set them.
           </p>
-          <Link href="/test" className="services-band__cta">
+          <Link href="/why-choose-us" className="services-band__cta">
             Learn why families choose us
           </Link>
         </AnimateIn>

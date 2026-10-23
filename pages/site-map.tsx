@@ -25,7 +25,7 @@ const SiteMap: React.FC = () => {
           <Link href="/cms-score" style={linkStyle}>What is CMS Score</Link>
         </li>
         <li style={listItemStyle}>
-          <Link href="/test" style={linkStyle}>Why Choose Us?</Link>
+          <Link href="/why-choose-us" style={linkStyle}>Why Choose Us?</Link>
         </li>
 
         <li style={listItemStyle}>
