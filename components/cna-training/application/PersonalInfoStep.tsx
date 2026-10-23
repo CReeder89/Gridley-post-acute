@@ -12,6 +12,9 @@ const PersonalInfoStep: React.FC<Props> = ({ control }) => (
     <h3 id="step-personal-heading" className="visually-hidden">
       Personal Information
     </h3>
+    <p className="academy-age-requirement" role="note">
+      Applicants must be at least 18 years old to apply.
+    </p>
     <FormTextField name="firstName" control={control} label="First Name" required autoComplete="given-name" />
     <FormTextField name="lastName" control={control} label="Last Name" required autoComplete="family-name" />
     <FormTextField name="dob" control={control} label="Date of Birth" type="date" required autoComplete="bday" />

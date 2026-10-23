@@ -2,10 +2,27 @@ import { z } from 'zod';
 
 const phoneRegex = /^[\d\s()+-]{10,20}$/;
 
+function isAtLeast18(dob: string): boolean {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dob);
+  if (!match) return true; // Let the required/date input validation handle missing or malformed values.
+
+  const [, year, month, day] = match;
+  const today = new Date();
+  let age = today.getFullYear() - Number(year);
+  const birthdayHasNotOccurred =
+    today.getMonth() + 1 < Number(month) ||
+    (today.getMonth() + 1 === Number(month) && today.getDate() < Number(day));
+  if (birthdayHasNotOccurred) age -= 1;
+  return age >= 18;
+}
+
 export const personalSchema = z.object({
   firstName: z.string().min(1, 'First name is required'),
   lastName: z.string().min(1, 'Last name is required'),
-  dob: z.string().min(1, 'Date of birth is required'),
+  dob: z
+    .string()
+    .min(1, 'Date of birth is required')
+    .refine((dob) => !dob || isAtLeast18(dob), 'Applicants must be at least 18 years old.'),
   email: z.email('Enter a valid email address'),
   phone: z.string().regex(phoneRegex, 'Enter a valid phone number'),
   address: z.string().min(5, 'Address is required'),
