@@ -52,19 +52,19 @@ const SiteMap: React.FC = () => {
           <Link href="/gallery" style={linkStyle}>Gallery</Link>
         </li>
         <li style={listItemStyle}>
-          <Link href="/cna-academy" style={linkStyle}>CNA Training</Link>
+          <Link href="/cna-training" style={linkStyle}>CNA Training</Link>
           <ul style={nestedListStyle}>
             <li style={listItemStyle}>
-              <Link href="/cna-academy" style={linkStyle}>Overview</Link>
+              <Link href="/cna-training" style={linkStyle}>Overview</Link>
             </li>
             <li style={listItemStyle}>
-              <Link href="/cna-academy/about" style={linkStyle}>Learn More</Link>
+              <Link href="/cna-training/about" style={linkStyle}>Learn More</Link>
             </li>
             <li style={listItemStyle}>
-              <Link href="/cna-academy/apply" style={linkStyle}>Apply Now</Link>
+              <Link href="/cna-training/apply" style={linkStyle}>Apply Now</Link>
             </li>
             <li style={listItemStyle}>
-              <Link href="/cna-academy/contact" style={linkStyle}>Contact</Link>
+              <Link href="/cna-training/contact" style={linkStyle}>Contact</Link>
             </li>
           </ul>
         </li>

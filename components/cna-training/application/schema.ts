@@ -76,9 +76,9 @@ export const defaultApplicationValues: ApplicationFormValues = {
   governmentIdName: '',
 };
 
-export const STORAGE_KEY = 'wh-cna-academy-application-v1';
-export const STORAGE_STEP_KEY = 'wh-cna-academy-application-step-v1';
-export const STORAGE_SAVED_AT_KEY = 'wh-cna-academy-application-saved-at-v1';
+export const STORAGE_KEY = 'wh-cna-training-application-v1';
+export const STORAGE_STEP_KEY = 'wh-cna-training-application-step-v1';
+export const STORAGE_SAVED_AT_KEY = 'wh-cna-training-application-saved-at-v1';
 export const DRAFT_RETENTION_MS = 30 * 24 * 60 * 60 * 1000;
 
 export const stepFieldNames: (keyof ApplicationFormValues)[][] = [

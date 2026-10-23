@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import PhoneFloat from './PhoneFloat';
-import { academyNav } from '../content/cnaAcademy';
+import { academyNav } from '../content/cnaTraining';
 
 const headerVariants = {
   show: {
@@ -211,7 +211,7 @@ const Header: React.FC = () => {
               <div className="nav-dropdown">
                 <Link
                   className="dropdown-container"
-                  href="/cna-academy"
+                  href="/cna-training"
                   onClick={closeMobileMenu}
                   aria-haspopup="true"
                 >

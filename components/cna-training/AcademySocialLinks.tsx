@@ -2,7 +2,7 @@ import React from 'react';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
-import { academySocial } from '../../content/cnaAcademy';
+import { academySocial } from '../../content/cnaTraining';
 
 type SocialId = (typeof academySocial.links)[number]['id'];
 

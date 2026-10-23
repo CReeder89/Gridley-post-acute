@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
          
             <Link href="/cms-score" style={linkStyle}>What is CMS?</Link>
             <Link href="/why-choose-us" style={linkStyle}>Choosing a Post Acute Center</Link>
-            <Link href="/cna-academy" style={linkStyle}>CNA Training</Link>
+            <Link href="/cna-training" style={linkStyle}>CNA Training</Link>
             <Link href="/site-map" style={linkStyle}>Site Map</Link>
             <Link href="https://www.medicare.gov/care-compare/results?searchType=NursingHome&page=1&city=Gridley&state=CA&zipcode=&radius=50&sort=closest" target="_blank" style={linkStyle}>Medicare.gov comparison page</Link>
           

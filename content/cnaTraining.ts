@@ -66,10 +66,10 @@ export const academySocial = {
 } as const;
 
 export const academyNav = [
-  { label: 'Overview', href: '/cna-academy' },
-  { label: 'Learn More', href: '/cna-academy/about' },
-  { label: 'Apply Now', href: '/cna-academy/apply' },
-  { label: 'Contact', href: '/cna-academy/contact' },
+  { label: 'Overview', href: '/cna-training' },
+  { label: 'Learn More', href: '/cna-training/about' },
+  { label: 'Apply Now', href: '/cna-training/apply' },
+  { label: 'Contact', href: '/cna-training/contact' },
 ] as const;
 
 /** Key program dates — update here to refresh site-wide callouts */
@@ -83,25 +83,25 @@ export const academySeo = {
     title: 'West Harbor CNA Training | Tuition-Free CNA Training in Gridley, CA',
     description:
       'Your journey to a meaningful career starts here. West Harbor CNA Training offers tuition-free CNA training for qualified students with classroom instruction in Historic Downtown Gridley and clinicals at Gridley Post Acute and Bridgeview Post Acute.',
-    path: '/cna-academy',
+    path: '/cna-training',
   },
   about: {
     title: 'About West Harbor CNA Training | Program Details & Mission',
     description:
       'Learn how West Harbor CNA Training prepares compassionate Certified Nursing Assistants through classroom instruction in Historic Downtown Gridley and clinical training at Gridley Post Acute and Bridgeview Post Acute.',
-    path: '/cna-academy/about',
+    path: '/cna-training/about',
   },
   apply: {
     title: 'Apply to West Harbor CNA Training | CNA Training Application',
     description:
       'Apply online to West Harbor CNA Training. Complete our multi-step application for tuition-free CNA training for qualified students across Northern California.',
-    path: '/cna-academy/apply',
+    path: '/cna-training/apply',
   },
   contact: {
     title: 'Contact West Harbor CNA Training | Speak with Mollie Openshaw',
     description:
       'Contact Co-Program Director Mollie Openshaw, LVN, at West Harbor CNA Training. Call, email, or send a message to learn more about our tuition-free CNA training program.',
-    path: '/cna-academy/contact',
+    path: '/cna-training/contact',
   },
 } as const;
 
@@ -110,11 +110,11 @@ export const landingContent = {
     headline: 'Begin Your Healthcare Career With Confidence',
     subheading: 'Tuition-Free CNA Training for Qualified Students',
     note: academyProgram.firstClassNote,
-    primaryCta: { label: 'Learn More', href: '/cna-academy/about' },
-    secondaryCta: { label: 'Apply Today', href: '/cna-academy/apply' },
+    primaryCta: { label: 'Learn More', href: '/cna-training/about' },
+    secondaryCta: { label: 'Apply Today', href: '/cna-training/apply' },
     backgroundImage: '/images/cna-group2.jpg',
   },
-  /** Short preview only — full copy lives on /cna-academy/about */
+  /** Short preview only — full copy lives on /cna-training/about */
   aboutPreview: {
     title: 'About West Harbor CNA Training',
     eyebrow: 'Your Journey to a Meaningful Career Starts Here',
@@ -123,7 +123,7 @@ export const landingContent = {
       'Our academy was created to prepare the next generation of highly skilled, confident, and compassionate Certified Nursing Assistants who are ready to make a difference in the lives of residents, patients, and families every day.',
       'Whether you are beginning your first career, changing professions, or returning to the workforce, we are committed to providing you with the education, support, and hands-on experience you need to succeed.',
     ],
-    learnMoreHref: '/cna-academy/about',
+    learnMoreHref: '/cna-training/about',
     learnMoreLabel: 'Learn More →',
   },
   featureCards: [
@@ -189,8 +189,8 @@ export const landingContent = {
   ctaBanner: {
     headline: 'Ready to Begin Your Healthcare Career?',
     backgroundImage: '/images/hero-banner2.jpg',
-    primaryCta: { label: 'Learn More', href: '/cna-academy/about' },
-    secondaryCta: { label: 'Apply Today', href: '/cna-academy/apply' },
+    primaryCta: { label: 'Learn More', href: '/cna-training/about' },
+    secondaryCta: { label: 'Apply Today', href: '/cna-training/apply' },
   },
 } as const;
 
@@ -203,7 +203,7 @@ export const aboutContent = {
   },
   /**
    * Welcome letter from Mollie Openshaw — polished for grammar & clarity.
-   * Shown on /cna-academy/about
+   * Shown on /cna-training/about
    */
   mollieMessage: {
     pageTitle: 'Welcome to the West Harbor Healthcare CNA Training',
@@ -388,8 +388,8 @@ export const aboutContent = {
   },
   finalCta: {
     headline: 'Start Your Journey Today',
-    primaryCta: { label: 'Apply Now', href: '/cna-academy/apply' },
-    secondaryCta: { label: 'Contact Mollie', href: '/cna-academy/contact' },
+    primaryCta: { label: 'Apply Now', href: '/cna-training/apply' },
+    secondaryCta: { label: 'Contact Mollie', href: '/cna-training/contact' },
     backgroundImage: '/images/hero-banner2.jpg',
   },
 } as const;

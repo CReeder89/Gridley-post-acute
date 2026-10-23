@@ -2,14 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import MetaHead from '../../components/MetaHead';
-import AcademyHero from '../../components/cna-academy/AcademyHero';
-import Timeline from '../../components/cna-academy/Timeline';
-import CTASection from '../../components/cna-academy/CTASection';
-import MissionCard from '../../components/cna-academy/MissionCard';
-import CommunityGrid from '../../components/cna-academy/CommunityGrid';
-import { LearningObjectiveList } from '../../components/cna-academy/LearningObjective';
-import DirectorWelcome from '../../components/cna-academy/DirectorWelcome';
-import { aboutContent, academySeo } from '../../content/cnaAcademy';
+import AcademyHero from '../../components/cna-training/AcademyHero';
+import Timeline from '../../components/cna-training/Timeline';
+import CTASection from '../../components/cna-training/CTASection';
+import MissionCard from '../../components/cna-training/MissionCard';
+import CommunityGrid from '../../components/cna-training/CommunityGrid';
+import { LearningObjectiveList } from '../../components/cna-training/LearningObjective';
+import DirectorWelcome from '../../components/cna-training/DirectorWelcome';
+import { aboutContent, academySeo } from '../../content/cnaTraining';
 
 const CnaAcademyAbout: React.FC = () => {
   const seo = academySeo.about;

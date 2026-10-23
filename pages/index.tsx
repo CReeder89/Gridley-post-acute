@@ -269,8 +269,8 @@ const Home: React.FC = () => {
               Downtown Gridley and hands-on clinicals at Gridley Post Acute and Bridgeview Post Acute.
             </p>
             <div style={academyActionsStyle}>
-              <Button text="Learn More" href="/cna-academy" />
-              <Link href="/cna-academy/apply" className="academy-btn academy-btn--outline academy-btn--on-dark">
+              <Button text="Learn More" href="/cna-training" />
+              <Link href="/cna-training/apply" className="academy-btn academy-btn--outline academy-btn--on-dark">
                 Apply Today
               </Link>
             </div>

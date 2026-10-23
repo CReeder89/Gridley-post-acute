@@ -5,7 +5,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import DirectionsIcon from '@mui/icons-material/Directions';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { academyContact } from '../../content/cnaAcademy';
+import { academyContact } from '../../content/cnaTraining';
 import AcademySocialLinks from './AcademySocialLinks';
 
 export type ContactCardData = {

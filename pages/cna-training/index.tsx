@@ -3,13 +3,13 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import MetaHead from '../../components/MetaHead';
-import AcademyHero from '../../components/cna-academy/AcademyHero';
-import FeatureCard from '../../components/cna-academy/FeatureCard';
-import CommunityGrid from '../../components/cna-academy/CommunityGrid';
-import CTASection from '../../components/cna-academy/CTASection';
-import WhyChooseGrid from '../../components/cna-academy/WhyChooseGrid';
-import AcademySocialLinks from '../../components/cna-academy/AcademySocialLinks';
-import { academyBrand, academyContact, academySeo, landingContent } from '../../content/cnaAcademy';
+import AcademyHero from '../../components/cna-training/AcademyHero';
+import FeatureCard from '../../components/cna-training/FeatureCard';
+import CommunityGrid from '../../components/cna-training/CommunityGrid';
+import CTASection from '../../components/cna-training/CTASection';
+import WhyChooseGrid from '../../components/cna-training/WhyChooseGrid';
+import AcademySocialLinks from '../../components/cna-training/AcademySocialLinks';
+import { academyBrand, academyContact, academySeo, landingContent } from '../../content/cnaTraining';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -41,7 +41,7 @@ const structuredData = {
     price: '0',
     priceCurrency: 'USD',
     availability: 'https://schema.org/InStock',
-    url: '/cna-academy/apply',
+    url: '/cna-training/apply',
   },
 };
 

@@ -4,8 +4,8 @@ import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import { useReCaptcha } from 'next-recaptcha-v3';
 import MetaHead from '../../components/MetaHead';
-import ContactCard from '../../components/cna-academy/ContactCard';
-import { academyContact, academySeo, contactPageContent } from '../../content/cnaAcademy';
+import ContactCard from '../../components/cna-training/ContactCard';
+import { academyContact, academySeo, contactPageContent } from '../../content/cnaTraining';
 
 const fieldSx = {
   '& .MuiOutlinedInput-root': { backgroundColor: '#fff' },
@@ -56,7 +56,7 @@ const CnaAcademyContact: React.FC = () => {
 
     try {
       const captchaToken = await executeRecaptcha('cnaAcademyContact');
-      const res = await fetch('/api/cna-academy/contact', {
+      const res = await fetch('/api/cna-training/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, captchaToken }),

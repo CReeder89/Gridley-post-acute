@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-import { aboutContent } from '../../content/cnaAcademy';
+import { aboutContent } from '../../content/cnaTraining';
 
 type MollieMessage = typeof aboutContent.mollieMessage;
 

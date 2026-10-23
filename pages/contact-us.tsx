@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import MetaHead from '../components/MetaHead';
-import ContactCard, { type ContactCardData } from '../components/cna-academy/ContactCard';
+import ContactCard, { type ContactCardData } from '../components/cna-training/ContactCard';
 
 const fieldSx = {
   '& .MuiOutlinedInput-root': { backgroundColor: '#fff' },

@@ -42,7 +42,7 @@ const Careers: React.FC = () => {
   const deleteResume = async (document: ResumeDocument) => {
     if (!executeRecaptcha) throw new Error('reCAPTCHA is not available. Please refresh and try again.');
     const captchaToken = await executeRecaptcha('jobResumeDelete');
-    const response = await fetch('/api/cna-academy/delete-upload', {
+    const response = await fetch('/api/cna-training/delete-upload', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ pathname: document.pathname, captchaToken }),
@@ -79,7 +79,7 @@ const Careers: React.FC = () => {
       const pathname = `job-applications/${crypto.randomUUID()}/resume/${safeName}`;
       const blob = await uploadPresigned(pathname, file, {
         access: 'private',
-        handleUploadUrl: '/api/cna-academy/upload',
+        handleUploadUrl: '/api/cna-training/upload',
         clientPayload: JSON.stringify({ captchaToken, contentType, applicationType: 'job' }),
         contentType,
       });

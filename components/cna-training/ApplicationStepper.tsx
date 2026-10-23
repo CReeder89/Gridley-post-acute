@@ -9,7 +9,7 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import { applyContent } from '../../content/cnaAcademy';
+import { applyContent } from '../../content/cnaTraining';
 import {
   ApplicationFormValues,
   DRAFT_RETENTION_MS,
@@ -130,7 +130,7 @@ const ApplicationStepper: React.FC = () => {
     if (!document || !executeRecaptcha) return;
     try {
       const captchaToken = await executeRecaptcha('cnaAcademyDeleteUpload');
-      await fetch('/api/cna-academy/delete-upload', {
+      await fetch('/api/cna-training/delete-upload', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ pathname: document.pathname, captchaToken }),
@@ -225,7 +225,7 @@ const ApplicationStepper: React.FC = () => {
         const pathname = `cna-applications/${crypto.randomUUID()}/${field}/${safeName}`;
         const blob = await uploadPresigned(pathname, file, {
           access: 'private',
-          handleUploadUrl: '/api/cna-academy/upload',
+          handleUploadUrl: '/api/cna-training/upload',
           clientPayload: JSON.stringify({ captchaToken, contentType: allowedMimes[0] }),
           contentType: allowedMimes[0],
         });
@@ -276,7 +276,7 @@ const ApplicationStepper: React.FC = () => {
     }
   };
 
-  /** Posts to /api/cna-academy/apply → emails EMAIL_TO_CAREER */
+  /** Posts to /api/cna-training/apply → emails EMAIL_TO_CAREER */
   const onSubmit = async (data: ApplicationFormValues) => {
     setSubmitting(true);
     setSubmitError('');
@@ -288,7 +288,7 @@ const ApplicationStepper: React.FC = () => {
 
       const captchaToken = await executeRecaptcha('cnaAcademyApply');
 
-      const res = await fetch('/api/cna-academy/apply', {
+      const res = await fetch('/api/cna-training/apply', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...data, captchaToken, documents: files }),

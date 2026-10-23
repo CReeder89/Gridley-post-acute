@@ -1,7 +1,7 @@
 import React from 'react';
 import MetaHead from '../../components/MetaHead';
-import ApplicationStepper from '../../components/cna-academy/ApplicationStepper';
-import { academySeo, applyContent } from '../../content/cnaAcademy';
+import ApplicationStepper from '../../components/cna-training/ApplicationStepper';
+import { academySeo, applyContent } from '../../content/cnaTraining';
 
 const CnaAcademyApply: React.FC = () => {
   const seo = academySeo.apply;
