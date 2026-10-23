@@ -25,7 +25,7 @@ const Home: React.FC = () => {
       <div style={heroContainerStyle}>
         <AnimateIn immediate variant="fadeUp" className="glass" style={heroContentStyle}>
           <Image
-            src="/images/logo.jpg"
+            src="/images/gpa-logo.png"
             alt="Gridley Post Acute Logo"
             width={324}
             height={111}

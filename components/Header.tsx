@@ -148,7 +148,7 @@ const Header: React.FC = () => {
             <div className="logo-container">
               <Link href="/">
                 <Image
-                  src="/images/logo.jpg"
+                  src="/images/gpa-logo.png"
                   alt="Gridley Post Acute Logo"
                   width={200}
                   height={66}
