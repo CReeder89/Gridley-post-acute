@@ -32,9 +32,7 @@ const ReviewStep: React.FC<Props> = ({ values }) => {
     { label: 'Worked in healthcare', value: yesNo(values.workedInHealthcare) },
     { label: 'Transportation available', value: yesNo(values.transportationAvailable) },
     { label: 'Available start date', value: values.availableStartDate || '—' },
-    { label: 'Resume', value: values.resumeName || '—' },
-    { label: 'Diploma / GED', value: values.diplomaName || '—' },
-    { label: 'Government ID', value: values.governmentIdName || '—' },
+    { label: 'Resume (optional)', value: values.resumeName || 'Not provided' },
   ];
 
   return (

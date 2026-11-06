@@ -29,15 +29,9 @@ import ReviewStep from './application/ReviewStep';
 import { convertHeicToJpeg, isHeicFile } from '../../lib/convertHeicToJpeg';
 
 type UploadedDocument = { pathname: string; filename: string; contentType: string; size: number };
-type UploadedFiles = Record<'resume' | 'diploma' | 'governmentId', UploadedDocument | null>;
+type UploadedFiles = { resume: UploadedDocument | null };
 
-const MAX_TOTAL_FILE_SIZE = 18 * 1024 * 1024;
 const MAX_FILE_SIZE = 15 * 1024 * 1024;
-const fileNameField: Record<keyof UploadedFiles, 'resumeName' | 'diplomaName' | 'governmentIdName'> = {
-  resume: 'resumeName',
-  diploma: 'diplomaName',
-  governmentId: 'governmentIdName',
-};
 const allowedFileTypes: Record<string, string[]> = {
   pdf: ['application/pdf'],
   jpg: ['image/jpeg'],
@@ -61,13 +55,14 @@ function loadSavedValues(): ApplicationFormValues {
     // Preserve drafts created before expiration timestamps were introduced.
     if (!savedAtRaw) localStorage.setItem(STORAGE_SAVED_AT_KEY, String(Date.now()));
     const saved = JSON.parse(raw);
+    // Drop fields from drafts created before diploma and ID uploads were removed.
+    delete saved.diplomaName;
+    delete saved.governmentIdName;
     return {
       ...defaultApplicationValues,
       ...saved,
       // Browser storage preserves file names only, never the actual uploaded documents.
       resumeName: '',
-      diplomaName: '',
-      governmentIdName: '',
     };
   } catch {
     return defaultApplicationValues;
@@ -89,10 +84,6 @@ function loadSavedStep(values: ApplicationFormValues): number {
       clearDraft();
       return 0;
     }
-    // Files cannot be restored from browser storage. Return applicants to Documents
-    // instead of showing a stale Review step that appears to have all files.
-    const documentsStep = applyContent.steps.indexOf('Documents');
-    if (step > documentsStep) return documentsStep;
     return step;
   } catch {
     return 0;
@@ -120,8 +111,6 @@ const ApplicationStepper: React.FC = () => {
   const [uploadingFile, setUploadingFile] = useState(false);
   const [files, setFiles] = useState<UploadedFiles>({
     resume: null,
-    diploma: null,
-    governmentId: null,
   });
   // Pause localStorage writes after a successful submit so reset() doesn't
   // re-save blank values + the review step index.
@@ -172,8 +161,6 @@ const ApplicationStepper: React.FC = () => {
         const draft = {
           ...values,
           resumeName: '',
-          diplomaName: '',
-          governmentIdName: '',
         };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(draft));
         localStorage.setItem(STORAGE_STEP_KEY, String(activeStep));
@@ -213,22 +200,13 @@ const ApplicationStepper: React.FC = () => {
         const uploadExtension = uploadFile.name.split('.').pop()?.toLowerCase() ?? '';
         const uploadMime = allowedFileTypes[uploadExtension]?.[0];
         if (!uploadMime || (uploadFile.type && uploadFile.type !== uploadMime)) {
-          setFileError('The selected document could not be prepared for upload. Please try another file.');
+          setFileError('The selected resume could not be prepared for upload. Please try another file.');
           return false;
         }
         if (uploadFile.size > MAX_FILE_SIZE) {
-          setFileError('Each document must be 15 MB or less after conversion.');
+          setFileError('The resume must be 15 MB or less after conversion.');
           return false;
         }
-        const otherFilesSize = Object.entries(files).reduce(
-          (total, [key, current]) => total + (key !== field ? current?.size ?? 0 : 0),
-          0
-        );
-        if (otherFilesSize + uploadFile.size > MAX_TOTAL_FILE_SIZE) {
-          setFileError('The three documents must total 18 MB or less. Choose smaller files or compress the scans.');
-          return false;
-        }
-
         const captchaToken = await executeRecaptcha('cnaAcademyUpload');
         const safeName = uploadFile.name.replace(/[^a-zA-Z0-9._-]/g, '_').slice(-120) || `${field}.bin`;
         const pathname = `cna-applications/${crypto.randomUUID()}/${field}/${safeName}`;
@@ -259,7 +237,7 @@ const ApplicationStepper: React.FC = () => {
     persistDraft.current = true;
     clearDraft();
     reset(defaultApplicationValues);
-    setFiles({ resume: null, diploma: null, governmentId: null });
+    setFiles({ resume: null });
     setFileError('');
     setActiveStep(0);
     setSubmitError('');
@@ -305,9 +283,7 @@ const ApplicationStepper: React.FC = () => {
 
       if (!res.ok) {
         const payload = await res.json().catch(() => null);
-        if (res.status === 413) {
-          throw new Error('The three documents must total 18 MB or less. Choose smaller files or compress the scans.');
-        }
+        if (res.status === 413) throw new Error('The resume must be 15 MB or less.');
         throw new Error(payload?.message || 'Failed to submit application');
       }
 
@@ -315,7 +291,7 @@ const ApplicationStepper: React.FC = () => {
       persistDraft.current = false;
       clearDraft();
       reset(defaultApplicationValues);
-      setFiles({ resume: null, diploma: null, governmentId: null });
+      setFiles({ resume: null });
       setActiveStep(0);
       setSubmitted(true);
     } catch (error) {
@@ -397,13 +373,13 @@ const ApplicationStepper: React.FC = () => {
           {activeStep === 1 && <EducationStep control={control} />}
           {activeStep === 2 && <EmploymentStep control={control} />}
           {activeStep === 3 && <QuestionsStep control={control} />}
-        {activeStep === 4 && (
+          {activeStep === 4 && (
             <>
               <DocumentsStep
                 control={control}
-                onFileSelected={(field, file) => {
-                  const accepted = handleFileSelected(field, file);
-                  if (!accepted) setValue(fileNameField[field], '', { shouldValidate: true });
+                onFileSelected={async (field, file) => {
+                  const accepted = await handleFileSelected(field, file);
+                  if (!accepted) setValue('resumeName', '', { shouldValidate: true });
                   return accepted;
                 }}
               />
@@ -412,7 +388,7 @@ const ApplicationStepper: React.FC = () => {
                   {fileError}
                 </Alert>
               )}
-              {uploadingFile && <p role="status" aria-live="polite">Uploading document securely…</p>}
+              {uploadingFile && <p role="status" aria-live="polite">Uploading resume securely…</p>}
             </>
           )}
           {activeStep === 5 && <ReviewStep values={getValues()} />}
@@ -449,7 +425,7 @@ const ApplicationStepper: React.FC = () => {
             <Button
               type="button"
               onClick={handleSubmitClick}
-              disabled={submitting || uploadingFile || Object.values(files).some((file) => !file)}
+              disabled={submitting || uploadingFile}
               variant="contained"
               sx={{ backgroundColor: '#2c3e50', '&:hover': { backgroundColor: '#354e66' } }}
             >
@@ -469,7 +445,7 @@ const ApplicationStepper: React.FC = () => {
           Clear saved application
         </Button>
         <p className="academy-form-persist-note">
-          Your progress is saved on this device for up to 30 days. You can leave and return later; documents must be selected again if you return after closing this page.
+          Your progress is saved on this device for up to 30 days. You can leave and return later; if you choose to include a resume, you will need to select it again after returning.
         </p>
       </form>
     </div>

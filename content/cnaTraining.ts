@@ -75,7 +75,8 @@ export const academyNav = [
 /** Key program dates — update here to refresh site-wide callouts */
 export const academyProgram = {
   firstClassDate: 'January 4, 2027',
-  firstClassNote: 'First class begins January 4, 2027.',
+  firstClassNote:
+    'The first class is full. Applications submitted after November 5, 2026 will be considered for future classes.',
 } as const;
 
 export const academySeo = {
@@ -375,7 +376,7 @@ export const aboutContent = {
   },
   timeline: {
     title: 'Your Path to Becoming a CNA',
-    intro: `Our inaugural class begins ${academyProgram.firstClassDate}. Apply now to take the first step.`,
+    intro: 'The first class is full. Apply now to be considered for a future class.',
     steps: [
       'Apply',
       'Interview',
@@ -399,19 +400,18 @@ export const applyContent = {
     headline: 'Apply to West Harbor CNA Training',
     subheading:
       'Complete the multi-step application below. Your progress is saved automatically so you can return later.',
-    note: academyProgram.firstClassNote,
   },
   success: {
     title: 'Application Submitted Successfully',
     message: 'Thank you.',
-    detail: 'Someone from West Harbor CNA Training will contact you soon.',
+    detail: 'The first class is full. Your application will be considered for a future class.',
   },
   steps: [
     'Personal Information',
     'Education',
     'Employment',
     'Questions',
-    'Documents',
+    'Optional Resume',
     'Review',
   ] as const,
 } as const;

@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import { del, get } from '@vercel/blob';
 
-const MAX_TOTAL_FILE_SIZE = 18 * 1024 * 1024;
+const MAX_FILE_SIZE = 15 * 1024 * 1024;
 const ALLOWED_FILE_TYPES = new Set([
   'application/pdf',
   'image/jpeg',
@@ -9,7 +9,6 @@ const ALLOWED_FILE_TYPES = new Set([
   'application/msword',
   'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
 ]);
-const REQUIRED_DOCUMENTS = ['resume', 'diploma', 'governmentId'];
 
 async function verifyCaptcha(token) {
   if (!token || !process.env.RECAPTCHA_SECRET_KEY) return false;
@@ -31,7 +30,7 @@ async function toBuffer(stream) {
     if (done) break;
     chunks.push(Buffer.from(value));
     length += value.byteLength;
-    if (length > MAX_TOTAL_FILE_SIZE) throw new Error('Documents exceed the allowed combined size.');
+    if (length > MAX_FILE_SIZE) throw new Error('The resume exceeds the allowed size.');
   }
   return Buffer.concat(chunks, length);
 }
@@ -58,39 +57,31 @@ export default async function handler(req, res) {
   let documentPaths = [];
   try {
     const body = req.body || {};
-    const { captchaToken, documents = {} } = body;
+    const { captchaToken } = body;
+    const documents = body.documents && typeof body.documents === 'object' ? body.documents : {};
     if (!(await verifyCaptcha(captchaToken))) {
       return res.status(400).json({ message: 'reCAPTCHA verification failed. Please try again.' });
     }
-    if (REQUIRED_DOCUMENTS.some((key) => !documents[key]?.pathname)) {
-      return res.status(400).json({ message: 'Please upload your resume, diploma or GED, and government ID.' });
-    }
-
-    documentPaths = REQUIRED_DOCUMENTS.map((key) => documents[key].pathname);
-    const uniquePaths = new Set(documentPaths);
-    const validPaths = REQUIRED_DOCUMENTS.every((key) =>
-      /^cna-applications\/[a-f0-9-]{36}\/(resume|diploma|governmentId)\/[\w.-]+$/i.test(documents[key].pathname) &&
-      documents[key].pathname.split('/')[2] === key
-    );
-    if (!validPaths || uniquePaths.size !== REQUIRED_DOCUMENTS.length) {
-      return res.status(400).json({ message: 'One or more uploaded documents are invalid. Please upload them again.' });
+    if (documents.diploma?.pathname || documents.governmentId?.pathname) {
+      return res.status(400).json({ message: 'Only an optional resume can be attached to this application.' });
     }
 
     const attachments = [];
-    let totalSize = 0;
-    for (const key of REQUIRED_DOCUMENTS) {
-      const requested = documents[key];
-      const blobResult = await get(requested.pathname, { access: 'private' });
+    const requestedResume = documents.resume;
+    if (requestedResume) {
+      if (!requestedResume.pathname || !/^cna-applications\/[a-f0-9-]{36}\/resume\/[\w.-]+$/i.test(requestedResume.pathname)) {
+        return res.status(400).json({ message: 'The uploaded resume is invalid. Please upload it again.' });
+      }
+      documentPaths = [requestedResume.pathname];
+      const blobResult = await get(requestedResume.pathname, { access: 'private' });
       if (!blobResult || blobResult.statusCode !== 200 || !blobResult.stream) {
-        throw new Error('An uploaded document could not be retrieved. Please upload it again.');
+        throw new Error('The uploaded resume could not be retrieved. Please upload it again.');
       }
       const contentType = blobResult.blob.contentType;
-      if (!ALLOWED_FILE_TYPES.has(contentType)) throw new Error('A document has an unsupported file type.');
+      if (!ALLOWED_FILE_TYPES.has(contentType)) throw new Error('The resume has an unsupported file type.');
       const content = await toBuffer(blobResult.stream);
-      totalSize += content.length;
-      if (totalSize > MAX_TOTAL_FILE_SIZE) throw new Error('Documents exceed the allowed combined size.');
       attachments.push({
-        filename: cleanFilename(requested.filename, `${key}.pdf`),
+        filename: cleanFilename(requestedResume.filename, 'resume.pdf'),
         content,
         contentType,
       });
@@ -128,14 +119,14 @@ export default async function handler(req, res) {
         '', '— Questions —', `Why become a CNA?: ${whyCna}`,
         `Worked in healthcare: ${yesNo(workedInHealthcare)}`,
         `Transportation available: ${yesNo(transportationAvailable)}`,
-        `Available start date: ${availableStartDate}`, '', '— Documents —',
-        attachments.map((file) => file.filename).join('\n'),
+        `Available start date: ${availableStartDate}`, '', '— Optional Resume —',
+        attachments[0]?.filename || 'Not provided',
       ].join('\n'),
       attachments,
     });
 
     try {
-      await del(documentPaths, { access: 'private' });
+      if (documentPaths.length > 0) await del(documentPaths, { access: 'private' });
     } catch (error) {
       // Email has already been delivered; keep the successful submission response and log cleanup failure.
       console.error('CNA application Blob cleanup failed:', error);
@@ -144,7 +135,7 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error('CNA Training application error:', error);
     if (/size|larger than/i.test(error?.message || '')) {
-      return res.status(413).json({ message: 'The three documents must total 18 MB or less.' });
+      return res.status(413).json({ message: 'The resume must be 15 MB or less.' });
     }
     return res.status(500).json({ message: error?.message || 'Failed to send application.' });
   }

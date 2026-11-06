@@ -1,7 +1,7 @@
 import React from 'react';
 import MetaHead from '../../components/MetaHead';
 import ApplicationStepper from '../../components/cna-training/ApplicationStepper';
-import { academySeo, applyContent } from '../../content/cnaTraining';
+import { academyProgram, academySeo, applyContent } from '../../content/cnaTraining';
 
 const CnaAcademyApply: React.FC = () => {
   const seo = academySeo.apply;
@@ -18,10 +18,16 @@ const CnaAcademyApply: React.FC = () => {
       <header className="academy-page-header">
         <h1>{applyContent.hero.headline}</h1>
         <p>{applyContent.hero.subheading}</p>
-        {applyContent.hero.note ? (
-          <p className="academy-page-header__note">{applyContent.hero.note}</p>
-        ) : null}
       </header>
+
+      <aside className="academy-application-notice" aria-labelledby="application-notice-heading">
+        <p id="application-notice-heading" className="academy-application-notice__title">
+          Important class update
+        </p>
+        <p>
+          {academyProgram.firstClassNote}
+        </p>
+      </aside>
 
       <div className="academy-section academy-section--form">
         <ApplicationStepper />

@@ -52,11 +52,9 @@ export const questionsSchema = z.object({
   availableStartDate: z.string().min(1, 'Available start date is required'),
 });
 
-/** Document metadata only — File objects are not persisted to localStorage */
+/** Optional resume metadata only — File objects are not persisted to localStorage */
 export const documentsSchema = z.object({
-  resumeName: z.string().min(1, 'Please upload your resume'),
-  diplomaName: z.string().min(1, 'Please upload your high school diploma or GED'),
-  governmentIdName: z.string().min(1, 'Please upload a government-issued ID'),
+  resumeName: z.string().optional(),
 });
 
 export const applicationSchema = personalSchema
@@ -89,8 +87,6 @@ export const defaultApplicationValues: ApplicationFormValues = {
   transportationAvailable: '' as ApplicationFormValues['transportationAvailable'],
   availableStartDate: '',
   resumeName: '',
-  diplomaName: '',
-  governmentIdName: '',
 };
 
 export const STORAGE_KEY = 'wh-cna-training-application-v1';
@@ -103,7 +99,7 @@ export const stepFieldNames: (keyof ApplicationFormValues)[][] = [
   ['educationLevel', 'schoolName', 'graduationYear'],
   ['currentEmployer', 'previousExperience'],
   ['whyCna', 'workedInHealthcare', 'transportationAvailable', 'availableStartDate'],
-  ['resumeName', 'diplomaName', 'governmentIdName'],
+  ['resumeName'],
   [
     'firstName',
     'lastName',
@@ -119,8 +115,6 @@ export const stepFieldNames: (keyof ApplicationFormValues)[][] = [
     'transportationAvailable',
     'availableStartDate',
     'resumeName',
-    'diplomaName',
-    'governmentIdName',
   ],
 ];
 
