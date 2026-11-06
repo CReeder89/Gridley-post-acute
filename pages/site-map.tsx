@@ -64,6 +64,9 @@ const SiteMap: React.FC = () => {
               <Link href="/cna-training/apply" style={linkStyle}>Apply Now</Link>
             </li>
             <li style={listItemStyle}>
+              <Link href="/cna-training/updates" style={linkStyle}>Class Updates</Link>
+            </li>
+            <li style={listItemStyle}>
               <Link href="/cna-training/contact" style={linkStyle}>Contact</Link>
             </li>
           </ul>

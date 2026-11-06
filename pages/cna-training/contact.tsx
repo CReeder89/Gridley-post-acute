@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import type { GetServerSideProps } from 'next';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
@@ -6,6 +7,7 @@ import { useReCaptcha } from 'next-recaptcha-v3';
 import MetaHead from '../../components/MetaHead';
 import ContactCard from '../../components/cna-training/ContactCard';
 import { academyContact, academySeo, contactPageContent } from '../../content/cnaTraining';
+import { getCnaSiteSettings, type CnaSiteSettings } from '../../lib/cnaContent';
 
 const fieldSx = {
   '& .MuiOutlinedInput-root': { backgroundColor: '#fff' },
@@ -15,7 +17,7 @@ const fieldSx = {
   '& .MuiInputLabel-root.Mui-focused': { color: '#2c3e50' },
 };
 
-const CnaAcademyContact: React.FC = () => {
+const CnaAcademyContact: React.FC<{ publicSettings: CnaSiteSettings }> = ({ publicSettings }) => {
   const seo = academySeo.contact;
   const { executeRecaptcha } = useReCaptcha();
   const [formData, setFormData] = useState({
@@ -90,7 +92,7 @@ const CnaAcademyContact: React.FC = () => {
       </header>
 
       <div className="academy-section academy-contact-layout">
-        <ContactCard />
+        <ContactCard socialLinks={publicSettings.socialLinks} />
 
         <div className="academy-contact-right">
           <section className="academy-contact-form-panel" aria-labelledby="contact-form-heading">
@@ -203,5 +205,9 @@ const CnaAcademyContact: React.FC = () => {
     </div>
   );
 };
+
+export const getServerSideProps: GetServerSideProps = async () => ({
+  props: { publicSettings: await getCnaSiteSettings() },
+});
 
 export default CnaAcademyContact;

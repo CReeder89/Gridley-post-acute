@@ -1,4 +1,5 @@
 import React from 'react';
+import type { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
@@ -10,6 +11,7 @@ import CTASection from '../../components/cna-training/CTASection';
 import WhyChooseGrid from '../../components/cna-training/WhyChooseGrid';
 import AcademySocialLinks from '../../components/cna-training/AcademySocialLinks';
 import { academyBrand, academyContact, academySeo, landingContent } from '../../content/cnaTraining';
+import { getCnaSiteSettings, type CnaSiteSettings } from '../../lib/cnaContent';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -45,7 +47,7 @@ const structuredData = {
   },
 };
 
-const CnaAcademyLanding: React.FC = () => {
+const CnaAcademyLanding: React.FC<{ publicSettings: CnaSiteSettings }> = ({ publicSettings }) => {
   const { hero, aboutPreview, featureCards, whyChooseUs, communities, ctaBanner } = landingContent;
   const seo = academySeo.landing;
 
@@ -68,7 +70,7 @@ const CnaAcademyLanding: React.FC = () => {
         headline={hero.headline}
         subheading={hero.subheading}
         backgroundImage={hero.backgroundImage}
-        note={hero.note}
+        note={publicSettings.noticeEnabled ? publicSettings.noticeText : undefined}
         primaryCta={hero.primaryCta}
         secondaryCta={hero.secondaryCta}
       />
@@ -119,7 +121,7 @@ const CnaAcademyLanding: React.FC = () => {
       />
 
       <section className="academy-section academy-section--narrow">
-        <AcademySocialLinks />
+        <AcademySocialLinks links={publicSettings.socialLinks} />
       </section>
 
       <CTASection
@@ -127,9 +129,14 @@ const CnaAcademyLanding: React.FC = () => {
         backgroundImage={ctaBanner.backgroundImage}
         primaryCta={ctaBanner.primaryCta}
         secondaryCta={ctaBanner.secondaryCta}
+        socialLinks={publicSettings.socialLinks}
       />
     </div>
   );
 };
+
+export const getServerSideProps: GetServerSideProps = async () => ({
+  props: { publicSettings: await getCnaSiteSettings() },
+});
 
 export default CnaAcademyLanding;

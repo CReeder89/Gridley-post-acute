@@ -3,6 +3,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
 import { academySocial } from '../../content/cnaTraining';
+import type { CnaSocialLink } from '../../lib/cnaContent';
 
 type SocialId = (typeof academySocial.links)[number]['id'];
 
@@ -12,6 +13,7 @@ interface AcademySocialLinksProps {
   /** Use on dark backgrounds (CTA banners) */
   onDark?: boolean;
   className?: string;
+  links?: CnaSocialLink[];
 }
 
 const TikTokIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -39,8 +41,12 @@ const AcademySocialLinks: React.FC<AcademySocialLinksProps> = ({
   compact = false,
   onDark = false,
   className = '',
+  links: savedLinks,
 }) => {
-  const { heading, intro, links } = academySocial;
+  const { heading, intro } = academySocial;
+  const links = (savedLinks || academySocial.links).filter((link) => Boolean(link.href));
+
+  if (!links.length) return null;
 
   return (
     <section

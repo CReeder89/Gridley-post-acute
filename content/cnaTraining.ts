@@ -69,6 +69,7 @@ export const academyNav = [
   { label: 'Overview', href: '/cna-training' },
   { label: 'Learn More', href: '/cna-training/about' },
   { label: 'Apply Now', href: '/cna-training/apply' },
+  { label: 'Class Updates', href: '/cna-training/updates' },
   { label: 'Contact', href: '/cna-training/contact' },
 ] as const;
 

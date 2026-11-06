@@ -1,9 +1,11 @@
 import React from 'react';
+import type { GetServerSideProps } from 'next';
 import MetaHead from '../../components/MetaHead';
 import ApplicationStepper from '../../components/cna-training/ApplicationStepper';
-import { academyProgram, academySeo, applyContent } from '../../content/cnaTraining';
+import { academySeo, applyContent } from '../../content/cnaTraining';
+import { getCnaSiteSettings, type CnaSiteSettings } from '../../lib/cnaContent';
 
-const CnaAcademyApply: React.FC = () => {
+const CnaAcademyApply: React.FC<{ publicSettings: CnaSiteSettings }> = ({ publicSettings }) => {
   const seo = academySeo.apply;
 
   return (
@@ -20,14 +22,14 @@ const CnaAcademyApply: React.FC = () => {
         <p>{applyContent.hero.subheading}</p>
       </header>
 
-      <aside className="academy-application-notice" aria-labelledby="application-notice-heading">
+      {publicSettings.noticeEnabled && (
+        <aside className="academy-application-notice" aria-labelledby="application-notice-heading">
         <p id="application-notice-heading" className="academy-application-notice__title">
           Important class update
         </p>
-        <p>
-          {academyProgram.firstClassNote}
-        </p>
-      </aside>
+          <p>{publicSettings.noticeText}</p>
+        </aside>
+      )}
 
       <div className="academy-section academy-section--form">
         <ApplicationStepper />
@@ -35,5 +37,9 @@ const CnaAcademyApply: React.FC = () => {
     </div>
   );
 };
+
+export const getServerSideProps: GetServerSideProps = async () => ({
+  props: { publicSettings: await getCnaSiteSettings() },
+});
 
 export default CnaAcademyApply;

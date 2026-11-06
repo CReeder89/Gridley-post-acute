@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../ServiceButton';
 import AcademySocialLinks from './AcademySocialLinks';
+import type { CnaSocialLink } from '../../lib/cnaContent';
 
 interface CTASectionProps {
   headline: string;
@@ -9,6 +10,7 @@ interface CTASectionProps {
   primaryCta: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   showSocial?: boolean;
+  socialLinks?: CnaSocialLink[];
 }
 
 const CTASection: React.FC<CTASectionProps> = ({
@@ -17,6 +19,7 @@ const CTASection: React.FC<CTASectionProps> = ({
   primaryCta,
   secondaryCta,
   showSocial = true,
+  socialLinks,
 }) => {
   return (
     <section
@@ -42,7 +45,7 @@ const CTASection: React.FC<CTASectionProps> = ({
             </a>
           )}
         </div>
-        {showSocial && <AcademySocialLinks compact onDark />}
+        {showSocial && <AcademySocialLinks compact onDark links={socialLinks} />}
       </motion.div>
     </section>
   );

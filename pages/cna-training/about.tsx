@@ -1,4 +1,5 @@
 import React from 'react';
+import type { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import MetaHead from '../../components/MetaHead';
@@ -10,8 +11,9 @@ import CommunityGrid from '../../components/cna-training/CommunityGrid';
 import { LearningObjectiveList } from '../../components/cna-training/LearningObjective';
 import DirectorWelcome from '../../components/cna-training/DirectorWelcome';
 import { aboutContent, academySeo } from '../../content/cnaTraining';
+import { getCnaSiteSettings, type CnaSiteSettings } from '../../lib/cnaContent';
 
-const CnaAcademyAbout: React.FC = () => {
+const CnaAcademyAbout: React.FC<{ publicSettings: CnaSiteSettings }> = ({ publicSettings }) => {
   const seo = academySeo.about;
   const {
     about,
@@ -39,7 +41,7 @@ const CnaAcademyAbout: React.FC = () => {
         headline={aboutContent.hero.headline}
         subheading={aboutContent.hero.subheading}
         backgroundImage={aboutContent.hero.backgroundImage}
-        note={aboutContent.hero.note}
+        note={publicSettings.noticeEnabled ? publicSettings.noticeText : undefined}
         compact
       />
 
@@ -142,9 +144,14 @@ const CnaAcademyAbout: React.FC = () => {
         backgroundImage={finalCta.backgroundImage}
         primaryCta={finalCta.primaryCta}
         secondaryCta={finalCta.secondaryCta}
+        socialLinks={publicSettings.socialLinks}
       />
     </div>
   );
 };
+
+export const getServerSideProps: GetServerSideProps = async () => ({
+  props: { publicSettings: await getCnaSiteSettings() },
+});
 
 export default CnaAcademyAbout;

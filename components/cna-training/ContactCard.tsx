@@ -7,6 +7,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { academyContact } from '../../content/cnaTraining';
 import AcademySocialLinks from './AcademySocialLinks';
+import type { CnaSocialLink } from '../../lib/cnaContent';
 
 export type ContactCardData = {
   role?: string;
@@ -29,9 +30,11 @@ export type ContactCardData = {
 
 interface ContactCardProps {
   contact?: ContactCardData;
+  socialLinks?: CnaSocialLink[];
 }
 
 const ContactCard: React.FC<ContactCardProps> = ({
+  socialLinks,
   contact = {
     role: academyContact.directorTitle,
     name: academyContact.directorName,
@@ -111,7 +114,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
             <p className="academy-contact-card__social-label">
               {contact.socialLabel || 'Follow Us'}
             </p>
-            <AcademySocialLinks compact />
+            <AcademySocialLinks compact links={socialLinks} />
           </div>
         )}
       </div>
